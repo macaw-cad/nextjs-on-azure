@@ -12,7 +12,7 @@ export default function Server({meats, date}) {
 }
 
 // static site generation...
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await fetch('https://baconipsum.com/api/?type=meat-and-filler')
     const meats = await res.json()
     const now = new Date();
