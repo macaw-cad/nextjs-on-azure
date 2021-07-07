@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json.schemastore.org/proxies",
+  "proxies": {
+    "staticFiles": {
+      "disabled": false,
+      "matchCondition": {
+        "methods": [ "GET", "OPTIONS" ],
+        "route": "/_next/{*path}"
+      },
+      "backendUri": "https://funcnextjsonazure.azurewebsites.net/api/serveStaticFile?path={path}"
+    },
+    "nextPaths": {
+      "disabled": false,
+      "matchCondition": {
+        "methods": [ "GET", "OPTIONS" ],
+        "route": "/nextjsserver/{*path}"
+      },
+      "backendUri": "https://funcnextjsonazure.azurewebsites.net/api/nextjsserver?path={path}"
+    }
+  }
+}

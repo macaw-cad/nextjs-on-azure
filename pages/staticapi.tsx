@@ -1,13 +1,20 @@
+import Head from 'next/head';
+
 export default function Static({meats, date}) {
     return (
-        <div>
-            api called: {date}
-            <ul>
-                {meats.map((meat, i) => 
-                    <li key={i}>{meat}</li>
-                )}
-            </ul>
-        </div>
+        <>
+            <Head>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <div>
+                api called: {date}
+                <ul>
+                    {meats.map((meat, i) => 
+                        <li key={i}>{meat}</li>
+                    )}
+                </ul>
+            </div>
+        </>
     )
 }
 
@@ -22,5 +29,6 @@ export async function getStaticProps() {
             meats,
             date: `${now.toLocaleDateString()} - ${now.toLocaleTimeString()}`
         },
+        revalidate: 10
     }
 }
