@@ -6,7 +6,9 @@ let app;
 let handle;
 
 module.exports = async function (context, req) {
-    const path = req?.query?.path;
+    // const path = req?.query?.path;
+    const path = req?.params?.remainingPath ? `/${req?.params?.remainingPath}` : "/index"
+
 
     if (!app) {
         app = next({ 
@@ -30,9 +32,9 @@ module.exports = async function (context, req) {
         hostname: null,
         hash: null,
         search: null,
-        pathname: path ? path : '/staticapi',
-        path: path ? path :'/staticapi',
-        href: path ? path : '/staticapi'
+        pathname: path,
+        path: path,
+        href: path
     }
     try {
         await handle(req, context.res, reqUrl);

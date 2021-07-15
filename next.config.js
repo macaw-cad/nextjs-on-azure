@@ -1,4 +1,4 @@
 module.exports = {
     /* config options here */
-    basePaths: '/api/nextjsserver',
+    basePaths: '/nextjsserver',
 }

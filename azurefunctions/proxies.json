@@ -5,17 +5,17 @@
       "disabled": false,
       "matchCondition": {
         "methods": [ "GET", "OPTIONS" ],
-        "route": "/_next/{*path}"
+        "route": "_next/{*path}"
       },
-      "backendUri": "https://funcnextjsonazure.azurewebsites.net/api/serveStaticFile?path={path}"
+      "backendUri": "https://localhost/serveStaticFile?path={path}"
     },
-    "nextPaths": {
+    "rootpaths": {
       "disabled": false,
       "matchCondition": {
         "methods": [ "GET", "OPTIONS" ],
-        "route": "/nextjsserver/{*path}"
+        "route": "{*remainingPath}"
       },
-      "backendUri": "https://funcnextjsonazure.azurewebsites.net/api/nextjsserver?path={path}"
+      "backendUri": "https://localhost/nextjsserver/{remainingPath}"
     }
   }
 }
