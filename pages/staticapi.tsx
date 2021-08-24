@@ -7,7 +7,8 @@ export default function Static({meats, date}) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div>
-                api called: {date}
+                api called: {date}<br />
+                cdn test 24-8 11:08 build
                 <ul>
                     {meats.map((meat, i) => 
                         <li key={i}>{meat}</li>

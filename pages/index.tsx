@@ -14,10 +14,10 @@ export default function Home() {
       <main className={styles.main}>
         <ul>
           <li>
-            <Link href="/staticapi">Static render page</Link>
+            <Link href="/staticapi" prefetch={false}>Static render page</Link>
           </li>
           <li>
-            <Link href="/serverapi">Server side rendered page</Link>
+            <Link href="/serverapi" prefetch={false}>Server side rendered page</Link>
           </li>
         </ul>
       </main>

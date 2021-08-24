@@ -1,4 +1,3 @@
-// server.js
 const next = require('next')
 
 const dev = false
@@ -6,15 +5,20 @@ let app;
 let handle;
 
 module.exports = async function (context, req) {
-    // const path = req?.query?.path;
     const path = req?.params?.remainingPath ? `/${req?.params?.remainingPath}` : "/index"
-
 
     if (!app) {
         app = next({ 
             dev,
             conf: {
-               compress: false
+                /* 
+                    This flag is required to prevent the "implicit header is not a function" error
+                    see: https://www.gitmemory.com/issue/zeit/next.js/8407/522278225
+
+                    Because gzipping can and should be enabled on the CDN this is not a problem:
+                    https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance
+                */
+                compress: false
             }
         });
 
@@ -22,16 +26,7 @@ module.exports = async function (context, req) {
         handle = app.getRequestHandler();
     }
 
-    // const reqUrl = "/staticapi"; 
-    const reqUrl =  {
-        protocol: null,
-        slashes: null,
-        auth: null,
-        host: null,
-        port: null,
-        hostname: null,
-        hash: null,
-        search: null,
+    const reqUrl = {
         pathname: path,
         path: path,
         href: path
