@@ -2,16 +2,6 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "func",
-			"command": "host start",
-			"problemMatcher": "$func-node-watch",
-			"isBackground": true,
-			"dependsOn": "npm install",
-			"options": {
-				"cwd": "${workspaceFolder}/azurefunctions"
-			}
-		},
-		{
 			"type": "shell",
 			"label": "npm install",
 			"command": "npm install",
@@ -26,6 +16,33 @@
 			"problemMatcher": [],
 			"options": {
 				"cwd": "${workspaceFolder}/azurefunctions"
+			}
+		},
+		{
+			"type": "func",
+			"command": "host start",
+			"problemMatcher": "$func-node-watch",
+			"isBackground": true,
+			"dependsOn": "npm install (functions)",
+			"options": {
+				"cwd": "${workspaceFolder}/jss-nextjs-app\\azurefunctions"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "npm install (functions)",
+			"command": "npm install",
+			"options": {
+				"cwd": "${workspaceFolder}/jss-nextjs-app\\azurefunctions"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "npm prune (functions)",
+			"command": "npm prune --production",
+			"problemMatcher": [],
+			"options": {
+				"cwd": "${workspaceFolder}/jss-nextjs-app\\azurefunctions"
 			}
 		}
 	]

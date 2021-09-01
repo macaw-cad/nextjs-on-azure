@@ -1,11 +1,11 @@
 const next = require('next')
-
-const dev = false
+const dev = false;
+// const { parse } = require('url');
+const { URL } = require('url');
 let app;
 let handle;
 
 module.exports = async function (context, req) {
-    const path = req?.params?.remainingPath ? `/${req?.params?.remainingPath}` : "/index"
 
     if (!app) {
         app = next({ 
@@ -26,15 +26,32 @@ module.exports = async function (context, req) {
         handle = app.getRequestHandler();
     }
 
+    // console.log(JSON.stringify(req));
     // const path = "/styleguide";
+    // console.log("req.url", req.url);
 
-    const reqUrl = {
-        pathname: path,
-        path: path,
-        href: path
-    }
+    const path = (req?.params?.remainingPath && req?.params?.remainingPath !== "nextjsserver") ? `/${req?.params?.remainingPath}` : "/index"
+    const parsedUrl = new URL(`https://maaktnietuit.nl${path}`);
+
+    parsedUrl.query 
+
+    console.log({parsedUrl});
+    console.log("path", path);
+    // console.log(JSON.stringify(parsedUrl));
+
+    // const parsedUrl = {
+    //     pathname: path,
+    //     path: path,
+    //     href: path,
+    //     query: {}
+    // }
+
+
+    // This fixes the "__nextlocale of undefined" bug
+    parsedUrl.query = {};
+
     try {
-        await handle(req, context.res, reqUrl);
+        await handle(req, context.res, parsedUrl);
     } catch(e) {
         context.res = {
             status: 500,

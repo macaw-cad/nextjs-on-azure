@@ -1,0 +1,17 @@
+<h1>home</h1>
+<script>
+    async function getSitecoreData() {
+        
+        try {
+
+            const data = await fetch("https://jsssandbox.sc/sitecore/api/layout/render/jss?item=%2Fstyleguide&sc_apikey=C9A1C404-231B-4DCE-882F-77757885EEA1&sc_site=jss-nextjs-app&sc_lang=en&tracking=true").then(response => response.json());
+            console.log(data);
+        } catch (e) {
+            console.error(data);
+        }
+
+        
+    }
+
+    getSitecoreData();
+</script>
