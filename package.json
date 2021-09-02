@@ -1,0 +1,25 @@
+{
+  "name": "nextjsonazure",
+  "version": "1.0.0",
+  "description": "Examples on adding nextjs on azure",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macaw-cad/nextjs-on-azure.git"
+  },
+  "author": "Erwin Smit",
+  "dependencies": {
+   
+  },
+  "devDependencies": {
+ 
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macaw-cad/nextjs-on-azure/issues"
+  },
+  "homepage": "https://github.com/macaw-cad/nextjs-on-azure#readme"
+}
