@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json.schemastore.org/proxies",
+  "proxies": {
+    "staticFiles": {
+      "disabled": false,
+      "matchCondition": {
+        "methods": [ "GET", "OPTIONS" ],
+        "route": "_next/static/{*path}"
+      },
+      "backendUri": "https://localhost/serveStaticFile?path={path}"
+    },
+    "rootpaths": {
+      "disabled": false,
+      "matchCondition": {
+        "methods": [ "GET", "OPTIONS", "POST" ],
+        "route": "{*remainingPath}"
+      },
+      "backendUri": "https://localhost/nextjsserver/{remainingPath}"
+    }
+  }
+}
