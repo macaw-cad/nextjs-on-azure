@@ -23,15 +23,16 @@ jobs:
     - name: 'Resolve Project Dependencies Using Npm'
       shell: pwsh
       run: |
-        lerna bootstrap --hoist
+        lerna bootstrap
         npm run build:jssnextjs
+        npm run copy-jssnextjs-app
         popd
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1
       id: fa
       with:
+        scm-do-build-during-deployment: true
+        enable-oryx-build: true
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-        scm-do-build-during-deployment: true
-        enable-oryx-build: true
