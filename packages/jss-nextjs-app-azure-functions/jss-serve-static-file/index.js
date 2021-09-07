@@ -13,7 +13,8 @@ module.exports = async function (context, req) {
             body: data
         }
 
-    } catch {
+    } catch(e) {
+        console.error(e);
         return {
             body: `File not found ${JSON.stringify(req.query)}`
         }

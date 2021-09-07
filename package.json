@@ -4,7 +4,8 @@
   "description": "Examples on adding nextjs on azure",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:jssnextjs": "lerna run build --scope @nextjsonazure/jss-nextjs-app"
   },
   "repository": {
     "type": "git",
@@ -12,11 +13,9 @@
   },
   "author": "Erwin Smit",
   "dependencies": {
-   
+    "lerna": "^4.0.0"
   },
-  "devDependencies": {
- 
-  },
+  "devDependencies": {},
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/macaw-cad/nextjs-on-azure/issues"

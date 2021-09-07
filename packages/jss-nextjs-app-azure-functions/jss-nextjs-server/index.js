@@ -1,11 +1,13 @@
+console.log("SITECORE_API_HOST", process.env["SITECORE_API_HOST"]);
 const next = require('@nextjsonazure/jss-nextjs-app/node_modules/next');
+console.log("next", next.default);
+
 const dev = false;
 const { URL } = require('url');
 let app;
 let handle;
 
 module.exports = async function (context, req) {
-
     if (!app) {
         app = next({ 
             dev,
@@ -18,7 +20,7 @@ module.exports = async function (context, req) {
                     https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance
                 */
                 compress: false,
-                distDir: '../jss-nextjs-app/.next'
+                // distDir: '../jss-nextjs-app/.next',
             }
         });
 
@@ -31,10 +33,12 @@ module.exports = async function (context, req) {
 
     // This fixes the "__nextlocale of undefined" bug
     parsedUrl.query = {};
-
+    
     try {
         await handle(req, context.res, parsedUrl);
     } catch(e) {
+        console.error(e);
+
         context.res = {
             status: 500,
             body: path + JSON.stringify(e)
