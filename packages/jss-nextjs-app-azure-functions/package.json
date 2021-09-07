@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "func start",
-    "test": "echo \"No tests yet...\""
+    "start": "cross-env SITECORE_API_HOST=https://jsssandbox.sc SITECORE_API_KEY=C9A1C404-231B-4DCE-882F-77757885EEA1 JSS_EDITING_SECRET=jsseditgeheim PUBLIC_URL=http://localhost:3000/ func start --port 3000",
+    "test": "echo \"No tests yet...\"",
+    "build:nextjs": "ncc build --no-source-map-register --minify jss-nextjs-server/index.js -o dist/jss-nextjs-server",
+    "build:staticfile": "ncc build jss-serve-static-file/index.js -o dist/jss-serve-static-file",
+    "build:copy-files": "ncp host.json dist/host.json && ncp proxies.json dist/proxies.json && ncp jss-nextjs-server/function.json dist/jss-nextjs-server/function.json && ncp jss-serve-static-file/function.json dist/jss-serve-static-file/function.json",
+    "build-webpack": "webpack --mode=production",
+    "debug": "cd dist && func start --port 3000"
   },
   "dependencies": {
-    "@nextjsonazure/jss-nextjs-app": "*"
+    "@nextjsonazure/jss-nextjs-app": "*",
+    "@vercel/ncc": "^0.30.0"
   },
   "devDependencies": {
+    "ncp": "^2.0.0",
+    "webpack": "^5.51.2",
+    "webpack-cli": "^4.8.0"
   }
 }

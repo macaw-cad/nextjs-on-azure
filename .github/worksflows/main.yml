@@ -1,0 +1,36 @@
+name: Deploy azure functions project to function app
+
+on:
+  [push]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: funcjssnextjsonazure    # set this to your application's name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: './packages/jss-nextjs-app-azure-functions'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '14.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x)
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
+
+    - name: Setup Node ${{ env.NODE_VERSION }} Environment
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: 'Resolve Project Dependencies Using Npm'
+      shell: pwsh
+      run: |
+        lerna bootstrap
+        npm run build:jssnextjs
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        popd
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
