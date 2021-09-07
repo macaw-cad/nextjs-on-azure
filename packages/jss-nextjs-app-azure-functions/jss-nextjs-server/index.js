@@ -1,7 +1,15 @@
-const next = require('@nextjsonazure/jss-nextjs-app/node_modules/next');
+const fs = require("fs"); // Or `import fs from "fs";` with ESM
+const { URL } = require('url');
+let next;
+
+// Locally we get this dependency with lerna, on the server we use a different path
+if (fs.existsSync('../jss-nextjs-app-copy')) {
+    next = require("../jss-nextjs-app-copy/node_modules/next");
+} else {
+    next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
+}
 
 const dev = false;
-const { URL } = require('url');
 let app;
 let handle;
 
