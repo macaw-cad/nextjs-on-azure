@@ -14,7 +14,7 @@
   },
   "author": "Erwin Smit",
   "dependencies": {
-    "lerna": "^4.0.0",
+    "lerna": "^4.0.0"
   },
   "devDependencies": {
     "ncp": "^2.0.0"
