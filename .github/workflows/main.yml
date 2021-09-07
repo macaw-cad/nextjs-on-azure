@@ -24,7 +24,7 @@ jobs:
       shell: pwsh
       run: |
         lerna bootstrap --hoist
-        npm run run build:jssnextjs
+        npm run build:jssnextjs
         popd
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1
