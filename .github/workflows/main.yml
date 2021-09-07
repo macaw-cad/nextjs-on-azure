@@ -23,9 +23,9 @@ jobs:
     - name: 'Resolve Project Dependencies Using Npm'
       shell: pwsh
       run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         lerna bootstrap --hoist
         npm run build:jssnextjs
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         popd
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1

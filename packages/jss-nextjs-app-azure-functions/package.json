@@ -16,8 +16,6 @@
     "@vercel/ncc": "^0.30.0"
   },
   "devDependencies": {
-    "ncp": "^2.0.0",
-    "webpack": "^5.51.2",
-    "webpack-cli": "^4.8.0"
+    "ncp": "^2.0.0"
   }
 }
