@@ -1,10 +1,13 @@
-const next = require('next');
+const next = require('@nextjsonazure/jss-nextjs-app/node_modules/next');
+
 const dev = false;
 const { URL } = require('url');
 let app;
 let handle;
 
 module.exports = async function (context, req) {
+    const path = (req?.params?.remainingPath && req?.params?.remainingPath !== "nextjsserver") ? `/${req?.params?.remainingPath}` : "/index"
+    
     if (!app) {
         try {
             app = next({ 
@@ -18,7 +21,8 @@ module.exports = async function (context, req) {
                         https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance
                     */
                     compress: false,
-                    // distDir: '../../../data/erwin/.next',
+                    // for local use, TODO: put in env:
+                    // distDir: '../jss-nextjs-app/.next',
                 }
             });
 
@@ -33,7 +37,6 @@ module.exports = async function (context, req) {
         }
     }
 
-    const path = (req?.params?.remainingPath && req?.params?.remainingPath !== "nextjsserver") ? `/${req?.params?.remainingPath}` : "/index"
     const parsedUrl = new URL(`https://randombaseurl.nl${path}`);
 
     // This fixes the "__nextlocale of undefined" bug
