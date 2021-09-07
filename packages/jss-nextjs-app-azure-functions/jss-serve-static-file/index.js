@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 const path = require("path");
 
-const nextPath = path.dirname(require.resolve("../.next/BUILD_ID"));
+const nextPath = path.dirname(require.resolve("@nextjsonazure/jss-nextjs-app/.next/BUILD_ID"));
 
 module.exports = async function (context, req) {
     const staticFilePath = req?.query?.path;
