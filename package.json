@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:jssnextjs": "lerna run build --scope @nextjsonazure/jss-nextjs-app",
-    "copy-jssnextjs-app": "ncp packages/jss-nextjs-app packages/jss-nextjs-app-azure-functions/jss-nextjs-app-copy"
+    "copy-jssnextjs-app": "npx ncp packages/jss-nextjs-app packages/jss-nextjs-app-azure-functions/jss-nextjs-app-copy"
   },
   "repository": {
     "type": "git",
@@ -15,9 +15,10 @@
   "author": "Erwin Smit",
   "dependencies": {
     "lerna": "^4.0.0",
+  },
+  "devDependencies": {
     "ncp": "^2.0.0"
   },
-  "devDependencies": {},
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/macaw-cad/nextjs-on-azure/issues"
