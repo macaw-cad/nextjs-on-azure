@@ -13,8 +13,7 @@ if (fs.existsSync("jss-nextjs-app-copy")) {
 
 module.exports = async function (context, req) {
     const staticFilePath = req?.query?.path;
-    console.log("nextPath", nextPath);
-
+  
     try {
         const data = await fsPromises.readFile(path.join(nextPath, "static", staticFilePath));
 
