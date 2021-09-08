@@ -10,6 +10,12 @@ env:
 
 jobs:
   build-and-deploy:
+    env:
+      SITECORE_API_HOST: ${{ secrets.SITECORE_API_HOST }}
+      SITECORE_API_KEY: ${{ secrets.SITECORE_API_KEY }}
+      PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
+      JSS_EDITING_SECRET: ${{ secrets.JSS_EDITING_SECRET }}
+      NODE_TLS_REJECT_UNAUTHORIZED: 0 #remove when localtunnel is back online
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
