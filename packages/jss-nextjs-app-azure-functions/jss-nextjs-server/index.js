@@ -2,7 +2,9 @@ const fs = require("fs"); // Or `import fs from "fs";` with ESM
 const { URL } = require("url");
 let next;
 
-if (fs.existsSync("jss-nextjs-app-copy")) {
+// on build env the jss-nextjs-app is copied into the azure function app
+const isBuildEnvironment = fs.existsSync("jss-nextjs-app-copy");
+if (isBuildEnvironment) {
     next = require("../jss-nextjs-app-copy/node_modules/next");
 } else {
     next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
@@ -28,8 +30,7 @@ module.exports = async function (context, req) {
                         https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance
                     */
                     compress: false,
-                    // for local use, TODO: put in env:
-                    distDir: fs.existsSync("jss-nextjs-app-copy") ? "./jss-nextjs-app-copy/.next" : "../jss-nextjs-app/.next",
+                    distDir: isBuildEnvironment ? "./jss-nextjs-app-copy/.next" : "../jss-nextjs-app/.next",
                 }
             });
 
