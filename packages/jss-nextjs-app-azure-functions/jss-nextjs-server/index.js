@@ -2,11 +2,11 @@ const fs = require("fs"); // Or `import fs from "fs";` with ESM
 const { URL } = require("url");
 let next;
 
-// if (fs.existsSync("jss-nextjs-app-copy")) {
+if (fs.existsSync("jss-nextjs-app-copy")) {
     next = require("../jss-nextjs-app-copy/node_modules/next");
-// } else {
-//     next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
-// }
+} else {
+    next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
+}
 
 const dev = false;
 let app;
