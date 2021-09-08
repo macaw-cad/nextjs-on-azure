@@ -68,22 +68,18 @@ module.exports = async function (context, req) {
     let next;
 
     try {
-        next = require("jss-nextjs-app-copy/node_modules/next");
-        context.res = {
-            status: 200,
-            body: "ben er nu klaar mee 0"
-        };
+        if (!next) {
+            next = require("jss-nextjs-app-copy/node_modules/next");
+        }
         console.log({next});
     } catch(e) {
         console.error(e);
     }
     
     try {
-        next = require("./jss-nextjs-app-copy/node_modules/next");
-        context.res = {
-            status: 200,
-            body: "ben er nu klaar mee 1"
-        };
+        if (!next) {
+            next = require("./jss-nextjs-app-copy/node_modules/next");
+        }
         console.log({
             next
         })
@@ -92,25 +88,9 @@ module.exports = async function (context, req) {
     }
     
     try {
-        next = require("../jss-nextjs-app-copy/node_modules/next");
-        context.res = {
-            status: 200,
-            body: "ben er nu klaar mee 2"
-        };
-        console.log({
-            next
-        })
-    } catch(e) {
-        console.error(e);
-    }
-    
-    
-    try {
-        next = require("../../jss-nextjs-app-copy/node_modules/next");
-        context.res = {
-            status: 200,
-            body: "ben er nu klaar mee 3"
-        };
+        if (!next) {
+            next = require("../jss-nextjs-app-copy/node_modules/next");
+        }
         console.log({
             next
         })
@@ -120,11 +100,21 @@ module.exports = async function (context, req) {
     
     
     try {
-        next = require("../../../jss-nextjs-app-copy/node_modules/next");
-        context.res = {
-            status: 200,
-            body: "ben er nu klaar mee 4"
-        };
+        if (!next) {
+            next = require("../../jss-nextjs-app-copy/node_modules/next");
+        }
+        console.log({
+            next
+        })
+    } catch(e) {
+        console.error(e);
+    }
+    
+    
+    try {
+        if (!next) {
+            next = require("../../../jss-nextjs-app-copy/node_modules/next");
+        }
         console.log({
             next
         })
