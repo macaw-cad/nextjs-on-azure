@@ -2,56 +2,6 @@ const fs = require("fs"); // Or `import fs from "fs";` with ESM
 const { URL } = require("url");
 let next;
 
-try {
-    const next0 = require("jss-nextjs-app-copy/node_modules/next");
-    console.log({next0});
-} catch(e) {
-    console.error(e);
-}
-
-try {
-    const next1 = require("./jss-nextjs-app-copy/node_modules/next");
-    console.log({
-        next1
-    })
-} catch(e) {
-    console.error(e);
-}
-
-try {
-    const next2 = require("../jss-nextjs-app-copy/node_modules/next");
-    console.log({
-        next2
-    })
-} catch(e) {
-    console.error(e);
-}
-
-
-try {
-    const next3 = require("../../jss-nextjs-app-copy/node_modules/next");
-    console.log({
-        next3
-    })
-} catch(e) {
-    console.error(e);
-}
-
-
-try {
-
-    const next4 = require("../../../jss-nextjs-app-copy/node_modules/next");
-    console.log({
-        next4
-    })
-} catch(e) {
-    console.error(e);
-}
-
-// Locally we get this dependency with lerna, on the server we use a different path
-console.log('fs.existsSync("./jss-nextjs-app-copy")', fs.existsSync("./jss-nextjs-app-copy"), fs.existsSync("jss-nextjs-app-copy"));
-console.log(fs.existsSync("./jss-nextjs-app-copy/node_modules/next"), fs.existsSync("jss-nextjs-app-copy/node_modules/next"));
-
 // if (fs.existsSync("jss-nextjs-app-copy")) {
 //     next = require("./jss-nextjs-app-copy/node_modules/next");
 // } else {
@@ -113,3 +63,61 @@ console.log(fs.existsSync("./jss-nextjs-app-copy/node_modules/next"), fs.existsS
 //         };
 //     }
 // }
+
+module.exports = async function (context, req) {
+
+    try {
+        const next0 = require("jss-nextjs-app-copy/node_modules/next");
+        console.log({next0});
+    } catch(e) {
+        console.error(e);
+    }
+    
+    try {
+        const next1 = require("./jss-nextjs-app-copy/node_modules/next");
+        console.log({
+            next1
+        })
+    } catch(e) {
+        console.error(e);
+    }
+    
+    try {
+        const next2 = require("../jss-nextjs-app-copy/node_modules/next");
+        console.log({
+            next2
+        })
+    } catch(e) {
+        console.error(e);
+    }
+    
+    
+    try {
+        const next3 = require("../../jss-nextjs-app-copy/node_modules/next");
+        console.log({
+            next3
+        })
+    } catch(e) {
+        console.error(e);
+    }
+    
+    
+    try {
+    
+        const next4 = require("../../../jss-nextjs-app-copy/node_modules/next");
+        console.log({
+            next4
+        })
+    } catch(e) {
+        console.error(e);
+    }
+    
+    // Locally we get this dependency with lerna, on the server we use a different path
+    console.log('fs.existsSync("./jss-nextjs-app-copy")', fs.existsSync("./jss-nextjs-app-copy"), fs.existsSync("jss-nextjs-app-copy"));
+    console.log(fs.existsSync("./jss-nextjs-app-copy/node_modules/next"), fs.existsSync("jss-nextjs-app-copy/node_modules/next"));
+    
+    context.res = {
+        status: 200,
+        body: "ben er nu klaar mee"
+    };
+}
