@@ -14,6 +14,7 @@ let app;
 let handle;
 
 module.exports = async function (context, req) {
+    console.log("next", next);
     const path = (req?.params?.remainingPath && req?.params?.remainingPath !== "nextjsserver") ? `/${req?.params?.remainingPath}` : "/index"
     
     if (!app) {
@@ -29,8 +30,7 @@ module.exports = async function (context, req) {
                         https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance
                     */
                     compress: false,
-                    // for local use, TODO: put in env:
-                    // distDir: "../jss-nextjs-app/.next",
+                    distDir: fs.existsSync("jss-nextjs-app-copy") ? "./jss-nextjs-app-copy/.next" : "../jss-nextjs-app/.next",
                 }
             });
 

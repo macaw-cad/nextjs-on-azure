@@ -5,13 +5,15 @@ let nextPath;
 
 // Locally we get this dependency with lerna, on the server we use a different path
 if (fs.existsSync("jss-nextjs-app-copy")) {
-    nextPath = require("./jss-nextjs-app-copy/.next/BUILD_ID");
+    nextPath = path.dirname(require.resolve("./jss-nextjs-app-copy/.next/BUILD_ID"));
 } else {
     nextPath = path.dirname(require.resolve("@nextjsonazure/jss-nextjs-app/.next/BUILD_ID"));
 }
 
+
 module.exports = async function (context, req) {
     const staticFilePath = req?.query?.path;
+    console.log("nextPath", nextPath);
 
     try {
         const data = await fsPromises.readFile(path.join(nextPath, "static", staticFilePath));
