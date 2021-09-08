@@ -65,39 +65,40 @@ let next;
 // }
 
 module.exports = async function (context, req) {
+    let next;
 
     try {
-        const next0 = require("jss-nextjs-app-copy/node_modules/next");
+        next = require("jss-nextjs-app-copy/node_modules/next");
         context.res = {
             status: 200,
             body: "ben er nu klaar mee 0"
         };
-        console.log({next0});
+        console.log({next});
     } catch(e) {
         console.error(e);
     }
     
     try {
-        const next1 = require("./jss-nextjs-app-copy/node_modules/next");
+        next = require("./jss-nextjs-app-copy/node_modules/next");
         context.res = {
             status: 200,
             body: "ben er nu klaar mee 1"
         };
         console.log({
-            next1
+            next
         })
     } catch(e) {
         console.error(e);
     }
     
     try {
-        const next2 = require("../jss-nextjs-app-copy/node_modules/next");
+        next = require("../jss-nextjs-app-copy/node_modules/next");
         context.res = {
             status: 200,
             body: "ben er nu klaar mee 2"
         };
         console.log({
-            next2
+            next
         })
     } catch(e) {
         console.error(e);
@@ -105,13 +106,13 @@ module.exports = async function (context, req) {
     
     
     try {
-        const next3 = require("../../jss-nextjs-app-copy/node_modules/next");
+        next = require("../../jss-nextjs-app-copy/node_modules/next");
         context.res = {
             status: 200,
             body: "ben er nu klaar mee 3"
         };
         console.log({
-            next3
+            next
         })
     } catch(e) {
         console.error(e);
@@ -119,14 +120,13 @@ module.exports = async function (context, req) {
     
     
     try {
-    
-        const next4 = require("../../../jss-nextjs-app-copy/node_modules/next");
+        next = require("../../../jss-nextjs-app-copy/node_modules/next");
         context.res = {
             status: 200,
             body: "ben er nu klaar mee 4"
         };
         console.log({
-            next4
+            next
         })
     } catch(e) {
         console.error(e);
@@ -138,6 +138,6 @@ module.exports = async function (context, req) {
     
     context.res = {
         status: 200,
-        body: "ben er nu klaar mee"
+        body: "ben er nu klaar mee" + JSON.stringify(next || { message: "next not found"} )
     };
 }
