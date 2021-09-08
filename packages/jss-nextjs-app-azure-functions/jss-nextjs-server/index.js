@@ -68,6 +68,10 @@ module.exports = async function (context, req) {
 
     try {
         const next0 = require("jss-nextjs-app-copy/node_modules/next");
+        context.res = {
+            status: 200,
+            body: "ben er nu klaar mee 0"
+        };
         console.log({next0});
     } catch(e) {
         console.error(e);
@@ -75,6 +79,10 @@ module.exports = async function (context, req) {
     
     try {
         const next1 = require("./jss-nextjs-app-copy/node_modules/next");
+        context.res = {
+            status: 200,
+            body: "ben er nu klaar mee 1"
+        };
         console.log({
             next1
         })
@@ -84,6 +92,10 @@ module.exports = async function (context, req) {
     
     try {
         const next2 = require("../jss-nextjs-app-copy/node_modules/next");
+        context.res = {
+            status: 200,
+            body: "ben er nu klaar mee 2"
+        };
         console.log({
             next2
         })
@@ -94,6 +106,10 @@ module.exports = async function (context, req) {
     
     try {
         const next3 = require("../../jss-nextjs-app-copy/node_modules/next");
+        context.res = {
+            status: 200,
+            body: "ben er nu klaar mee 3"
+        };
         console.log({
             next3
         })
@@ -105,6 +121,10 @@ module.exports = async function (context, req) {
     try {
     
         const next4 = require("../../../jss-nextjs-app-copy/node_modules/next");
+        context.res = {
+            status: 200,
+            body: "ben er nu klaar mee 4"
+        };
         console.log({
             next4
         })
