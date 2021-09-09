@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:jssnextjs": "lerna run build --scope @nextjsonazure/jss-nextjs-app",
-    "copy-jssnextjs-app": "npx ncp packages/jss-nextjs-app packages/jss-nextjs-app-azure-functions/jss-nextjs-app-copy"
+    "copy-jssnextjs-app": "npx ncp packages/jss-nextjs-app packages/jss-nextjs-app-azure-functions/jss-nextjs-app-copy",
+    "deploy-jss-azure-functions": "npx rimraf packages/jss-nextjs-app/node_modules && npx rimraf packages/jss-nextjs-app/.next && npx ncp packages/jss-nextjs-app packages/jss-nextjs-app-azure-functions/jss-nextjs-app && cd packages/jss-nextjs-app-azure-functions/jss-nextjs-app && npm install && npm run build && cd .. && func azure functionapp publish funcjssnextjsonazure  --build remote --javascript --nozip --verbose && npx rimraf jss-nextjs-app"
   },
   "repository": {
     "type": "git",
