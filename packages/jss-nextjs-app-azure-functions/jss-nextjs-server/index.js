@@ -3,12 +3,12 @@ const { URL } = require("url");
 let next;
 
 // on build env the jss-nextjs-app is copied into the azure function app
-const isBuildEnvironment = fs.existsSync("jss-nextjs-app-copy");
-if (isBuildEnvironment) {
-    next = require("../jss-nextjs-app-copy/node_modules/next");
-} else {
-    next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
-}
+// const isBuildEnvironment = fs.existsSync("jss-nextjs-app-copy");
+// if (isBuildEnvironment) {
+    next = require("../jss-nextjs-app/node_modules/next");
+// } else {
+//     next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
+// }
 
 const dev = false;
 let app;
@@ -30,7 +30,7 @@ module.exports = async function (context, req) {
                         https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance
                     */
                     compress: false,
-                    distDir: isBuildEnvironment ? "./jss-nextjs-app-copy/.next" : "../jss-nextjs-app/.next",
+                    distDir: "./jss-nextjs-app/.next",
                 }
             });
 
