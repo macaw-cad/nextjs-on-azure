@@ -38,12 +38,12 @@ jobs:
     - name: Install azcopy
       uses: kheiakiyama/install-azcopy-action@v1.0.3
 
-    - name: Copy jss-nextjs-app
-      - uses: actions/checkout@v2
-      - uses: kheiakiyama/install-azcopy-action@v1
+    # Copy jss-nextjs-app
+    - uses: actions/checkout@v2
+    - uses: kheiakiyama/install-azcopy-action@v1
       with:
         version: 'v10'
-      - run: azcopy_v10 --source {JSSAPPSOURCE} --destination {JSSAPPDEST}?{SECRETSASTOKEN} --recursive 
+    - run: azcopy_v10 --source {JSSAPPSOURCE} --destination {JSSAPPDEST}?{SECRETSASTOKEN} --recursive 
     
     # - name: 'Run Azure Functions Action'
     #   uses: Azure/functions-action@v1
