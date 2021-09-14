@@ -5,3 +5,9 @@
 local.settings.json
 test
 tsconfig.json
+src
+sitecore
+public
+node_modules/azure-functions-core-tools
+data
+scripts
