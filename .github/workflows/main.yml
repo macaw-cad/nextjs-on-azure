@@ -32,7 +32,6 @@ jobs:
       run: |
         lerna bootstrap
         npm run build:jssnextjs
-        npm run copy-jssnextjs-app
         popd
 
     - name: Install azcopy
@@ -43,7 +42,7 @@ jobs:
     - uses: kheiakiyama/install-azcopy-action@v1
       with:
         version: 'v10'
-    - run: azcopy_v10 --source {JSSAPPSOURCE} --destination {JSSAPPDEST} --recursive --set-content-type
+    - run: azcopy_v10 '{JSSAPPSOURCE}' '{JSSAPPDEST}' --recursive --set-content-type
     
     # - name: 'Run Azure Functions Action'
     #   uses: Azure/functions-action@v1
