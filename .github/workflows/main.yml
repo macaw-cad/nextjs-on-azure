@@ -8,7 +8,7 @@ env:
   AZURE_FUNCTIONAPP_PACKAGE_PATH: './packages/jss-nextjs-app-azure-functions'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x)
   JSSAPPSOURCE: './packages/jss-nextjs-app'
-  JSSAPPDEST: 'https://storageaccountnextj9121.file.core.windows.net/funcjssnextjsonazurea512/site/nextsrcazcopy?{SECRETSASTOKEN}'
+  JSSAPPDEST: 'https://storageaccountnextj9121.file.core.windows.net/funcjssnextjsonazurea512/site/nextsrcazcopy'
 
 jobs:
   build-and-deploy:
@@ -42,7 +42,7 @@ jobs:
     - uses: kheiakiyama/install-azcopy-action@v1
       with:
         version: 'v10'
-    - run: azcopy_v10 '{JSSAPPSOURCE}' '{JSSAPPDEST}' --recursive --set-content-type
+    - run: azcopy_v10 ${{ env.JSSAPPSOURCE }} ${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }} --recursive --set-content-type
     
     # - name: 'Run Azure Functions Action'
     #   uses: Azure/functions-action@v1
