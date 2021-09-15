@@ -27,9 +27,6 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
 
-    - name: install azure cli
-      uses: Azure/cli@1.0.4
-
     - name: deploy function app
       uses: azure/CLI@v1
       with:
