@@ -1,4 +1,4 @@
-name: Deploy nextjs build
+name: Deploy azure functions project to function app
 
 on:
   [push]
@@ -17,7 +17,7 @@ jobs:
       SITECORE_API_KEY: ${{ secrets.SITECORE_API_KEY }}
       PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
       JSS_EDITING_SECRET: ${{ secrets.JSS_EDITING_SECRET }}
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@main
@@ -27,29 +27,13 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
 
-    - name: Install azcopy
-      uses: kheiakiyama/install-azcopy-action@v1.0.3
+    - name: install azure cli
+      uses: Azure/cli@1.0.4
 
-    - name: 'Resolve Project Dependencies Using Npm'
-      shell: pwsh
-      run: |
-        lerna bootstrap
-        npm run build:jssnextjs
-        popd
-
-    - uses: kheiakiyama/install-azcopy-action@v1
+    - name: deploy function app
+      uses: azure/CLI@v1
       with:
-        version: 'v10'
-    - run: azcopy_v10 copy '${{ env.JSSAPPSOURCE }}' '${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
-    
-    # Copy jss-nextjs-app
-    # - uses: actions/checkout@v2
-    # - name: 'Run Azure Functions Action'
-    #   uses: Azure/functions-action@v1
-    #   id: fa
-    #   with:
-    #     scm-do-build-during-deployment: true
-    #     enable-oryx-build: true
-    #     app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-    #     package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-    #     publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }} 
+        azcliversion: 2.0.72
+        inlineScript: |
+          az functionapp deployment user set --user-name funcjssnextjsonazure\$funcjssnextjsonazure --password lvKHHtuwroQ6d6poDMHhc5RaWcvcMWu8LiodNkH5x4cXwmwTfwdhQlSS7HsQ
+          az functionapp deployment source config-zip -g nextjsonazure -n funcjssnextjsonazure --src dist.zip --subscription "MI - Test" --no-zip
