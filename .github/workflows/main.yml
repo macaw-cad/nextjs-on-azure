@@ -33,6 +33,12 @@ jobs:
     - name: 'Resolve Project Dependencies Using Npm'
       shell: pwsh
       run: |
+        npx azure-cli functionapp deployment user set --user-name funcjssnextjsonazure\$funcjssnextjsonazure --password lvKHHtuwroQ6d6poDMHhc5RaWcvcMWu8LiodNkH5x4cXwmwTfwdhQlSS7HsQ
+        npx azure-cli functionapp deployment source config-zip -g nextjsonazure -n funcjssnextjsonazure --src dist.zip --subscription "MI - Test" --no-zip
+        
+    - name: 'Resolve Project Dependencies Using Npm'
+      shell: pwsh
+      run: |
         lerna bootstrap
         npm run build:jssnextjs
         popd
