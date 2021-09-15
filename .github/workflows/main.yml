@@ -30,6 +30,9 @@ jobs:
     - name: Install azcopy
       uses: kheiakiyama/install-azcopy-action@v1.0.3
 
+    - name: Azure CLI Action
+      uses: Azure/cli@1.0.4
+
     - name: Azure CLI script
       uses: azure/CLI@v1
       with:
