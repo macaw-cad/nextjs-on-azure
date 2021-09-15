@@ -1,0 +1,39 @@
+name: Deploy azure functions project to function app
+
+on:
+  [push]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: funcjssnextjsonazure    # set this to your application's name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: './packages/jss-nextjs-app-azure-functions'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '14.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x)
+  JSSAPPSOURCE: './packages/jss-nextjs-app'
+  JSSAPPDEST: 'https://storageaccountnextj9121.file.core.windows.net/funcjssnextjsonazurea512/site/nextsrcazcopy'
+
+jobs:
+  build-and-deploy:
+    env:
+      SITECORE_API_HOST: https://erwinazurejss.loca.lt
+      SITECORE_API_KEY: ${{ secrets.SITECORE_API_KEY }}
+      PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
+      JSS_EDITING_SECRET: ${{ secrets.JSS_EDITING_SECRET }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
+
+    - name: Setup Node ${{ env.NODE_VERSION }} Environment
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: install azure cli
+      uses: Azure/cli@1.0.4
+
+    - name: deploy function app
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          az functionapp deployment user set --user-name funcjssnextjsonazure\$funcjssnextjsonazure --password lvKHHtuwroQ6d6poDMHhc5RaWcvcMWu8LiodNkH5x4cXwmwTfwdhQlSS7HsQ
+          az functionapp deployment source config-zip -g nextjsonazure -n funcjssnextjsonazure --src dist.zip --subscription "MI - Test" --no-zip
