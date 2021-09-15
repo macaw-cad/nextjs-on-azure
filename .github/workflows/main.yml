@@ -30,6 +30,14 @@ jobs:
     - name: Install azcopy
       uses: kheiakiyama/install-azcopy-action@v1.0.3
 
+    - name: Azure CLI script
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          az functionapp deployment user set --user-name funcjssnextjsonazure\$funcjssnextjsonazure --password lvKHHtuwroQ6d6poDMHhc5RaWcvcMWu8LiodNkH5x4cXwmwTfwdhQlSS7HsQ
+          az functionapp deployment source config-zip -g nextjsonazure -n funcjssnextjsonazure --src dist.zip --subscription "MI - Test" --no-zip
+
     - name: 'Resolve Project Dependencies Using Npm'
       shell: pwsh
       run: |
