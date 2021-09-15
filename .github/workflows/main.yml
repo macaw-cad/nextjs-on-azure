@@ -30,11 +30,11 @@ jobs:
     - name: Install azcopy
       uses: kheiakiyama/install-azcopy-action@v1.0.3
 
-    - name: 'Resolve Project Dependencies Using Npm'
-      shell: pwsh
-      run: |
-        npx azure-cli functionapp deployment user set --user-name funcjssnextjsonazure\$funcjssnextjsonazure --password lvKHHtuwroQ6d6poDMHhc5RaWcvcMWu8LiodNkH5x4cXwmwTfwdhQlSS7HsQ
-        npx azure-cli functionapp deployment source config-zip -g nextjsonazure -n funcjssnextjsonazure --src dist.zip --subscription "MI - Test" --no-zip
+    # - name: 'deploy functionapp'
+    #   shell: pwsh
+    #   run: |
+    #     npx azure-cli functionapp deployment user set --user-name funcjssnextjsonazure\$funcjssnextjsonazure --password lvKHHtuwroQ6d6poDMHhc5RaWcvcMWu8LiodNkH5x4cXwmwTfwdhQlSS7HsQ
+    #     npx azure-cli functionapp deployment source config-zip -g nextjsonazure -n funcjssnextjsonazure --src dist.zip --subscription "MI - Test" --no-zip
         
     - name: 'Resolve Project Dependencies Using Npm'
       shell: pwsh
@@ -47,6 +47,11 @@ jobs:
       with:
         version: 'v10'
     - run: azcopy_v10 copy '${{ env.JSSAPPSOURCE }}' '${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
+    
+    - uses: kheiakiyama/install-azcopy-action@v1
+      with:
+        version: 'v10'
+    - run: azcopy_v10 copy './packages/jss-nextjs-app-azure-functions/*' 'https://storageaccountnextj9121.file.core.windows.net/funcjssnextjsonazurea512/site/wwwroot?${{ secrets.SECRETSASTOKEN }}' --recursive
     
     # Copy jss-nextjs-app
     # - uses: actions/checkout@v2
