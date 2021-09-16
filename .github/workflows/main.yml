@@ -41,12 +41,12 @@ jobs:
     - uses: kheiakiyama/install-azcopy-action@v1
       with:
         version: 'v10'
-    - run: azcopy_v10 copy '${{ env.JSSAPPSOURCE }}' '${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive --from-to LocalBlobFS  --include-path '.next;node_modules'
+    - run: azcopy_v10 copy '${{ env.JSSAPPSOURCE }}' '${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive --from-to localblob  --include-path '.next;node_modules'
     
     - uses: kheiakiyama/install-azcopy-action@v1
       with:
         version: 'v10'
-    - run: azcopy_v10 copy './packages/jss-nextjs-app-azure-functions/*' '${{ env.AZUREFUNCDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive --from-to LocalBlobFS
+    - run: azcopy_v10 copy './packages/jss-nextjs-app-azure-functions/*' '${{ env.AZUREFUNCDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive --from-to localblob
     
     # Copy jss-nextjs-app
     # - uses: actions/checkout@v2
