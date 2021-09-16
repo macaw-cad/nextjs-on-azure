@@ -8,7 +8,7 @@ let next;
 const isBuildEnvironment = fs.existsSync("../nextsrc/jss-nextjs-app/node_modules/next");
 
 if (isBuildEnvironment) {
-    next = require("../../nextsrc/jss-nextjs-app/node_modules/next");
+    next = require("../../jss-nextjs-app/node_modules/next");
 } else {
     next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
 }
@@ -33,7 +33,7 @@ module.exports = async function (context, req) {
                         https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance
                     */
                     compress: false,
-                    distDir: isBuildEnvironment ? "../nextsrc/jss-nextjs-app/.next" : "../jss-nextjs-app/.next"
+                    distDir: "../jss-nextjs-app/.next"
                 }
             });
 
