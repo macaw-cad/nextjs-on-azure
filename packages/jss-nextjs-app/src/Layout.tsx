@@ -24,7 +24,8 @@ const Navigation = () => {
       <h5 className="my-0 mr-md-auto font-weight-normal">
         <Link href="/">
           <a className="text-dark">
-            <img src={`${publicUrl}/sc_logo.svg`} alt="Sitecore" />
+            <img src={`${publicUrl}/sc_logo.svg`} alt="azcopy deploy test" />
+            azcopy deploy test
           </a>
         </Link>
       </h5>
