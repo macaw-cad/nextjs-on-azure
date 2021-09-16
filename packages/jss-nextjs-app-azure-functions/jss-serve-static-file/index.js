@@ -4,10 +4,10 @@ const path = require("path");
 let nextPath;
 
 // Locally we get this dependency with lerna, on the server we use a different path
-const isBuildEnvironment = fs.existsSync("../nextsrc/node_modules/next");
+const isBuildEnvironment = fs.existsSync("../jss-nextjs-app/node_modules/next");
 
 if (isBuildEnvironment) {
-    nextPath = path.dirname(require.resolve("../../nextsrc/jss-nextjs-app/.next/BUILD_ID"));
+    nextPath = path.dirname(require.resolve("../../jss-nextjs-app/.next/BUILD_ID"));
 } else {
     nextPath = path.dirname(require.resolve("@nextjsonazure/jss-nextjs-app/.next/BUILD_ID"));
 }
