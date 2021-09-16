@@ -32,7 +32,7 @@ module.exports = async function (context, req) {
                         https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance
                     */
                     compress: false,
-                    distDir: isBuildEnvironment ? "../nextsrc/.next" : undefined
+                    distDir: isBuildEnvironment ? "../nextsrc/.next" : "../jss-nextjs-app/.next"
                 }
             });
 

@@ -5,14 +5,12 @@
   "scripts": {
     "start": "cross-env SITECORE_API_HOST=https://jsssandbox.sc SITECORE_API_KEY=C9A1C404-231B-4DCE-882F-77757885EEA1 JSS_EDITING_SECRET=jsseditgeheim PUBLIC_URL=http://localhost:3000/ NODE_TLS_REJECT_UNAUTHORIZED=0 func start --port 3000",
     "test": "echo \"No tests yet...\"",
-    "debug": "cd dist && func start --port 3000",
-    "preinstall1": "cd jss-nextjs-app && npm install && npm run build"
-  },
-  "dependencies": {
-    "cross-env": "^7.0.3"
+    "debug": "cd dist && func start --port 3000"
   },
   "devDependencies": {
-    "ncp": "^2.0.0",
-    "lerna": "^4.0.0"
+    "cross-env": "^7.0.3"
+  },
+  "dependencies": {
+    "@nextjsonazure/jss-nextjs-app": "*"
   }
 }
