@@ -43,13 +43,13 @@ jobs:
         npm run build:jssnextjs
         popd
 
-    - name: 'copy next build & node modules'
+    #- name: 'Copy next build & node modules'
     - uses: kheiakiyama/install-azcopy-action@v1
       with:
         version: 'v10'
     - run: azcopy_v10 copy '${{ env.JSSAPPSOURCE }}' '${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
     
-    - name: 'copy azure functions'
+    #- name: 'Copy azure functions'
     - uses: kheiakiyama/install-azcopy-action@v1
       with:
         version: 'v10'
