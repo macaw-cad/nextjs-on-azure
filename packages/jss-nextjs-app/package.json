@@ -1,5 +1,5 @@
 {
-  "name": "jss-nextjs-app",
+  "name": "@nextjsonazure/jss-nextjs-app",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
   "version": "18.0.0",
   "private": true,
