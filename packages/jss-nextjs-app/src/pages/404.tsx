@@ -1,5 +1,5 @@
 import NotFound from 'src/NotFound';
 
-const Custom404 = (): JSX.Element => <>jammer! <NotFound /></>;
+const Custom404 = (): JSX.Element => <NotFound />;
 
 export default Custom404;

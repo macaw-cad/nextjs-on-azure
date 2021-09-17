@@ -1,6 +1,6 @@
 import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import Link from 'next/link';
-// import { useI18n } from 'next-localization';
+import { useI18n } from 'next-localization';
 import StyleguideSpecimen from './Styleguide-Specimen';
 import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
 
@@ -16,7 +16,7 @@ type StyleguideMultilingualProps = StyleguideComponentWithContextProps &
  * multiple languages.
  */
 const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element => {
-  // const { t, locale } = useI18n();
+  const { t, locale } = useI18n();
 
   return (
     <StyleguideSpecimen {...props} e2eId="styleguide-multilingual">
@@ -25,7 +25,7 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
       <p>
         This is a static dictionary entry from <code>/data/dictionary</code>
         :&nbsp;
-        {/* {t('styleguide-sample')} */}
+        {t('styleguide-sample')}
       </p>
 
       <p>
@@ -39,7 +39,7 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
         </Link>
       </p>
 
-      {/* <p>The current language is: {locale()}</p> */}
+      <p>The current language is: {locale()}</p>
     </StyleguideSpecimen>
   );
 };
