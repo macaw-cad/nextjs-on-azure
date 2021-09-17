@@ -1,6 +1,4 @@
-import { 
-  RichText, 
-  Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
@@ -21,7 +19,6 @@ const StyleguideFieldUsageRichText = (props: StyleguideFieldUsageRichTextProps):
     <RichText field={props.fields.sample} />
 
     {/* Advanced usage of rich text field. Specifies a custom wrapper tag, turns off Sitecore editing, and has a CSS class on the wrapper */}
-    
     <RichText
       field={props.fields.sample2}
       tag="section"
