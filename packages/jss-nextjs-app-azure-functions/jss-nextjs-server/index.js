@@ -5,7 +5,7 @@ let next;
 
 // on build env the jss-nextjs-app is copied into the azure function app
 // azcopy deploy test
-const isBuildEnvironment = fs.existsSync("../jss-nextjs-app/jss-nextjs-app/node_modules/next");
+const isBuildEnvironment = fs.existsSync("../jss-nextjs-app/node_modules/next");
 
 if (isBuildEnvironment) {
     next = require("../../jss-nextjs-app/node_modules/next");
