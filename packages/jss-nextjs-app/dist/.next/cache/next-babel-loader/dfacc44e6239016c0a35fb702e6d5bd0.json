@@ -1,1 +1,0 @@
-{"ast":null,"code":"/**\r\n * Get the publicUrl.\r\n * This is used primarily to enable compatibility with the Sitecore Experience Editor.\r\n */\nexport var getPublicUrl = function getPublicUrl() {\n  return process.env.PUBLIC_URL || '';\n};","map":null,"metadata":{},"sourceType":"module"}
