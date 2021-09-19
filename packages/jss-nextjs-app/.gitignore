@@ -31,3 +31,5 @@ scjssconfig.json
 
 # vercel
 .vercel
+
+dist/
