@@ -14,7 +14,7 @@ const Hero = (props: HeroProps): JSX.Element => (
     <p>This is our hero component
 
 
-      123123
+      hallo
     </p>
     
     <h2>Heading: <Text field={props.fields.heading} /></h2>

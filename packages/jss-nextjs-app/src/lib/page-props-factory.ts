@@ -87,6 +87,7 @@ export class SitecorePagePropsFactory {
        */
       // Get normalized Sitecore item path
       const path = extractPath(context.params);
+      console.error("path", path);
 
       // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
       locale = context.locale ?? packageConfig.language;
@@ -133,7 +134,7 @@ export class SitecorePagePropsFactory {
       layoutData,
       dictionary,
       componentProps,
-      notFound,
+      notFound
     };
   }
 }

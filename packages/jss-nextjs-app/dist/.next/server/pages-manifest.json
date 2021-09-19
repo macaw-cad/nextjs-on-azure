@@ -1,0 +1,10 @@
+{
+  "/[[...path]]": "pages/[[...path]].js",
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/api/editing/data/[key]": "pages/api/editing/data/[key].js",
+  "/api/editing/render": "pages/api/editing/render.js",
+  "/_document": "pages/_document.js",
+  "/en/404": "pages\\en\\404.html",
+  "/da-DK/404": "pages\\da-DK\\404.html"
+}
