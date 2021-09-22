@@ -3,17 +3,20 @@ const fs = require("fs"); // Or `import fs from "fs";` with ESM
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 // import { EditingDataMiddleware } from '../../jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware';
 
-const isBuildEnvironment = fs.existsSync("../../jss-nextjs-app/node_modules/next");
-let EditingDataMiddleware;
-
-if (isBuildEnvironment) {
-    EditingDataMiddleware = require('../../jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware').EditingDataMiddleware;
-} else {
-    EditingDataMiddleware = require('@nextjsonazure/jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware').EditingDataMiddleware;
-}
 
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    const isBuildEnvironment = !context.req.url.includes("localhost");
+
+    let EditingDataMiddleware;
+    
+    if (isBuildEnvironment) {
+        EditingDataMiddleware = require('../../../jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware').EditingDataMiddleware;
+    } else {
+        EditingDataMiddleware = require('@nextjsonazure/jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware').EditingDataMiddleware;
+    }
+    
+    context.req.url
     
     const editingData = {
         set: () => { /* */ },
