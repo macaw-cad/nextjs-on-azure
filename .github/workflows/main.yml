@@ -31,11 +31,12 @@ jobs:
     - name: Install azcopy
       uses: kheiakiyama/install-azcopy-action@v1.0.3
 
-    - name: 'Lerna bootstrap & next build'
+    - name: 'Lerna bootstrap & next build & azure functions build'
       shell: pwsh
       run: |
         lerna bootstrap
         npm run build:jssnextjs
+        npm run build:azure-functions
         popd
 
     - uses: kheiakiyama/install-azcopy-action@v1

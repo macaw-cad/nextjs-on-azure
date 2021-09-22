@@ -1,5 +1,5 @@
 {
-  "name": "jss-nextjs-app-azure-functions",
+  "name": "@nextjsonazure/jss-nextjs-app-azure-functions",
   "version": "1.0.0",
   "description": "",
   "scripts": {
