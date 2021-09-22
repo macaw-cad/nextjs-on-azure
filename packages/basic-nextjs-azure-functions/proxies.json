@@ -16,14 +16,6 @@
         "route": "{*remainingPath}"
       },
       "backendUri": "https://localhost/nextjsserver/{remainingPath}"
-    },
-    "mediadefault": {
-      "disabled": false,
-      "matchCondition": {
-        "methods": [ "GET", "OPTIONS" ],
-        "route": "/-/{*path}"
-      },
-      "backendUri": "https://dev-mi-paas-xm110-rg-118130-single.azurewebsites.net/-/{path}"
     }
   }
 }

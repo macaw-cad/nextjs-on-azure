@@ -18,8 +18,8 @@ let app;
 let handle;
 
 module.exports = async function (context, req) {
-    const path = (req?.params?.remainingPath && req?.params?.remainingPath !== "nextjsserver") ? `/${req?.params?.remainingPath}` : "/index"
-    
+    const path = (context.req?.params?.remainingPath && context.req?.params?.remainingPath !== "nextjsserver") ? `/${context.req?.params?.remainingPath}` : "/index"
+   
     if (!app) {
         try {
             app = next({ 
@@ -37,6 +37,11 @@ module.exports = async function (context, req) {
                 }
             });
 
+            // context.res = {
+            //     status: 200,
+            //     body: JSON.stringify(context.req.body)
+            // }
+
             await app.prepare();
             handle = app.getRequestHandler();
         } catch(e) {
@@ -52,9 +57,13 @@ module.exports = async function (context, req) {
 
     // This fixes the "__nextlocale of undefined" bug
     parsedUrl.query = {};
-    
-    try {
-        await handle(req, context.res, parsedUrl);
+
+    try {    
+        // context.res = {
+        //     status: 200,
+        //     body: JSON.stringify(context.req.body)
+        // }
+        await handle(context.req, context.res, parsedUrl);
     } catch(e) {
         console.error(e);
 
