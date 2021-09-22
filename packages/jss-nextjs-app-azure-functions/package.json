@@ -6,7 +6,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "prestart": "npm run build",
-    "start": "cross-env SITECORE_API_HOST=https://jsssandbox.sc SITECORE_API_KEY=C9A1C404-231B-4DCE-882F-77757885EEA1 JSS_EDITING_SECRET=jsseditgeheim PUBLIC_URL=http://localhost:3000/ NODE_TLS_REJECT_UNAUTHORIZED=0 func start --port 3000",
+    "start": "cross-env SITECORE_API_HOST=https://dev-mi-paas-xm110-rg-118130-single.azurewebsites.net SITECORE_API_KEY=614017FB-9733-462E-BF1D-4FDED698EB0D JSS_EDITING_SECRET=jsseditgeheim PUBLIC_URL=http://localhost:3000/ NODE_TLS_REJECT_UNAUTHORIZED=0 func start --port 3000",
     "test": "echo \"No tests yet...\"",
     "debug": "cd dist && func start --port 3000"
   },
