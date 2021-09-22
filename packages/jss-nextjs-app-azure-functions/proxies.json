@@ -34,7 +34,7 @@
       "backendUri": "https://localhost/jss-exp-editor-render"
     },
     "rootpaths": {
-      "disabled": true,
+      "disabled": false,
       "matchCondition": {
         "methods": [ "GET", "OPTIONS", "POST" ],
         "route": "{*remainingPath}"
