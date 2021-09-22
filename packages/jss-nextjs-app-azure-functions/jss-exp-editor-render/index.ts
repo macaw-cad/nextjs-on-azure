@@ -1,6 +1,14 @@
+const fs = require("fs"); // Or `import fs from "fs";` with ESM
+const isBuildEnvironment = fs.existsSync("../../jss-nextjs-app/node_modules/next");
+let EditingRenderMiddleware;
+
+if (isBuildEnvironment) {
+    EditingRenderMiddleware = require('../../jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware').EditingRenderMiddleware;
+} else {
+    EditingRenderMiddleware = require('@nextjsonazure/jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware').EditingRenderMiddleware;
+}
+
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-import { EditingRenderMiddleware } from '@nextjsonazure/jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware';
-import { NextApiRequest } from "@nextjsonazure/jss-nextjs-app/node_modules/next";
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
     
