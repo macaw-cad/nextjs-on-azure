@@ -11,7 +11,7 @@ import { StyleguideSitecoreContextValue } from 'lib/component-props';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
-import { sitemapFetcher } from 'lib/sitemap-fetcher';
+// import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
@@ -44,7 +44,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 
 // This function gets called at build and export time to determine
 // pages for SSG ("paths", as tokenized array).
-export const getStaticPaths: GetStaticPaths = async (context) => {
+export const getStaticPaths: GetStaticPaths = async () => {
   // Fallback, along with revalidate in getStaticProps (below),
   // enables Incremental Static Regeneration. This allows us to
   // leave certain (or all) paths empty if desired and static pages
@@ -55,10 +55,12 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 
   if (process.env.NODE_ENV !== 'development') {
     // Note: Next.js runs export in production mode
-    const paths = await sitemapFetcher.fetch(context);
+    // const paths = await sitemapFetcher.fetch(context);
+    // console.log("paths", paths);
 
+  
     return {
-      paths,
+      paths: [],
       fallback: process.env.EXPORT_MODE ? false : 'blocking',
     };
   }

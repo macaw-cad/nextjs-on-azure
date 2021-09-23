@@ -11,6 +11,8 @@ const publicUrl = process.env.PUBLIC_URL;
 
 const nextConfig = {
 
+  compress: false,
+
   // Set assetPrefix to our public URL
   assetPrefix: publicUrl,
   
