@@ -1,12 +1,9 @@
 const fs = require("fs"); // Or `import fs from "fs";` with ESM
 
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-// import { EditingDataMiddleware } from '../../jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware';
-
-
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    const isBuildEnvironment = !context.req.url.includes("localhost");
+    const isBuildEnvironment = context.executionContext.functionDirectory.includes("www");
 
     let EditingDataMiddleware;
     
@@ -15,15 +12,10 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     } else {
         EditingDataMiddleware = require('@nextjsonazure/jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware').EditingDataMiddleware;
     }
-    
-    context.req.url
-    
-    const editingData = {
-        set: () => { /* */ },
-        get: () =>  undefined
-    }
 
-    const handler = new EditingDataMiddleware({ editingDataCache: editingData }).getHandler();
+
+    const handler = new EditingDataMiddleware({
+    }).getHandler();
     
     const customContextRes: any = context.res;
 
@@ -43,6 +35,8 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
         ...context.req,
     }
 
+    customContextReq.query.key = context.req.params.path
+    
     try {
         // @ts-ignore
         await handler(customContextReq, customContextRes);
