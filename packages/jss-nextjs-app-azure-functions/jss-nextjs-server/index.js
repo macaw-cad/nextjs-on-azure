@@ -32,7 +32,15 @@ module.exports = async function (context, req) {
                         https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance
                     */
                     compress: false,
-                    distDir: "../jss-nextjs-app/.next"
+                    distDir: "../jss-nextjs-app/.next",
+                    i18n: {
+                        // These are all the locales you want to support in your application.
+                        // These should generally match (or at least be a subset of) those in Sitecore.
+                        locales: ['en', 'da-DK'],
+                        // This is the locale that will be used when visiting a non-locale
+                        // prefixed path e.g. `/styleguide`.
+                        defaultLocale: "en",
+                    }
                 }
             });
 

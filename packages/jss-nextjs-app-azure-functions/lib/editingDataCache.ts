@@ -1,6 +1,7 @@
 import Cache, { CacheInstance } from 'sync-disk-cache';
 import os from 'os';
 import { EditingData } from '@nextjsonazure/jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs';
+const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
 
 /**
  * Defines an editing data cache implementation
@@ -14,7 +15,8 @@ export class EditingDataDiskCache implements EditingDataCache {
     private cache: CacheInstance;
 
     constructor() {
-        this.cache = new Cache('editing-data', { /*compression: 'gzip',*/ location: os.tmpdir() });
+        const tmpDir = isOnAzure ? "C:\\home\\data\\temp" : os.tmpdir();
+        this.cache = new Cache('editing-data', { location: tmpDir });
     }
 
     set(key: string, editingData: EditingData): void {
@@ -41,8 +43,6 @@ export class EditingDataDiskCache implements EditingDataCache {
             return undefined;
         }
         const data = JSON.parse(entry.value);
-        // Remove immediately to preserve disk-space
-        this.cache.remove(key);
         return data as EditingData;
     }
 }
