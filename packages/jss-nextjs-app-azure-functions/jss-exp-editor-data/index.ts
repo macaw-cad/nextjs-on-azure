@@ -37,6 +37,8 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     }
 
     customContextReq.query.key = context.req.params.path
+    customContextReq.query["__nextDefaultLocale"] = "en";
+    customContextReq.query["__nextLocale"] = "en";
     
     try {
         // @ts-ignore
