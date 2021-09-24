@@ -42,6 +42,11 @@ jobs:
     - uses: kheiakiyama/install-azcopy-action@v1
       with:
         version: 'v10'
+    - run: azcopy_v10 rm '${{ env.JSSNEXTJSBUILD }}' '${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
+
+    - uses: kheiakiyama/install-azcopy-action@v1
+      with:
+        version: 'v10'
     - run: azcopy_v10 copy '${{ env.JSSNEXTJSBUILD }}' '${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
     
     - uses: kheiakiyama/install-azcopy-action@v1
