@@ -1,7 +1,7 @@
 name: Deploy nextjs build
 
 on:
-  [push]
+  [workflow_dispatch]
 
 env:
   AZURE_FUNCTIONAPP_NAME: funcjssnextjsonazure    # set this to your application's name
