@@ -5,7 +5,7 @@ on:
 
 env:
   NODE_VERSION: '14.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x)
-  NEXTJSBUILD: './packages/jss-nextjs-app/dist/*'
+  NEXTJSBUILD: './packages/basic-nextjs-example/dist/*'
   NEXTJSBUILDDEST: 'https://storageaccountnextjb8fa.file.core.windows.net/funcnextjsonazurebaee/site/basic-nextjs-example'
   AZUREFUNCDEST: 'https://storageaccountnextjb8fa.file.core.windows.net/funcnextjsonazurebaee/site/wwwroot'
 
@@ -46,4 +46,4 @@ jobs:
     - uses: kheiakiyama/install-azcopy-action@v1
       with:
         version: 'v10'
-    - run: azcopy_v10 copy './packages//basic-nextjs-azure-functions/*' '${{ env.AZUREFUNCDEST }}?${{ secrets.SECRETSASTOKENBASICNEXTJS }}' --recursive
+    - run: azcopy_v10 copy './packages/basic-nextjs-azure-functions/*' '${{ env.AZUREFUNCDEST }}?${{ secrets.SECRETSASTOKENBASICNEXTJS }}' --recursive
