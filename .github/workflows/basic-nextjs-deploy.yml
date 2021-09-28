@@ -33,10 +33,10 @@ jobs:
         npm run build:basicnextjs
         popd
 
-    - uses: kheiakiyama/install-azcopy-action@v1
-      with:
-        version: 'v10'
-    - run: azcopy_v10 rm '${{ env.NEXTJSBUILDDEST }}?${{ secrets.SECRETSASTOKENBASICNEXTJS }}' --recursive
+    # - uses: kheiakiyama/install-azcopy-action@v1
+    #   with:
+    #     version: 'v10'
+    # - run: azcopy_v10 rm '${{ env.NEXTJSBUILDDEST }}?${{ secrets.SECRETSASTOKENBASICNEXTJS }}' --recursive
 
     - uses: kheiakiyama/install-azcopy-action@v1
       with:
