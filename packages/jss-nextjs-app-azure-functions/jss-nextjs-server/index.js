@@ -3,10 +3,10 @@ const { URL } = require("url");
 let next;
 
 
-// on build env the jss-nextjs-app is copied into the azure function app
-const isBuildEnvironment = fs.existsSync("../jss-nextjs-app/node_modules/next");
+// on azure the jss-nextjs-app is lerna symlink doesnt work
+const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
 
-if (isBuildEnvironment) {
+if (isOnAzure) {
     next = require("../../jss-nextjs-app/node_modules/next");
 } else {
     next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
