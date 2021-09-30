@@ -1,4 +1,4 @@
-name: Deploy nextjs build
+name: Deploy jss nextjs
 
 on:
   [workflow_dispatch]

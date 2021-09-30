@@ -10,6 +10,9 @@ const isDisconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
 const publicUrl = process.env.PUBLIC_URL;
 
 const nextConfig = {
+  experimental: {
+    externalDir: true,
+  },
 
   compress: false,
 

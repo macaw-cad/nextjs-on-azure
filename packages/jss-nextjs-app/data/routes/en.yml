@@ -20,6 +20,14 @@ fields:
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
   jss-main:
+    - componentName: Teaser
+      fields: 
+        heading: Teaser 1
+        description: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        image:
+          src: /data/media/img/macbook.jfif
+          alt: Macbook
+
     - componentName: ContentBlock
       fields:
         heading: Welcome to Sitecore JSS
