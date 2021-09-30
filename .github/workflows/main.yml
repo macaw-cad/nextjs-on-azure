@@ -44,6 +44,12 @@ jobs:
         version: 'v10'
     - run: azcopy_v10 rm '${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
 
+
+    - uses: kheiakiyama/install-azcopy-action@v1
+      with:
+        version: 'v10'
+    - run: azcopy_v10 rm '${{ env.AZUREFUNCDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
+
     - uses: kheiakiyama/install-azcopy-action@v1
       with:
         version: 'v10'
