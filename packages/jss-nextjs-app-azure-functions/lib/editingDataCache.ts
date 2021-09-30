@@ -21,12 +21,7 @@ export class EditingDataDiskCache implements EditingDataCache {
 
     set(key: string, editingData: EditingData): void {
         try {
-            console.log("cache", this.cache);
-            console.log("key", key);
-
             const filePath = this.cache.set(key, JSON.stringify(editingData));
-
-            console.log("filepath", filePath);
 
             if (!filePath || filePath.length === 0) {
                 throw new Error(`Editing data cache not set for key ${key} at ${this.cache.root}`);

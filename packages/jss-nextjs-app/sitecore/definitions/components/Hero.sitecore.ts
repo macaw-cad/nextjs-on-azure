@@ -13,7 +13,7 @@ export default function (manifest: Manifest): void {
     fields: [
       { name: 'heading', type: CommonFieldTypes.SingleLineText },
       { name: 'teaser', type: CommonFieldTypes.SingleLineText },
-      { name: 'image', type: CommonFieldTypes.Image }
+      { name: 'image', type: CommonFieldTypes.Image },
     ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
