@@ -30,16 +30,18 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@nextjsonazure/ui-components": "*",
     "@sitecore-jss/sitecore-jss-nextjs": "^18.0.0",
     "@sitecore-jss/sitecore-jss-tracking": "^18.0.0",
     "bootstrap": "^4.3.1",
     "graphql": "~15.4.0",
     "graphql-tag": "^2.11.0",
-    "next": "^10.0.3",
+    "next": "^11.0.1",
     "next-localization": "^0.10.0",
     "nprogress": "~0.2.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "sass": "^1.42.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.19.1",

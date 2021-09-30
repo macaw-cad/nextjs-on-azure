@@ -1,0 +1,7 @@
+@use 'variables' as *;
+
+.c-card {
+    background: $neutral-light;
+    display: inline-flex;
+    flex-direction: column;
+}
