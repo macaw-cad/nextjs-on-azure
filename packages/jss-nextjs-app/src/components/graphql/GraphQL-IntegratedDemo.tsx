@@ -68,11 +68,7 @@ const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element =
 
   console.error(JSON.stringify(props));
 
-  return (
-    <div data-e2e-id="graphql-integrated">
-      {/* kijken we later naar */}
-    </div>
-  );
+  return <div data-e2e-id="graphql-integrated">{/* kijken we later naar */}</div>;
 };
 
 export default GraphQLIntegratedDemo;

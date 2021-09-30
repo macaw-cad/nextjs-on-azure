@@ -13,7 +13,7 @@ export default function (manifest: Manifest): void {
     fields: [
       { name: 'heading', type: CommonFieldTypes.SingleLineText },
       { name: 'description', type: CommonFieldTypes.MultiLineText },
-      { name: 'image', type: CommonFieldTypes.Image }
+      { name: 'image', type: CommonFieldTypes.Image },
     ],
   });
 }
