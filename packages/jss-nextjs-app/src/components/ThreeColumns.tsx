@@ -1,4 +1,4 @@
-import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { StyleguideComponentProps } from 'lib/component-props';
 
