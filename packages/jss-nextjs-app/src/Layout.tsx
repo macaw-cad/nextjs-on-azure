@@ -24,7 +24,10 @@ const Navigation = () => {
       <h5 className="my-0 mr-md-auto font-weight-normal">
         <Link href="/">
           <a className="text-dark">
-            <img src={`${publicUrl}/sc_logo.svg`} alt="Sitecore" />
+            <h1 className="m-0 p-0 align-middle" style={{ display: "inline-block" }}>
+              Sitecore JSS @ 
+            </h1>
+            <img className="ml-1" src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Azure" />
           </a>
         </Link>
       </h5>
