@@ -20,13 +20,6 @@ const Teaser: React.FC<TeaserProps> = ({fields}): JSX.Element => (
       alt: renderToStaticMarkup(<Text field={fields.heading} />)
     } : undefined}
   />
-  
-
-  // <div>
-  //   <p>Teaser Component</p>
-  //   <Text field={props.fields.heading} />
-  //   <Text field={props.fields.description} />
-  // </div>
 );
 
 export default Teaser;
