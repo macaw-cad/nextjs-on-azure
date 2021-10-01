@@ -9,18 +9,16 @@ type CardProps = {
     image?: CardImage;
 }
 
-export const Card: React.FC<CardProps> = ({title, description, image }) => {
+export const Card: React.FC<CardProps> = ({ title, description, image }) => {
     return (
-        <div className="c-card">
-            <h2>{title}</h2>
-            {description && 
-                <p>
-                    {description}
-                </p>
-            }
+        <div className="card" >
             {image && 
-                <img {...image} />
+                <img className="card-img-top" {...image} />
             }
+            <div className ="card-body">
+                <h5 className ="card-title">{title}</h5>
+                <p className ="card-text">{description}</p>
+            </div>
         </div>
     )
 }
