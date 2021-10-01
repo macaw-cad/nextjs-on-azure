@@ -11,7 +11,11 @@ export default {
   },
 } as ComponentMeta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
+const Template: ComponentStory<typeof Card> = (args) => {
+  return (
+    <div style={{width: "300px"}}> <Card {...args} /> </div>
+  )  
+}
 
 export const CardWithImage = Template.bind({});
 CardWithImage.args = {
