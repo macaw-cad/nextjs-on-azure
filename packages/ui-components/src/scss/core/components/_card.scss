@@ -4,4 +4,8 @@
     background: $neutral-light;
     display: inline-flex;
     flex-direction: column;
+
+    @include mq(L) {
+        background-color: green;
+    }
 }

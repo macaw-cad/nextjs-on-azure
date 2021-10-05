@@ -1,3 +1,4 @@
-@forward "colors";
+@forward "colors" as color-*;
 @forward "variables";
 @forward "functions" hide str-replace;
+@forward "mixins";
