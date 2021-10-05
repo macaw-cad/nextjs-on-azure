@@ -10,7 +10,7 @@ export default function (manifest: Manifest): void {
   manifest.addComponent({
     name: 'Carousel',
     icon: SitecoreIcon.DocumentTag,
-    placeholders: ['carousel-items']
+    placeholders: ['carousel-items'],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
     register it here, or components added to that placeholder will not be returned by Sitecore:

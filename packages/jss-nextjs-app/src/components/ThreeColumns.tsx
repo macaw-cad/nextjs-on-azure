@@ -1,15 +1,15 @@
 import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 
-type ThreeColumnsProps = StyleguideComponentProps & {
+type ThreeColumnsProps = ComponentProps & {
   fields: {
     heading: Field<string>;
   };
 };
 
 const ThreeColumns = (props: ThreeColumnsProps): JSX.Element => (
-  <div className="row">
+  <div className="row mb-4">
     <Placeholder
       rendering={props.rendering}
       name="col1"

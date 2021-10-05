@@ -1,6 +1,8 @@
 fields:
-  pageTitle: GraphQL | Sitecore JSS
+  pageTitle: GraphQL
 placeholders:
+  jss-header:
+    - componentName: Navigation
   jss-main:
   - componentName: ContentBlock
     fields:

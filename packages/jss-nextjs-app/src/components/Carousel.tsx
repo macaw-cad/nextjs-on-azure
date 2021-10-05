@@ -1,8 +1,8 @@
 import { Field, Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import React, { useEffect } from 'react';
 
-type CarouselProps = StyleguideComponentProps & {
+type CarouselProps = ComponentProps & {
   fields: {
     heading: Field<string>;
   };
@@ -10,8 +10,8 @@ type CarouselProps = StyleguideComponentProps & {
 
 const Carousel = (props: CarouselProps): JSX.Element => {
   useEffect(() => {
-    const firstItem = document.querySelector(".carousel-item:first-child");
-    firstItem?.classList.add("active");
+    const firstItem = document.querySelector('.carousel-item:first-child');
+    firstItem?.classList.add('active');
   }, []);
 
   return (
@@ -27,17 +27,27 @@ const Carousel = (props: CarouselProps): JSX.Element => {
           )}
           renderEmpty={(components) => <div>{components}</div>}
         />
-        </div>
-        <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="sr-only">Previous</span>
-        </a>
-        <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="sr-only">Next</span>
-        </a>
+      </div>
+      <a
+        className="carousel-control-prev"
+        href="#carouselExampleIndicators"
+        role="button"
+        data-slide="prev"
+      >
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="sr-only">Previous</span>
+      </a>
+      <a
+        className="carousel-control-next"
+        href="#carouselExampleIndicators"
+        role="button"
+        data-slide="next"
+      >
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="sr-only">Next</span>
+      </a>
     </div>
-  )
-}
+  );
+};
 
 export default Carousel;
