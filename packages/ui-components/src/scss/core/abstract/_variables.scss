@@ -1,0 +1,12 @@
+$neutral-light: #edebe9 !default;
+
+$text-size: 16px !default;
+
+// mediaquery breakpoints
+$breakpoints: (
+  'XS':	400px,
+  'S':	768px,
+  'M':	1024px,
+  'L':  1200px,
+  'XL': 1540px
+) !default;
