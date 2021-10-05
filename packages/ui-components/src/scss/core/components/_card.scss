@@ -1,11 +1,11 @@
 @use '../abstract' as *;
 
 .c-card {
-    background: $neutral-light;
-    display: inline-flex;
-    flex-direction: column;
+  display: inline-flex;
+  flex-direction: column;
+  background: $neutral-light;
 
-    @include mq(L) {
-        background-color: green;
-    }
+  @include mq(L) {
+    background-color: green;
+  }
 }
