@@ -1,7 +1,7 @@
 import { Placeholder, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps, StyleguideSitecoreContextValue } from 'lib/component-props';
+import { ComponentProps, StyleguideSitecoreContextValue } from 'lib/component-props';
 
-const GraphQLLayout = ({ rendering }: StyleguideComponentProps): JSX.Element => {
+const GraphQLLayout = ({ rendering }: ComponentProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext<StyleguideSitecoreContextValue>();
 
   const disconnectedMode =

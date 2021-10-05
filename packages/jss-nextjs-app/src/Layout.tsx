@@ -1,7 +1,5 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import { useEffect } from 'react';
-import { useI18n } from 'next-localization';
 import { getPublicUrl } from 'lib/util';
 import {
   Placeholder,
@@ -16,40 +14,6 @@ const publicUrl = getPublicUrl();
 
 // This is boilerplate navigation for sample purposes. Most apps should throw this away and use their own navigation implementation.
 // Most apps may also wish to use GraphQL for their navigation construction; this sample does not simply to support disconnected mode.
-const Navigation = () => {
-  const { t } = useI18n();
-
-  return (
-    <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
-      <h5 className="my-0 mr-md-auto font-weight-normal">
-        <Link href="/">
-          <a className="text-dark">
-            <h1 className="m-0 p-0 align-middle" style={{ display: "inline-block" }}>
-              Sitecore JSS @ 
-            </h1>
-            <img className="ml-1" src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Azure" />
-          </a>
-        </Link>
-      </h5>
-      <nav className="my-2 my-md-0 mr-md-3">
-        <a
-          className="p-2 text-dark"
-          href="https://jss.sitecore.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {t('Documentation')}
-        </a>
-        <Link href="/styleguide">
-          <a className="p-2 text-dark">{t('Styleguide')}</a>
-        </Link>
-        <Link href="/graphql">
-          <a className="p-2 text-dark">{t('GraphQL')}</a>
-        </Link>
-      </nav>
-    </div>
-  );
-};
 
 type LayoutProps = {
   context: StyleguideSitecoreContextValue;
@@ -82,7 +46,7 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
       */}
       <VisitorIdentification />
 
-      <Navigation />
+      <Placeholder name="jss-header" rendering={route} />
 
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">
