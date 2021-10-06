@@ -6,11 +6,15 @@ fragment navigationFields on Item {
   }
   url {
     path
-  }
+  },
+  id
 }
 
 {
   item(path: "/sitecore/content/jss-nextjs-app/home", language: "en") {
+    language {
+      displayName
+    }
     children {
         results {
         ...navigationFields
