@@ -1,0 +1,49 @@
+/**
+* Media query mixin.
+*
+* NOTE: consider using custom written media-queries for your components instead
+* of 'out of the box' values to best fit the content you are presenting.
+*
+* Uses $breakpoints map in 'variables' for definition of the breakpoints 
+*
+* default media-query names:
+*
+* XS
+* S
+* M
+* L
+* XL
+*
+* usage:
+* as min-width for [breakpoint] and wider styling:
+*
+*	@include mq(L){
+*		[styles here]
+*	}
+*
+* as max-width for up to [breakpoint] width styling:
+*
+*	@include mq(L-max){
+*		[styles here]
+*	}
+*
+* NOTE: max-width assumes breakpoints are set in 'px' units
+*
+**/
+@use './variables' as *;
+
+@mixin mq($media-query) {
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @if $breakpoint-name == $media-query {
+      @media only screen and (min-width: $breakpoint-value) {
+        @content;
+      }
+    }
+    // max-width versions
+    @if $breakpoint-name + '-max' == $media-query {
+      @media only screen and (max-width: ($breakpoint-value - 1px)) {
+        @content;
+      }
+    }
+  }
+}

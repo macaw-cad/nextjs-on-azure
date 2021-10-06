@@ -1,0 +1,14 @@
+h1, h2, h3, h4 , h5, h6, p {
+  &:not(:last-child) {
+    margin-bottom: 1em;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}

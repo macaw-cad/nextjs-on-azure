@@ -1,4 +1,4 @@
-@forward "colors" as color-*;
-@forward "variables";
-@forward "functions" hide str-replace;
-@forward "mixins";
+@forward './colors' as color-*;
+@forward './variables';
+@forward './media-query';
+@forward './svg-data-uri' hide str-replace;

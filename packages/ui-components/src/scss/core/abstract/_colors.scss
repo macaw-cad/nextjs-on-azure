@@ -1,5 +1,6 @@
-$brand: hsl(240, 57%, 53%);
-$text: hsl(0, 0%, 20%);
-$success: hsl(212, 87%, 47%);
-$warning: hsl(34, 88%, 45%);
-$danger: hsl(0, 100%, 35%);
+$brand: hsl(240, 57%, 53%) !default;
+$success: hsl(212, 87%, 47%) !default;
+$warning: hsl(34, 88%, 45%) !default;
+$danger: hsl(0, 100%, 35%) !default;
+$text: hsl(0, 0%, 20%) !default;
+$link: $brand !default;

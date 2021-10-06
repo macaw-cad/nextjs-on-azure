@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Card } from './Card';
 
 export default {
-  title: 'Core/Card',
+  title: 'Core/Components/Card',
   component: Card,
   argTypes: {
     backgroundColor: { control: 'color' },

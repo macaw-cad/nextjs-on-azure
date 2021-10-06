@@ -6,6 +6,6 @@
   background: $neutral-light;
 
   @include mq(L) {
-    background-color: green;
+    background-color: hsl(120, 100%, 25%);
   }
 }

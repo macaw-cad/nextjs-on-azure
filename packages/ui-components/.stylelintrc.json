@@ -1,17 +1,13 @@
 {
   "ignoreFiles": ["**/*.js", "**/*.tsx"],
-  "plugins": ["stylelint-order", "stylelint-scss"],
+  "plugins": ["stylelint-scss", "stylelint-order"],
   "extends": [
     "stylelint-config-sass-guidelines",
     "stylelint-config-recess-order"
   ],
   "rules": {
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": ["extend"]
-      }
-    ],
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
     "declaration-block-trailing-semicolon": null,
     "no-descending-specificity": null,
     "max-nesting-depth": [

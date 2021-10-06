@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Carousel } from './Carousel';
 
 export default {
-  title: 'Core/Carousel',
+  title: 'Core/Components/Carousel',
   component: Carousel,
   argTypes: {
     backgroundColor: { control: 'color' },

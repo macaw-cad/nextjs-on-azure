@@ -1,0 +1,48 @@
+@use '../abstract/' as *;
+
+.btn {
+  --background: #333;
+  --text: #fff;
+  --border: #333;
+  --background-h: #666;
+  --text-h: #fff;
+  --border-h: #666;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5em;
+  padding: .25em 1em;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: var(--background);
+  border: 3px solid var(--border);
+  border-radius: $border-radius;
+  outline: none;
+  transition: all .16s linear;
+
+  &:hover,
+  &:focus {
+    --background: var(--background-h);
+    --text: var(--text-h);
+    --border: var(--border-h);
+  }
+
+  &:disabled, &.is-disabled {
+    --background: #666;
+    --text: #ddd;
+    --border: #666;
+
+    pointer-events: none;
+  }
+
+  &--primary {
+    --background: #3131dd;
+    --border: #3131dd;
+    --background-h: #4f4fdb;
+    --border-h: #4f4fdb;
+  }
+}

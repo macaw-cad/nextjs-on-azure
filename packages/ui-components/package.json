@@ -56,9 +56,9 @@
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.8",
     "stylelint": "^13.13.1",
-    "stylelint-config-recess-order": "^2.5.0",
+    "stylelint-scss": "^3.21.0",
     "stylelint-config-sass-guidelines": "^8.0.0",
     "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.21.0"
+    "stylelint-config-recess-order": "^2.5.0"
   }
 }
