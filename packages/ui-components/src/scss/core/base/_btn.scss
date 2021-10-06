@@ -29,6 +29,8 @@
     --background: var(--background-h);
     --text: var(--text-h);
     --border: var(--border-h);
+
+    color: var(--text); // overrule hyperlink color
   }
 
   &:disabled, &.is-disabled {

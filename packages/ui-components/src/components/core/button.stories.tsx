@@ -11,7 +11,7 @@ const Template: Story = () => {
   return (
     <div style={{maxWidth: "40rem"}}>
       <button className="btn">button</button>
-      <button className="btn btn--primary">primary</button>
+      <a href="#" className="btn btn--primary">primary</a>
     </div>
   )  
 }
