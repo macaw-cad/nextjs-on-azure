@@ -15,7 +15,7 @@ import {
   Item,
   GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
 } from './GraphQL-ConnectedDemo.graphql';
-import { StyleguideComponentProps } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 
 type RouteItem = AppRoute & Item;
@@ -25,7 +25,7 @@ type GraphQLConnectedDemoData = {
   contextItem: RouteItem;
 };
 
-const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
+const GraphQLConnectedDemo = (props: ComponentProps): JSX.Element => {
   const data = props.rendering.uid
     ? useComponentProps<GraphQLConnectedDemoData>(props.rendering.uid)
     : undefined;

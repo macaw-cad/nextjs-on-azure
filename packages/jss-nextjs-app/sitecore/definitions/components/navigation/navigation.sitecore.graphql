@@ -1,0 +1,30 @@
+fragment navigationFields on Item {
+  ... on AppRoute {
+    pageTitle {
+      value
+    }
+  }
+  url {
+    path
+  },
+  id
+}
+
+{
+  item(path: "/sitecore/content/jss-nextjs-app/home", language: "en") {
+    language {
+      displayName
+    }
+    children {
+        results {
+        ...navigationFields
+        children(hasLayout: true) {
+          results {
+            ...navigationFields
+            
+          }
+        }
+      }
+    }
+  }
+}
