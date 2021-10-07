@@ -11,7 +11,7 @@ type CardProps = {
 
 export const Card: React.FC<CardProps> = ({ title, description, image }) => {
     return (
-        <div className="card" >
+        <div className="card h-100">
             {image && 
                 <img className="card-img-top" {...image} />
             }

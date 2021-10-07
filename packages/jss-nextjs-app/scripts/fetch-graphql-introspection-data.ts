@@ -47,3 +47,26 @@ client
     console.error(e);
     process.exit(1);
   });
+
+const filmClient = new GraphQLRequestClient('https://tmdb.apps.quintero.io/');
+
+filmClient
+  .request(getIntrospectionQuery())
+  .then((result) => {
+    fs.writeFile(
+      './src/temp/GraphQLIntrospectionResultFilm.json',
+      JSON.stringify(result, null, 2),
+      (err) => {
+        if (err) {
+          console.error('Error writing GraphQLIntrospectionResultFilm file', err);
+          return;
+        }
+
+        console.log('GraphQL Film Introspection Data successfully fetched!');
+      }
+    );
+  })
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
