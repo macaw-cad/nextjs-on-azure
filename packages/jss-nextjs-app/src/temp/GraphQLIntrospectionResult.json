@@ -2024,6 +2024,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "Teaser",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "StyleguideTracking",
             "ofType": null
           },
@@ -2174,6 +2179,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "Hero",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "GraphQLIntegratedDemo",
             "ofType": null
           },
@@ -2190,6 +2200,11 @@
           {
             "kind": "OBJECT",
             "name": "ContentBlock",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CarouselItem",
             "ofType": null
           },
           {
@@ -4120,8 +4135,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "StyleguideTracking",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-Tracking template (ID: {C275104F-F117-5C93-BFB0-F62329BFDA3E}).",
+        "name": "Teaser",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Teaser template (ID: {C894A787-7A5A-522C-B4BC-F70D1D877B1A}).",
         "fields": [
           {
             "name": "ancestors",
@@ -4231,7 +4246,464 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {A4C5C6E9-9A25-548D-8732-501FF9841F7D}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "displayName",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "field",
+            "description": null,
+            "args": [
+              {
+                "name": "name",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "ItemField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fields",
+            "description": null,
+            "args": [
+              {
+                "name": "ownFields",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "ItemField",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hasChildren",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "heading",
+            "description": "heading (ID: {60168DBE-91AF-554C-90E8-6DD838FB8FDD}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [
+              {
+                "name": "format",
+                "description": ".NET GUID format to use. N = short id, B = long id, etc",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "\"N\""
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "image",
+            "description": "image (ID: {8DD1F63E-0DCA-5212-BC0D-F70006D79F1F}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ImageField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "itemUri",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "language",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemLanguage",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "languages",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "parent",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Item",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "path",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "rendered",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "template",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemTemplate",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemUrl",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "version",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Item",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "StyleguideTracking",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-Tracking template (ID: {D5DCA9F4-561D-5FBE-BFE1-0BE6FCE811BA}).",
+        "fields": [
+          {
+            "name": "ancestors",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "children",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              },
+              {
+                "name": "first",
+                "description": "Limits the results to the first n children. Use with after for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "after",
+                "description": "Cursor value. Use with first for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemSearchResults",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "description",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -4354,7 +4826,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -4571,7 +5043,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideSitecoreContext",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-SitecoreContext template (ID: {0BE23A45-588E-556C-988B-66B2729220E6}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-SitecoreContext template (ID: {16F47D56-1E72-5CA3-8A30-0AFFFFE3ABD6}).",
         "fields": [
           {
             "name": "ancestors",
@@ -4681,7 +5153,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -4804,7 +5276,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -5021,7 +5493,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideSection",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-Section template (ID: {FCD762A0-7538-5809-AABC-0291467E570A}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-Section template (ID: {CE911D1A-1FDC-5738-BA11-D252DFC46EC4}).",
         "fields": [
           {
             "name": "ancestors",
@@ -5242,7 +5714,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {F1BD83F1-25E6-59D9-A764-42E58784927D}).",
+            "description": "heading (ID: {BFE291EB-A03E-5297-86D1-54C9AC94A80C}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -5454,7 +5926,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideRouteFields",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-RouteFields template (ID: {8841AAA8-6806-5E86-A707-81E7968221C0}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-RouteFields template (ID: {B2204072-F9EA-5F35-8CB7-8974A7B75B86}).",
         "fields": [
           {
             "name": "ancestors",
@@ -5564,7 +6036,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -5687,7 +6159,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -5904,7 +6376,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideMultilingual",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-Multilingual template (ID: {419DC164-AD7F-51F3-AFA1-1E9DA4B8299D}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-Multilingual template (ID: {45FC1870-C91C-5D7D-8D22-BA03A98AF556}).",
         "fields": [
           {
             "name": "ancestors",
@@ -6014,7 +6486,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -6137,7 +6609,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -6288,7 +6760,7 @@
           },
           {
             "name": "sample",
-            "description": "This field has a translated value (ID: {481AC9E3-B466-5FDB-B5F6-C77D75379F71}).",
+            "description": "This field has a translated value (ID: {6443227F-5218-5C56-839A-D61D228A1B73}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -6366,7 +6838,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideLayoutTabsTab",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-Layout-Tabs-Tab template (ID: {1B1A77FA-F358-5208-935F-D70744C4DA09}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-Layout-Tabs-Tab template (ID: {E4D14FA2-2686-5EED-85DD-FB14DE82C1BA}).",
         "fields": [
           {
             "name": "ancestors",
@@ -6476,7 +6948,7 @@
           },
           {
             "name": "content",
-            "description": "content (ID: {7D377783-E3E9-56DD-815F-ECCE67755E26}).",
+            "description": "content (ID: {D5E84FC6-39BE-5A62-8D14-1B053C72E84B}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -6754,7 +7226,7 @@
           },
           {
             "name": "title",
-            "description": "title (ID: {DE6B707F-36CD-5667-92A8-6AFD58008C89}).",
+            "description": "title (ID: {AAAE494D-5940-5769-82B4-E5A6D89D745B}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -6811,7 +7283,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideLayoutTabs",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-Layout-Tabs template (ID: {A59C7DBF-C994-5219-8DF3-96ED5C63E004}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-Layout-Tabs template (ID: {E22D6603-868E-584A-A31F-9979EDE144CA}).",
         "fields": [
           {
             "name": "ancestors",
@@ -6921,7 +7393,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -7044,7 +7516,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -7261,7 +7733,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideLayoutReuse",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-Layout-Reuse template (ID: {197A1915-CBBC-5689-B5BD-A6A13467F3E7}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-Layout-Reuse template (ID: {CA569F18-1F50-5566-B683-36DFD0335350}).",
         "fields": [
           {
             "name": "ancestors",
@@ -7371,7 +7843,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -7494,7 +7966,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -7711,7 +8183,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideItemLinkItemTemplate",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-ItemLink-Item-Template template (ID: {BDC33B20-0C9C-5D9B-B52C-4762FD3B59EF}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-ItemLink-Item-Template template (ID: {CE321069-04FF-5A53-B3C6-37640453C8F0}).",
         "fields": [
           {
             "name": "ancestors",
@@ -8087,7 +8559,7 @@
           },
           {
             "name": "textField",
-            "description": "textField (ID: {41412393-257C-5288-876F-0E67A1B51192}).",
+            "description": "textField (ID: {76766340-1868-5C8F-96A3-A8D93345BBA2}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -8144,7 +8616,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideFieldUsageText",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-FieldUsage-Text template (ID: {374C18F3-D247-56A0-B03A-421FCC4A76A2}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-FieldUsage-Text template (ID: {29636FC9-BFE1-5B5B-83BB-64C13F0B10A0}).",
         "fields": [
           {
             "name": "ancestors",
@@ -8254,7 +8726,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -8377,7 +8849,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -8528,7 +9000,7 @@
           },
           {
             "name": "sample",
-            "description": "sample (ID: {C88FA45A-6B21-5957-BADA-0F38CC50A0CC}).",
+            "description": "sample (ID: {E11F8CFE-3863-5BDD-A634-10F33E6A6E19}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -8540,7 +9012,7 @@
           },
           {
             "name": "sample2",
-            "description": "Customize Name Shown in Sitecore (ID: {1F939DC7-80EC-5F4A-B455-7A881B5310B5}).",
+            "description": "Customize Name Shown in Sitecore (ID: {F0FFE322-9606-50E8-A286-595EB3B1677B}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -8618,7 +9090,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideFieldUsageRichText",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-FieldUsage-RichText template (ID: {2DCE113F-0717-5E83-A811-C66D9E375B6A}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-FieldUsage-RichText template (ID: {46D15198-BF1F-5FE8-BDC3-9655FB19C375}).",
         "fields": [
           {
             "name": "ancestors",
@@ -8728,7 +9200,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -8851,7 +9323,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -9002,7 +9474,7 @@
           },
           {
             "name": "sample",
-            "description": "sample (ID: {AA843F7D-11CE-5719-8BB2-A064385C4681}).",
+            "description": "sample (ID: {E7A3224C-8773-5B1E-93C1-6B41E8BBD901}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -9014,7 +9486,7 @@
           },
           {
             "name": "sample2",
-            "description": "Customize Name Shown in Sitecore (ID: {D4980E41-DDF5-5EAD-A133-A2D11CF0A10B}).",
+            "description": "Customize Name Shown in Sitecore (ID: {4BAF1B60-77BD-5A79-93BC-D960EE9A5BC2}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -9092,7 +9564,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideFieldUsageNumber",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-FieldUsage-Number template (ID: {6F72FB46-D13E-5B8F-92EF-2ABD7C5CE678}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-FieldUsage-Number template (ID: {99D0846C-E040-53C8-8D0E-07381B78FE0A}).",
         "fields": [
           {
             "name": "ancestors",
@@ -9202,7 +9674,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -9325,7 +9797,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -9476,7 +9948,7 @@
           },
           {
             "name": "sample",
-            "description": "sample (ID: {BBB0168B-DCFF-580A-B7EA-EC69F9241335}).",
+            "description": "sample (ID: {99F65E94-D391-59F0-B0A6-2DCC5E90B1AE}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -9554,7 +10026,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideFieldUsageLink",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-FieldUsage-Link template (ID: {C25F15D8-3DE9-53CA-ABEC-D60A27310324}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-FieldUsage-Link template (ID: {053989A7-139B-5DFA-AA1A-CC2E6B27165C}).",
         "fields": [
           {
             "name": "ancestors",
@@ -9664,7 +10136,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -9688,7 +10160,7 @@
           },
           {
             "name": "emailLink",
-            "description": "emailLink (ID: {09812002-44A5-500D-ACD4-28EF5D07B2AE}).",
+            "description": "emailLink (ID: {7039765D-4AE6-55F9-AF8F-FC7F36DF8BB4}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -9700,7 +10172,7 @@
           },
           {
             "name": "externalLink",
-            "description": "externalLink (ID: {C18443C2-D926-546F-96EB-CDA7021071FA}).",
+            "description": "externalLink (ID: {45C33453-32FD-54F4-8572-43C1DC1D40D5}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -9811,7 +10283,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -9850,7 +10322,7 @@
           },
           {
             "name": "internalLink",
-            "description": "internalLink (ID: {EF17D33D-C888-5663-8F97-8036B3868340}).",
+            "description": "internalLink (ID: {9FCE091B-4DE5-5F29-BA32-6430FA0B2BAF}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -9930,7 +10402,7 @@
           },
           {
             "name": "paramsLink",
-            "description": "paramsLink (ID: {C1BAB701-9049-5348-BE50-A58719EE953E}).",
+            "description": "paramsLink (ID: {C8D85A83-163F-5024-856F-DD3251302413}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -10052,7 +10524,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideFieldUsageItemLink",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-FieldUsage-ItemLink template (ID: {6607F29C-F454-51E1-AFD0-DCB416ECA18B}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-FieldUsage-ItemLink template (ID: {EB8D51AF-FECE-5139-84E1-3B6B7E18A057}).",
         "fields": [
           {
             "name": "ancestors",
@@ -10162,7 +10634,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -10285,7 +10757,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -10376,7 +10848,7 @@
           },
           {
             "name": "localItemLink",
-            "description": "localItemLink (ID: {777C5315-2D62-574C-810A-B5E203C38DD5}).",
+            "description": "localItemLink (ID: {70D9EC89-E5F7-5869-914F-D6522B499808}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -10448,7 +10920,7 @@
           },
           {
             "name": "sharedItemLink",
-            "description": "sharedItemLink (ID: {B48B7303-04F5-5017-A1C0-2DB0F08BC2AD}).",
+            "description": "sharedItemLink (ID: {0281359F-6155-54A1-A167-911D8CDBF895}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -10526,7 +10998,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideFieldUsageImage",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-FieldUsage-Image template (ID: {2E99E84B-ED7F-51EA-A903-E1E22EF13E9F}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-FieldUsage-Image template (ID: {B396D788-DB65-5B76-8736-AEE2DA34C647}).",
         "fields": [
           {
             "name": "ancestors",
@@ -10636,7 +11108,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -10759,7 +11231,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -10910,7 +11382,7 @@
           },
           {
             "name": "sample1",
-            "description": "sample1 (ID: {3F02E457-7EB6-5D15-AC95-5A2287DD14A9}).",
+            "description": "sample1 (ID: {040075D3-382A-5CE5-AC22-FB23F6FEAFF3}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -10922,7 +11394,7 @@
           },
           {
             "name": "sample2",
-            "description": "sample2 (ID: {134C1907-4041-52A6-8BF7-47EDD1B8D159}).",
+            "description": "sample2 (ID: {418998A8-AD02-5E7A-9286-45C8931680C4}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -11000,7 +11472,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideFieldUsageFile",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-FieldUsage-File template (ID: {F4FEF933-8047-51B2-8A6C-202BD6A921A1}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-FieldUsage-File template (ID: {1DC60031-1674-514D-AD32-685548DEBFA8}).",
         "fields": [
           {
             "name": "ancestors",
@@ -11110,7 +11582,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -11192,7 +11664,7 @@
           },
           {
             "name": "file",
-            "description": "file (ID: {7CBE40EA-DAEB-567B-A746-8361E9E9A389}).",
+            "description": "file (ID: {20027131-2DB4-5D5E-8BB9-4C38652107D2}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -11245,7 +11717,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -11462,7 +11934,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideFieldUsageDate",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-FieldUsage-Date template (ID: {C30852C0-4E80-5BDA-A435-F7A11A5F44DE}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-FieldUsage-Date template (ID: {DB56BF17-67DC-5FD1-B0BF-61DC210836D6}).",
         "fields": [
           {
             "name": "ancestors",
@@ -11572,7 +12044,7 @@
           },
           {
             "name": "date",
-            "description": "date (ID: {742D5379-22C8-5DE7-B1C8-802B7AAA296A}).",
+            "description": "date (ID: {92518C67-84E5-5AA2-8C09-AC1CFAA63E9E}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -11584,7 +12056,7 @@
           },
           {
             "name": "dateTime",
-            "description": "dateTime (ID: {46C2FC73-E2F4-55D3-B4B2-C0C887E35EE4}).",
+            "description": "dateTime (ID: {D595790B-4D12-5663-B822-5D7739BEC958}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -11596,7 +12068,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -11719,7 +12191,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -11936,7 +12408,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideFieldUsageCustom",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-FieldUsage-Custom template (ID: {6A4B3E43-1023-5AF6-89E3-99137D7DB037}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-FieldUsage-Custom template (ID: {7B78DF77-7AAC-5E0C-BA63-C5615EE1FF28}).",
         "fields": [
           {
             "name": "ancestors",
@@ -12046,7 +12518,7 @@
           },
           {
             "name": "customIntField",
-            "description": "customIntField (ID: {A49920A5-2E36-54FD-88E9-EE9DD6A1C1DC}).",
+            "description": "customIntField (ID: {48562678-90E4-5F44-B01E-AEB90870D1E2}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -12058,7 +12530,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -12181,7 +12653,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -12398,7 +12870,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideFieldUsageContentList",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-FieldUsage-ContentList template (ID: {FCFE9F7D-7DC3-527F-B0DD-6206F20ACC88}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-FieldUsage-ContentList template (ID: {9D8DDF58-1E8A-58BD-96E8-3F3BA890263D}).",
         "fields": [
           {
             "name": "ancestors",
@@ -12508,7 +12980,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -12631,7 +13103,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -12722,7 +13194,7 @@
           },
           {
             "name": "localContentList",
-            "description": "localContentList (ID: {7883CA79-EC5B-57B4-94C6-ACD63E295845}).",
+            "description": "localContentList (ID: {4E900208-A7FD-5AD9-ABDF-EF86B139F6B7}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -12794,7 +13266,7 @@
           },
           {
             "name": "sharedContentList",
-            "description": "sharedContentList (ID: {195FB738-0B75-5C92-9C8D-C5A613A388E5}).",
+            "description": "sharedContentList (ID: {48505962-4BDC-5E98-A436-04252100BBA6}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -12872,7 +13344,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideFieldUsageCheckbox",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-FieldUsage-Checkbox template (ID: {93D8656F-A3BD-534D-BDD6-D2C55E6A1EF2}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-FieldUsage-Checkbox template (ID: {9688455E-5A1C-5B47-A2C1-C70A2E1F8094}).",
         "fields": [
           {
             "name": "ancestors",
@@ -12921,7 +13393,7 @@
           },
           {
             "name": "checkbox",
-            "description": "checkbox (ID: {B8A80B4C-E029-580C-ADF3-24A1CCDAA6D9}).",
+            "description": "checkbox (ID: {0FFB1165-22EA-5B33-9FB5-A301BDED1A53}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -12933,7 +13405,7 @@
           },
           {
             "name": "checkbox2",
-            "description": "checkbox2 (ID: {F7E780CC-DAB4-5845-9CF7-6119115D11E1}).",
+            "description": "checkbox2 (ID: {C7765A98-7B98-5B48-ABD4-3564DE87B691}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -13006,7 +13478,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -13129,7 +13601,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -13346,7 +13818,7 @@
       {
         "kind": "OBJECT",
         "name": "C__StyleguideExplanatoryComponent",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-Explanatory-Component template (ID: {127CFAA4-4689-536B-AF98-648DB1DC0FBE}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. StyleguideExplanatoryComponent) for reliable querying.",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-Explanatory-Component template (ID: {81421DBA-DFCC-5DAF-B6E6-8ED7E9B44596}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. StyleguideExplanatoryComponent) for reliable querying.",
         "fields": [
           {
             "name": "ancestors",
@@ -13456,7 +13928,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -13579,7 +14051,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -13796,7 +14268,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideContentListItemTemplate",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-ContentList-Item-Template template (ID: {CDEC86DE-6617-58C2-94BE-07E95A0FC0EB}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-ContentList-Item-Template template (ID: {38D19D62-E983-5D7B-917C-1393DF432E4C}).",
         "fields": [
           {
             "name": "ancestors",
@@ -14172,7 +14644,7 @@
           },
           {
             "name": "textField",
-            "description": "textField (ID: {C9C13EE1-D05B-571B-8184-E0131D2D6FAF}).",
+            "description": "textField (ID: {CF245FBB-78FC-5AA3-8CEE-5FF41C091DCE}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -14229,7 +14701,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideComponentParamsRenderingParameters",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-ComponentParams Rendering Parameters template (ID: {57F1C4D3-6494-5339-A7DD-C67586B5CE4F}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-ComponentParams Rendering Parameters template (ID: {C680B094-9497-503A-860B-008ACBCC4FBE}).",
         "fields": [
           {
             "name": "ancestors",
@@ -14339,7 +14811,7 @@
           },
           {
             "name": "columns",
-            "description": "columns (ID: {80BA921F-CE56-555E-B9B7-1C6F6067D102}).",
+            "description": "columns (ID: {F1DBBC21-5F94-563D-AC94-1E299A4CF6C0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -14351,7 +14823,7 @@
           },
           {
             "name": "cssClass",
-            "description": "cssClass (ID: {E8A18F3F-6537-5B29-801E-6A6A83C46FE2}).",
+            "description": "cssClass (ID: {22D868AE-5EAF-53A2-9003-C90E69942360}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -14645,7 +15117,7 @@
           },
           {
             "name": "useCallToAction",
-            "description": "useCallToAction (ID: {FD936C81-D2CD-5049-85AE-E91DEBB5B34B}).",
+            "description": "useCallToAction (ID: {936AEA07-9817-5598-B4A3-1BBC320699D9}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -14686,7 +15158,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideComponentParams",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-ComponentParams template (ID: {428C6724-C112-5256-9457-B2D677E2AD99}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-ComponentParams template (ID: {DDEFDD3F-7D98-5ED2-A622-D374B0895FD4}).",
         "fields": [
           {
             "name": "ancestors",
@@ -14796,7 +15268,7 @@
           },
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -14919,7 +15391,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -18464,7 +18936,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "Layout_3a45a72364ee49199d4102fd40fd1466",
+            "name": "Layout",
             "ofType": null
           },
           {
@@ -18478,8 +18950,465 @@
       },
       {
         "kind": "OBJECT",
+        "name": "Hero",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Hero template (ID: {868246C3-128C-5588-BF39-8936F2C75821}).",
+        "fields": [
+          {
+            "name": "ancestors",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "children",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              },
+              {
+                "name": "first",
+                "description": "Limits the results to the first n children. Use with after for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "after",
+                "description": "Cursor value. Use with first for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemSearchResults",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "displayName",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "field",
+            "description": null,
+            "args": [
+              {
+                "name": "name",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "ItemField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fields",
+            "description": null,
+            "args": [
+              {
+                "name": "ownFields",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "ItemField",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hasChildren",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "heading",
+            "description": "heading (ID: {788451E2-615A-5E78-8CC7-FE953CD62E0F}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [
+              {
+                "name": "format",
+                "description": ".NET GUID format to use. N = short id, B = long id, etc",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "\"N\""
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "image",
+            "description": "image (ID: {673B7715-30B0-5F82-9798-5A3744CF8412}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ImageField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "itemUri",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "language",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemLanguage",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "languages",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "parent",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Item",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "path",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "rendered",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "teaser",
+            "description": "teaser (ID: {DD8B345B-6A78-58F0-AA17-CFF375544278}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "template",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemTemplate",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemUrl",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "version",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Item",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
         "name": "GraphQLIntegratedDemo",
-        "description": "/sitecore/templates/Project/JssNextWeb/GraphQL-IntegratedDemo template (ID: {A912A721-7F5E-5E54-AA0E-BBB1964919AC}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/GraphQL-IntegratedDemo template (ID: {236748B9-CA86-53D8-897B-B7E6029B0BB7}).",
         "fields": [
           {
             "name": "ancestors",
@@ -18839,7 +19768,7 @@
           },
           {
             "name": "sample1",
-            "description": "sample1 (ID: {028FA2F2-3B77-5CD9-BD90-A2483A449AAF}).",
+            "description": "sample1 (ID: {4BA43468-5F3B-5F9C-A1FA-DBD4F11AEE1E}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -18851,7 +19780,7 @@
           },
           {
             "name": "sample2",
-            "description": "sample2 (ID: {7A901211-899F-5C4D-8550-179FCC2E4D74}).",
+            "description": "sample2 (ID: {CCDB4B30-D4E7-5168-9D7C-D8E774B4FD12}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -18924,7 +19853,7 @@
       {
         "kind": "OBJECT",
         "name": "GraphQLConnectedDemo",
-        "description": "/sitecore/templates/Project/JssNextWeb/GraphQL-ConnectedDemo template (ID: {8E2A4EA1-C8F5-56E6-B097-E008C994D953}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/GraphQL-ConnectedDemo template (ID: {254D08EA-6B5F-5A60-92C6-0ACA3798B858}).",
         "fields": [
           {
             "name": "ancestors",
@@ -19284,7 +20213,7 @@
           },
           {
             "name": "sample1",
-            "description": "sample1 (ID: {77EC057E-91BB-576C-9488-647056849076}).",
+            "description": "sample1 (ID: {727401BA-2825-55E7-9D9A-FB08B48BA1B6}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -19296,7 +20225,7 @@
           },
           {
             "name": "sample2",
-            "description": "sample2 (ID: {6654F72F-CE4D-5651-8DE3-862857A48447}).",
+            "description": "sample2 (ID: {762F13F6-D59A-586F-8A15-CCE5AADDD20A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -19369,7 +20298,7 @@
       {
         "kind": "OBJECT",
         "name": "ExampleCustomRouteType",
-        "description": "/sitecore/templates/Project/JssNextWeb/ExampleCustomRouteType template (ID: {0747C353-0A7D-5CAA-961E-431AB3579863}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/ExampleCustomRouteType template (ID: {BC28A232-800C-501D-802D-2F5EE4AE6383}).",
         "fields": [
           {
             "name": "ancestors",
@@ -19418,7 +20347,7 @@
           },
           {
             "name": "author",
-            "description": "author (ID: {B9C3B52F-D263-556F-BE7A-8285DC69F6C4}).",
+            "description": "author (ID: {BD3BBF21-D7AC-574B-89E3-4D119040744D}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -19491,7 +20420,7 @@
           },
           {
             "name": "content",
-            "description": "content (ID: {651E2280-B9F2-542A-837C-A8C8EC540A35}).",
+            "description": "content (ID: {3E8F4CF8-AB31-5CC8-96B2-6034E810B836}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -19614,7 +20543,7 @@
           },
           {
             "name": "headline",
-            "description": "headline (ID: {DFD79B56-1E4B-573C-9D6B-7EC18A1D3BBB}).",
+            "description": "headline (ID: {80223398-CBF3-54AF-946B-E3B902E56B00}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -19721,7 +20650,7 @@
           },
           {
             "name": "pageTitle",
-            "description": "Page Title (ID: {F8171ECB-37C5-54EE-BFED-F689C878B6E2}).",
+            "description": "Page Title (ID: {31A620C9-A1DB-5637-A757-6B6E19F70816}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -19843,7 +20772,7 @@
       {
         "kind": "OBJECT",
         "name": "ContentBlock",
-        "description": "/sitecore/templates/Project/JssNextWeb/ContentBlock template (ID: {FF17DDD8-7D5E-5062-A608-B34AA34432EA}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/ContentBlock template (ID: {022B8BC2-B6EB-5712-B2E0-7033143B0E0A}).",
         "fields": [
           {
             "name": "ancestors",
@@ -19953,7 +20882,7 @@
           },
           {
             "name": "content",
-            "description": "content (ID: {880D3E24-6DFD-5343-8376-1E3A4166D7C3}).",
+            "description": "content (ID: {CC42A489-025C-5AFC-8240-B31351DC655E}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -20076,7 +21005,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {E12AE2A4-8296-5B57-9C35-8D3C4707FF7A}).",
+            "description": "heading (ID: {5AD798FE-DE14-56BC-97B4-8CA2F7BAE75A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -20109,6 +21038,451 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "itemUri",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "language",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemLanguage",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "languages",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "parent",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Item",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "path",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "rendered",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "template",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemTemplate",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemUrl",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "version",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Item",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CarouselItem",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/CarouselItem template (ID: {5F23E2EF-7B3C-505B-8B98-FBE461E7D7E6}).",
+        "fields": [
+          {
+            "name": "ancestors",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "children",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              },
+              {
+                "name": "first",
+                "description": "Limits the results to the first n children. Use with after for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "after",
+                "description": "Cursor value. Use with first for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemSearchResults",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "displayName",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "field",
+            "description": null,
+            "args": [
+              {
+                "name": "name",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "ItemField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fields",
+            "description": null,
+            "args": [
+              {
+                "name": "ownFields",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "ItemField",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hasChildren",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "heading",
+            "description": "heading (ID: {F65E6D36-C1BA-54D3-8076-E47CDCE1155C}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [
+              {
+                "name": "format",
+                "description": ".NET GUID format to use. N = short id, B = long id, etc",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "\"N\""
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "image",
+            "description": "image (ID: {B20F90F1-A5B5-5A51-8B08-C31CBA5E3E0C}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ImageField",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -20288,7 +21662,7 @@
       {
         "kind": "OBJECT",
         "name": "C__AppRoute",
-        "description": "/sitecore/templates/Project/JssNextWeb/App Route template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. AppRoute) for reliable querying.",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/App Route template (ID: {A6D9E332-0BB7-5BF9-ADB8-B334A09E7C44}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. AppRoute) for reliable querying.",
         "fields": [
           {
             "name": "ancestors",
@@ -20604,7 +21978,7 @@
           },
           {
             "name": "pageTitle",
-            "description": "Page Title (ID: {F8171ECB-37C5-54EE-BFED-F689C878B6E2}).",
+            "description": "Page Title (ID: {31A620C9-A1DB-5637-A757-6B6E19F70816}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -21147,11 +22521,11 @@
       {
         "kind": "INTERFACE",
         "name": "StyleguideExplanatoryComponent",
-        "description": "/sitecore/templates/Project/JssNextWeb/Styleguide-Explanatory-Component template (ID: {127CFAA4-4689-536B-AF98-648DB1DC0FBE}).",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/Styleguide-Explanatory-Component template (ID: {81421DBA-DFCC-5DAF-B6E6-8ED7E9B44596}).",
         "fields": [
           {
             "name": "description",
-            "description": "description (ID: {B38510FF-8D88-5CD7-BA3F-2018315D6AB2}).",
+            "description": "description (ID: {F606FAD6-EBDF-52E7-8B8F-7F68B654633A}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -21163,7 +22537,7 @@
           },
           {
             "name": "heading",
-            "description": "heading (ID: {5A3019F4-0647-57BA-A3F6-05CEF639BE91}).",
+            "description": "heading (ID: {6D9656F2-0AFE-5DF9-8C3B-87B814CD60E0}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -21395,7 +22769,7 @@
       },
       {
         "kind": "INTERFACE",
-        "name": "Layout_3a45a72364ee49199d4102fd40fd1466",
+        "name": "Layout",
         "description": "/sitecore/templates/System/Layout/Layout template (ID: {3A45A723-64EE-4919-9D41-02FD40FD1466}).",
         "fields": [
           {
@@ -21591,11 +22965,11 @@
       {
         "kind": "INTERFACE",
         "name": "AppRoute",
-        "description": "/sitecore/templates/Project/JssNextWeb/App Route template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). Also implements Route.",
+        "description": "/sitecore/templates/Project/jss-nextjs-app/App Route template (ID: {A6D9E332-0BB7-5BF9-ADB8-B334A09E7C44}). Also implements Route.",
         "fields": [
           {
             "name": "pageTitle",
-            "description": "Page Title (ID: {F8171ECB-37C5-54EE-BFED-F689C878B6E2}).",
+            "description": "Page Title (ID: {31A620C9-A1DB-5637-A757-6B6E19F70816}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
