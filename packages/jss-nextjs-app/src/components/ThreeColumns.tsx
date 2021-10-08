@@ -14,7 +14,7 @@ const ThreeColumns = (props: ThreeColumnsProps): JSX.Element => (
       rendering={props.rendering}
       name="col1"
       renderEach={(component, index) => (
-        <div className="col-sm" key={index}>
+        <div className="col-sm-4" key={index}>
           {component}
         </div>
       )}
@@ -25,7 +25,7 @@ const ThreeColumns = (props: ThreeColumnsProps): JSX.Element => (
       rendering={props.rendering}
       name="col2"
       renderEach={(component, index) => (
-        <div className="col-sm" key={index}>
+        <div className="col-sm-4" key={index}>
           {component}
         </div>
       )}
@@ -35,7 +35,7 @@ const ThreeColumns = (props: ThreeColumnsProps): JSX.Element => (
       rendering={props.rendering}
       name="col3"
       renderEach={(component, index) => (
-        <div className="col-sm" key={index}>
+        <div className="col-sm-4" key={index}>
           {component}
         </div>
       )}

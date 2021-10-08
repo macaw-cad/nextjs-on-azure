@@ -1,5 +1,4 @@
-import { Text, Field, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
-import { renderToStaticMarkup } from 'react-dom/server';
+import { Text, Field, Image, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { Card } from '@nextjsonazure/ui-components/src/components/core/card/Card';
 
@@ -13,16 +12,9 @@ type TeaserProps = ComponentProps & {
 
 const Teaser: React.FC<TeaserProps> = ({ fields }): JSX.Element => (
   <Card
-    title={renderToStaticMarkup(<Text field={fields.heading} />)}
-    description={renderToStaticMarkup(<Text field={fields.description} />)}
-    image={
-      fields.image.value?.src
-        ? {
-            src: fields.image.value?.src,
-            alt: renderToStaticMarkup(<Text field={fields.heading} />),
-          }
-        : undefined
-    }
+    title={<Text field={fields.heading} />}
+    description={<Text field={fields.description} />}
+    image={<Image field={fields.image} />}
   />
 );
 
