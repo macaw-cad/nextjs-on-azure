@@ -46,7 +46,7 @@ const FilmSearch: React.FC<FilmSearchProps> = ({ fields, rendering }): JSX.Eleme
 
             return (
               <div className="col-sm-4 mb-3" key={i}>
-                <Card title={film.node.title} description={date ? `Release date: ${date}` : ''} />
+                <Card title={<>${film.node.title}</>} description={<>{date ? `Release date: ${date}` : ''}</>} />
               </div>
             );
           })}
