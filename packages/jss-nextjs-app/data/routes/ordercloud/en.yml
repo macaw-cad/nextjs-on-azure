@@ -1,5 +1,5 @@
 fields:
-  pageTitle: Ordercloud product list
+  pageTitle: Ordercloud
 placeholders:
   jss-header:
     - componentName: Navigation

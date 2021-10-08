@@ -12,7 +12,8 @@ import {
   RequiredDeep,
   BuyerProduct,
 } from 'ordercloud-javascript-sdk';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Card } from '@nextjsonazure/ui-components/src/components/core/card/Card';
 
 type ProductListProps = ComponentProps & {
   fields: {
@@ -20,32 +21,9 @@ type ProductListProps = ComponentProps & {
   };
 };
 
-const ProductList: React.FC<ProductListProps> = ({ rendering, fields }): JSX.Element => {
-  const data = rendering.uid
-    ? useComponentProps<RequiredDeep<ListPageWithFacets<BuyerProduct>>>(rendering.uid)
-    : undefined;
-
-  return (
-    <div>
-      <p>
-        Currently showing products with the following color facet configured in sitecore:{' '}
-        <strong>
-          <Text field={fields.colorfacet} />
-        </strong>
-      </p>
-
-      {data?.Items && (
-        <>
-          {data.Items.map((product) => {
-            return <div key={product.ID}>{product.Name}</div>;
-          })}
-        </>
-      )}
-    </div>
-  );
-};
-
-export const getStaticProps: GetStaticComponentProps = async (rendering) => {
+async function getProducts(
+  colorFacet: string
+): Promise<RequiredDeep<ListPageWithFacets<BuyerProduct>> | null> {
   const clientId = process.env.NEXT_PUBLIC_OC_CLIENT_ID || '';
   const baseApiUrl = process.env.NEXT_PUBLIC_OC_BASE_API_URL;
 
@@ -58,16 +36,79 @@ export const getStaticProps: GetStaticComponentProps = async (rendering) => {
   try {
     const response = await Me.ListProducts({
       filters: {
-        //@ts-ignore
-        'xp.Facets.Color': rendering.fields?.colorfacet?.value,
+        'xp.Facets.Color': colorFacet,
       },
     });
 
     return response;
   } catch (e) {
     console.error(e);
-    return {};
+    return null;
   }
+}
+
+const ProductList: React.FC<ProductListProps> = ({ rendering, fields }): JSX.Element => {
+  const [orderCloudClientResponse, setOrderCloudClientResponse] = useState<RequiredDeep<
+    ListPageWithFacets<BuyerProduct>
+  > | null>();
+
+  // first try server side, otherwise client side
+  const data =
+    rendering.uid &&
+    useComponentProps<RequiredDeep<ListPageWithFacets<BuyerProduct>>>(rendering.uid)
+      ? useComponentProps<RequiredDeep<ListPageWithFacets<BuyerProduct>>>(rendering.uid)
+      : orderCloudClientResponse;
+
+  async function setProducts() {
+    const response = await getProducts(fields.colorfacet.value);
+    setOrderCloudClientResponse(response);
+  }
+
+  useEffect(() => {
+    setProducts();
+  }, []);
+
+  return (
+    <div>
+      <p>
+        Currently showing products with the following color facet configured in sitecore:{' '}
+        <strong>
+          <Text field={fields.colorfacet} />
+        </strong>
+      </p>
+
+      {data?.Items && (
+        <div className="row">
+          {data.Items.map((product) => {
+            return (
+              <div className="col-sm-4 mb-4" key={product.ID}>
+                <Card
+                  title={<>{product.Name}</>}
+                  description={
+                    <>
+                      {product.xp.Price} {product.xp.PriceCurrency}
+                    </>
+                  }
+                  image={
+                    product.xp.Images && product.xp.Images[0] ? (
+                      <img src={product.xp.Images[0].url} />
+                    ) : undefined
+                  }
+                />
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export const getStaticProps: GetStaticComponentProps = async (rendering) => {
+  // @ts-ignore
+  const response = await getProducts(rendering.fields.colorfacet.value);
+
+  return response;
 };
 
 export default ProductList;
