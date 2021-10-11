@@ -1,0 +1,55 @@
+@use '../abstract/' as *;
+
+.btn {
+  --text: #{$color-btn-text};
+  --background: #{$color-btn-background};
+  --border: #{$color-btn-border};
+  --text-h: #{$color-btn-text-h};
+  --background-h: #{$color-btn-background-h};
+  --border-h: #{$color-btn-border-h};
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $btn-height;
+  padding: $btn-spacing;
+  font-size: $btn-fontsize;
+  font-weight: $btn-fontweight;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: $border-radius;
+  outline: none;
+  transition: $btn-transition;
+
+  &:hover,
+  &:focus {
+    --background: var(--background-h);
+    --text: var(--text-h);
+    --border: var(--border-h);
+
+    color: var(--text-h); /* to overrule hyperlink color */
+  }
+
+  &:disabled, &.is-disabled {
+    pointer-events: none;
+    opacity: .5;
+  }
+
+  &--large {
+    min-height: $btn-large-height;
+    padding: $btn-large-spacing;
+    font-size: $btn-large-fontsize;
+  }
+
+  &--primary {
+    --text: #{$color-btn-primary-text};
+    --background: #{$color-btn-primary-background};
+    --border: #{$color-btn-primary-border};
+    --text-h: #{$color-btn-primary-text-h};
+    --background-h: #{$color-btn-primary-background-h};
+    --border-h: #{$color-btn-primary-border-h};
+  }
+}

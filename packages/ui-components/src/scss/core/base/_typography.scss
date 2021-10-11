@@ -1,6 +1,20 @@
-h1, h2, h3, h4 , h5, h6, p {
+h1, h2, h3, h4 {
+  line-height: 1.2;
+}
+
+h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1, h2, h3, h4 {
   &:not(:last-child) {
-    margin-bottom: 1em;
+    margin-bottom: .625em;
+  }
+}
+
+h5, p {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
   }
 }
 
@@ -10,5 +24,24 @@ a {
   &:hover,
   &:focus {
     text-decoration: underline;
+  }
+}
+
+ul, ol {
+  padding-left: 1.5em;
+}
+
+table {
+  th, td {
+    padding: space(1) space(4);
+  }
+  
+  th,
+  tr:not(:last-child) td {
+    border-bottom: 1px solid #eee;
+  }
+
+  tr:nth-child(odd) td {
+    background-color: #fafafa;
   }
 }

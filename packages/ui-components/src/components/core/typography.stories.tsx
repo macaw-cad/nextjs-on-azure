@@ -25,7 +25,24 @@ const Template: Story = () => {
         perferendis architecto explicabo nobis!
       </p>
       <p>
-        Facilis rerum <a href="#">sequi delectus autem itaque</a> in expedita
+        Facilis rerum <a href="#woop">sequi delectus autem itaque</a> in expedita
+        debitis dignissimos, mollitia odit quae. Ullam repudiandae, consequatur
+        officiis doloremque maxime totam atque rem? Placeat sequi quam,
+        dignissimos veniam earum, nihil ducimus illo mollitia velit sunt
+        incidunt nam? Esse ipsum voluptates omnis nihil ratione illum aliquam!
+      </p>
+      <ol>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+      </ol>
+      <ul>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+      </ul>
+      <p>
+        Facilis rerum sequi delectus autem itaque in expedita
         debitis dignissimos, mollitia odit quae. Ullam repudiandae, consequatur
         officiis doloremque maxime totam atque rem? Placeat sequi quam,
         dignissimos veniam earum, nihil ducimus illo mollitia velit sunt

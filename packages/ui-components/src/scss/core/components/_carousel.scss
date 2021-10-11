@@ -1,0 +1,27 @@
+.m-carousel {
+  position: relative;
+
+  &__slides {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: auto;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      height: 0;
+    }
+
+    > li {
+      display: flex;
+      flex: 1 0 100%;
+      justify-content: stretch;
+      overflow: hidden;
+      scroll-snap-align: center;
+    }
+  }
+}

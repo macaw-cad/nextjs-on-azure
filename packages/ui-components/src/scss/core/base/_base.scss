@@ -6,6 +6,8 @@ body {
   line-height: $line-height;
 }
 
-a {
-  color: $color-link;
+a:not([class]) {
+  &, &:link, &:visited {
+    color: $color-link;
+  }
 }

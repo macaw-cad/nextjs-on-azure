@@ -1,6 +1,29 @@
-$brand: hsl(240, 57%, 53%) !default;
-$success: hsl(212, 87%, 47%) !default;
+@use 'sass:color';
+
+// pallet
+$brand: hsl(239, 94%, 57%) !default;
+$info: hsl(212, 87%, 47%) !default;
+$success: hsl(110, 91%, 30%) !default;
 $warning: hsl(34, 88%, 45%) !default;
 $danger: hsl(0, 100%, 35%) !default;
+
+// base
 $text: hsl(0, 0%, 20%) !default;
 $link: $brand !default;
+
+// buttons
+$btn-text: #fff !default;
+$btn-background: #666 !default;
+$btn-border: $btn-background !default;
+
+$btn-text-h: $btn-text !default;
+$btn-background-h: color.scale($btn-background, $lightness: 15%) !default;
+$btn-border-h: $btn-background-h !default;
+
+$btn-primary-text: #fff !default;
+$btn-primary-background: $brand !default;
+$btn-primary-border: $btn-primary-background !default;
+
+$btn-primary-text-h: $btn-primary-text !default;
+$btn-primary-background-h: color.scale($btn-primary-background, $lightness: 15%) !default;
+$btn-primary-border-h: $btn-primary-background-h !default; 
