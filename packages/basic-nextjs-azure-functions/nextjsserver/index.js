@@ -1,8 +1,15 @@
-const next = require('@nextjsonazure/basic-nextjs-example/node_modules/next')
-
+let next;
 const dev = false
 let app;
 let handle;
+
+const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
+
+if (isOnAzure) {
+    next = require("../../basic-nextjs-example/node_modules/next");
+} else {
+    next = require("@nextjsonazure/basic-nextjs-example/node_modules/next")
+}
 
 module.exports = async function (context, req) {
 

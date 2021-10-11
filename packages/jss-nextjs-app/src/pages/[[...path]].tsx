@@ -56,9 +56,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   if (process.env.NODE_ENV !== 'development') {
     // Note: Next.js runs export in production mode
     // const paths = await sitemapFetcher.fetch(context);
-    // console.log("paths", paths);
 
-  
     return {
       paths: [],
       fallback: process.env.EXPORT_MODE ? false : 'blocking',

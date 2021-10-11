@@ -1,6 +1,6 @@
 schema:
   - './src/temp/GraphQLIntrospectionResult.json'
-documents: 'src/**/*.graphql'
+documents: 'src/**/*.sitecore.graphql'
 plugins:
   - typescript
   - typescript-operations

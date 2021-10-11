@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && rimraf dist && mkdir dist && ncp .next dist/.next && ncp package.json dist/package.json && ncp package-lock.json dist/package-lock.json && cd dist && npm install --production",
     "start": "next start"
   },
   "dependencies": {
