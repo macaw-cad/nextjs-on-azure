@@ -1,0 +1,9 @@
+fields:
+  pageTitle: Ordercloud
+placeholders:
+  jss-header:
+    - componentName: Navigation
+  jss-main:
+  - componentName: ProductList
+    fields:
+      colorfacet: white

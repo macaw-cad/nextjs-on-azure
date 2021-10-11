@@ -6,6 +6,7 @@
   "config": {
     "appName": "jss-nextjs-app",
     "rootPlaceholders": [
+      "jss-header",
       "jss-main"
     ],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
@@ -35,11 +36,13 @@
     "bootstrap": "^4.3.1",
     "graphql": "~15.4.0",
     "graphql-tag": "^2.11.0",
-    "next": "^10.0.3",
+    "next": "10.2.3",
     "next-localization": "^0.10.0",
     "nprogress": "~0.2.0",
+    "ordercloud-javascript-sdk": "^4.2.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "sass": "^1.42.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.19.1",
@@ -49,6 +52,7 @@
     "@graphql-codegen/typescript-operations": "^1.17.9",
     "@graphql-codegen/typescript-resolvers": "^1.17.10",
     "@graphql-typed-document-node/core": "^3.1.0",
+    "@nextjsonazure/ui-components": "*",
     "@sitecore-jss/sitecore-jss-cli": "^18.0.0",
     "@sitecore-jss/sitecore-jss-dev-tools": "^18.0.0",
     "@sitecore-jss/sitecore-jss-manifest": "^18.0.0",
@@ -79,7 +83,7 @@
   "scripts": {
     "jss": "jss",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts ./sitecore/definitions/**/*.ts ./scripts/**/*.ts ./data/**/*.yml",
-    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let",
+    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let && graphql-let --config .graphql-let-film.yml",
     "build": "npm-run-all --serial bootstrap next:build && rimraf dist && mkdir dist && ncp .next dist/.next && ncp package.json dist/package.json && ncp package-lock.json dist/package-lock.json && cd dist && npm install --production",
     "graphql:update": "ts-node --project tsconfig.scripts.json ./scripts/fetch-graphql-introspection-data.ts",
     "next:build": "next build",

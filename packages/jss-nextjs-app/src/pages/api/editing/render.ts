@@ -1,5 +1,4 @@
 import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
-const os = require('os');
 
 /**
  * This Next.js API route is used to handle POST requests from the Sitecore Experience Editor.
@@ -24,8 +23,6 @@ export const config = {
     },
   },
 };
-
-console.log("os", os.tmpdir())
 
 // Wire up the EditingRenderMiddleware handler
 const handler = new EditingRenderMiddleware().getHandler();

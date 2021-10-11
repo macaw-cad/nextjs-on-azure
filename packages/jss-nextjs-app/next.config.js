@@ -10,6 +10,9 @@ const isDisconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
 const publicUrl = process.env.PUBLIC_URL;
 
 const nextConfig = {
+  experimental: {
+    externalDir: true,
+  },
 
   compress: false,
 
@@ -97,9 +100,15 @@ const nextConfig = {
 
 const applyGraphQLCodeGenerationLoaders = (config, options) => {
   config.module.rules.push({
-    test: /\.graphql$/,
+    test: /\.sitecore.graphql$/,
     exclude: /node_modules/,
     use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader' }],
+  })
+
+  config.module.rules.push({
+    test: /\.film.graphql$/,
+    exclude: /node_modules/,
+    use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader', options: { configFile: ".graphql-let-film.yml" } }],
   })
 
   config.module.rules.push({

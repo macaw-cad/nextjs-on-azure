@@ -3,10 +3,10 @@ const { URL } = require("url");
 let next;
 
 
-// on build env the jss-nextjs-app is copied into the azure function app
-const isBuildEnvironment = fs.existsSync("../jss-nextjs-app/node_modules/next");
+// on azure the jss-nextjs-app is lerna symlink doesnt work
+const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
 
-if (isBuildEnvironment) {
+if (isOnAzure) {
     next = require("../../jss-nextjs-app/node_modules/next");
 } else {
     next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
@@ -32,7 +32,15 @@ module.exports = async function (context, req) {
                         https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance
                     */
                     compress: false,
-                    distDir: "../jss-nextjs-app/.next"
+                    distDir: "../jss-nextjs-app/.next",
+                    i18n: {
+                        // These are all the locales you want to support in your application.
+                        // These should generally match (or at least be a subset of) those in Sitecore.
+                        locales: ['en', 'da-DK'],
+                        // This is the locale that will be used when visiting a non-locale
+                        // prefixed path e.g. `/styleguide`.
+                        defaultLocale: "en",
+                    }
                 }
             });
 

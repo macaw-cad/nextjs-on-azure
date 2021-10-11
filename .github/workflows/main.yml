@@ -1,7 +1,7 @@
-name: Deploy nextjs build
+name: Deploy jss nextjs
 
 on:
-  [push]
+  [workflow_dispatch]
 
 env:
   AZURE_FUNCTIONAPP_NAME: funcjssnextjsonazure    # set this to your application's name
@@ -38,6 +38,17 @@ jobs:
         npm run build:jssnextjs
         npm run build:azure-functions
         popd
+
+    - uses: kheiakiyama/install-azcopy-action@v1
+      with:
+        version: 'v10'
+    - run: azcopy_v10 rm '${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
+
+
+    - uses: kheiakiyama/install-azcopy-action@v1
+      with:
+        version: 'v10'
+    - run: azcopy_v10 rm '${{ env.AZUREFUNCDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
 
     - uses: kheiakiyama/install-azcopy-action@v1
       with:

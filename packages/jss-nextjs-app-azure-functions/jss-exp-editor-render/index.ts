@@ -137,16 +137,7 @@ function setPreviewData<T>(
   }
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-   
-    // const isBuildEnvironment = context.executionContext.functionDirectory.includes("www");
-    context.log("isBuildEnvironment", context.req.url, isOnAzure);
-    let EditingRenderMiddleware;
-    
-    // if (isOnAzure) {
-        EditingRenderMiddleware = require(`${baseRequirePath}/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware`).EditingRenderMiddleware;
-    // } else {
-    //     EditingRenderMiddleware = require('@nextjsonazure/jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware').EditingRenderMiddleware;
-    // }
+    const EditingRenderMiddleware = require(`${baseRequirePath}/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware`).EditingRenderMiddleware;
     
     const parsedUrl = new URL(context.req.url);
 
@@ -173,14 +164,11 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     customContextRes.setPreviewData = (previewData) => {
         const manifest = require("../../../jss-nextjs-app/.next/prerender-manifest.json");
         
-        console.log("manifest", manifest.preview);
-        
         const cookies = setPreviewData(previewData, manifest.preview as any);
         customContextRes.headers = {
             'Set-Cookie': cookies.join(';'),
             'Content-Type': "application/json; charset=utf-8"
         };
-        context.log({previewData});
     };
     
     customContextRes.getHeader = (header: string) => {

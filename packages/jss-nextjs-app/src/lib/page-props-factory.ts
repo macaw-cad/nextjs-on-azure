@@ -7,6 +7,7 @@ import {
   LayoutServiceData,
   LayoutService,
   editingDataService,
+  EditingPreviewData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
@@ -67,16 +68,15 @@ export class SitecorePagePropsFactory {
       componentProps = {},
       notFound = false;
 
-    console.log("context", context.preview, context);
-
     if (context.preview) {
       /**
        * Preview mode
        */
       // If we're in preview (editing) mode, use data already sent along with the editing request
-      const data = await editingDataService.getEditingData(context.previewData);
+      const data = await editingDataService.getEditingData(
+        context.previewData as EditingPreviewData
+      );
 
-      console.log("editing data", data);
       if (!data) {
         throw new Error(
           `Unable to get editing data for preview ${JSON.stringify(context.previewData)}`
@@ -91,7 +91,6 @@ export class SitecorePagePropsFactory {
        */
       // Get normalized Sitecore item path
       const path = extractPath(context.params);
-      console.error("path", path);
 
       // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
       locale = context.locale ?? packageConfig.language;
@@ -138,7 +137,7 @@ export class SitecorePagePropsFactory {
       layoutData,
       dictionary,
       componentProps,
-      notFound
+      notFound,
     };
   }
 }
