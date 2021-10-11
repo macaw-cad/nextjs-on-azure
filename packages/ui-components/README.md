@@ -1,0 +1,1 @@
+The `ui-components` package provides a core set of React UI component and styling for building customer-facing websites.
