@@ -1,7 +1,15 @@
-const fs = require("fs");
-const { URL } = require("url");
-let next;
+import { Context, HttpRequest } from "@azure/functions";
+import { NextServer } from "@nextjsonazure/jss-nextjs-app/node_modules/next/dist/server/next"
+import { ServerConstructor} from "@nextjsonazure/jss-nextjs-app/node_modules/next/dist/next-server/server/next-server"; 
+import { NextConfig } from "@nextjsonazure/jss-nextjs-app/node_modules/next/dist/next-server/server/config-shared";    
+import { IncomingMessage, ServerResponse } from 'http';
+interface NextOptions extends ServerConstructor {
+    conf?: NextConfig
+}
 
+let next: (options: NextOptions) => NextServer | undefined;
+let app: NextServer | undefined;
+let handle: (req: IncomingMessage, res: ServerResponse, parsedUrl?: URL | undefined) => Promise<any> | undefined;
 
 // on azure the jss-nextjs-app is lerna symlink doesnt work
 const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
@@ -12,9 +20,6 @@ if (isOnAzure) {
     next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
 }
 
-const dev = false;
-let app;
-let handle;
 
 module.exports = async function (context, req) {
     const path = (context.req?.params?.remainingPath && context.req?.params?.remainingPath !== "nextjsserver") ? `/${context.req?.params?.remainingPath}` : "/index"
@@ -22,7 +27,7 @@ module.exports = async function (context, req) {
     if (!app) {
         try {
             app = next({ 
-                dev,
+                dev: false,
                 conf: {
                     /* 
                         This flag is required to prevent the "implicit header is not a function" error
@@ -40,16 +45,19 @@ module.exports = async function (context, req) {
                         // This is the locale that will be used when visiting a non-locale
                         // prefixed path e.g. `/styleguide`.
                         defaultLocale: "en",
-                    }
+                    },
+                    future: {
+                        excludeDefaultMomentLocales: false,
+                        strictPostcssConfiguration: false,
+                        webpack5: false
+                    },
+                    experimental: {}
                 }
             });
 
-            // context.res = {
-            //     status: 200,
-            //     body: JSON.stringify(context.req.body)
-            // }
 
             await app.prepare();
+            // @ts-ignore nextjs type for parsedUrl is incorrect
             handle = app.getRequestHandler();
         } catch(e) {
             console.error(e);
@@ -60,16 +68,14 @@ module.exports = async function (context, req) {
         }
     }
 
-    const parsedUrl = new URL(`https://randombaseurl.nl${path}`);
+    const protocol = req.url.includes("https") ? "https://" : "http://";
+    const parsedUrl = new URL(`${path}`, `${protocol}${process.env.WEBSITE_HOSTNAME}`);
 
     // This fixes the "__nextlocale of undefined" bug
+    // @ts-ignore nextjs expects an object here, ts a string...
     parsedUrl.query = {};
 
     try {    
-        // context.res = {
-        //     status: 200,
-        //     body: JSON.stringify(context.req.body)
-        // }
         await handle(context.req, context.res, parsedUrl);
     } catch(e) {
         console.error(e);

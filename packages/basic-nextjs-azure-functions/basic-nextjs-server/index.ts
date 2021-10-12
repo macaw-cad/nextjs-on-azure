@@ -11,6 +11,7 @@ let next: (options: NextOptions) => NextServer | undefined;
 let app: NextServer | undefined;
 let handle: (req: IncomingMessage, res: ServerResponse, parsedUrl?: URL | undefined) => Promise<any> | undefined;
 
+// on azure the jss-nextjs-app is lerna symlink doesnt work
 const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
 
 if (isOnAzure) {
