@@ -16,5 +16,6 @@
       "direction": "out",
       "name": "$return"
     }
-  ]
+  ],
+  "scriptFile": "../dist/serveStaticFile/index.js"
 }
