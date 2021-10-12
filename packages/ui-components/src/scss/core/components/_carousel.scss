@@ -1,4 +1,6 @@
-.m-carousel {
+@use '../abstract/' as *;
+
+.carousel {
   position: relative;
 
   &__slides {
@@ -22,6 +24,104 @@
       justify-content: stretch;
       overflow: hidden;
       scroll-snap-align: center;
+
+      > * {
+        width: 100%;
+      }
+    }
+  }
+
+  &__prev,
+  &__next {
+    position: absolute;
+    inset: 0 auto 0 0;
+    display: grid;
+    place-items: center;
+    width: space(14);
+    padding: 0;
+    color: #fff;
+    background: transparent;
+    border: 0;
+    opacity: .75;
+    transition: .12s linear;
+
+    &::after {
+      @include triangle(left, space(4), space(4), #fff);
+    }
+
+    &:hover,
+    &:active {
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__next {
+    inset: 0 0 0 auto;
+
+    &::after {
+      @include triangle(right, space(4), space(4), #fff);
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    inset: auto space(4) 0;
+    display: flex;
+    gap: space(2);
+    place-items: center;
+    justify-content: center;
+  }
+
+  &__btn {
+    display: grid;
+    place-items: center;
+    width: space(9);
+    height: space(10);
+    padding: 0;
+    border: 0;
+    transition: .12s linear;
+
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
+    span {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: space(1);
+      overflow: hidden;
+      font-size: 0;
+      background-color: hsla(0, 0%, 100%, 50%);
+
+      &::after {
+        position: absolute;
+        inset: 0;
+        display: block;
+        content: '';
+        background-color: hsla(0, 0%, 100%, 100%);
+        transition: .1s linear, transform .4s cubic-bezier(.215, .61, .355, 1);
+        transform: translateX(150%);
+      }
+    }
+
+    &.is-active {
+      span::after {
+        transform: translateX(0%);
+      }
+
+      ~ .carousel__btn {
+        span::after {
+          transform: translateX(-150%);
+        }
+      }
     }
   }
 }

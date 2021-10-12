@@ -48,6 +48,37 @@ const Template: Story = () => {
         dignissimos veniam earum, nihil ducimus illo mollitia velit sunt
         incidunt nam? Esse ipsum voluptates omnis nihil ratione illum aliquam!
       </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Head</th>
+            <th>Head</th>
+            <th>Head</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>value</td>
+            <td>value</td>
+            <td>value</td>
+          </tr>
+          <tr>
+            <td>value</td>
+            <td>value</td>
+            <td>value</td>
+          </tr>
+          <tr>
+            <td>value</td>
+            <td>value</td>
+            <td>value</td>
+          </tr>
+          <tr>
+            <td>value</td>
+            <td>value</td>
+            <td>value</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   )  
 }

@@ -1,20 +1,61 @@
-h1, h2, h3, h4 {
+@use '../abstract/' as *;
+
+h1, %h1 {
+  font-size: space(11);
+  font-weight: 300;
   line-height: 1.2;
-}
 
-h3, h4, h5, h6 {
-  font-weight: bold;
-}
-
-h1, h2, h3, h4 {
   &:not(:last-child) {
-    margin-bottom: .625em;
+    margin: 0 0 space(6);
   }
 }
 
-h5, p {
+h2, %h2 {
+  font-size: space(8);
+  line-height: 1.2;
+  
   &:not(:last-child) {
-    margin-bottom: 1rem;
+    margin: 0 0 space(5);
+  }
+}
+
+h3, %h3 {
+  font-size: space(7);
+  line-height: 1.35;
+  
+  &:not(:last-child) {
+    margin: 0 0 space(5);
+  }
+}
+
+h4, %h4 {
+  font-size: space(6);
+  line-height: 1.35;
+  
+  &:not(:last-child) {
+    margin: 0 0 space(4);
+  }
+}
+
+h5, %h5 {
+  font-size: space(5);
+  
+  &:not(:last-child) {
+    margin: 0 0 space(4);
+  }
+}
+
+h6, %h6 {
+  font-size: space(4);
+  
+  &:not(:last-child) {
+    margin: 0;
+  }
+}
+
+p {
+  &:not(:last-child) {
+    margin: 0 0 space(4);
   }
 }
 
@@ -34,6 +75,7 @@ ul, ol {
 table {
   th, td {
     padding: space(1) space(4);
+    text-align: left;
   }
   
   th,

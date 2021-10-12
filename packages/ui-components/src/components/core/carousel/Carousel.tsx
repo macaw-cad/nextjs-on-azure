@@ -22,18 +22,14 @@ interface CarouselControlsProps extends NavigateSlidesProps {
   slides: React.ReactElement[];
 }
 
-const CarouselControls: React.FC<CarouselControlsProps> = ({
-  slides,
-  activeSlide,
-  navigateSlides,
-}) => {
+const CarouselControls: React.FC<CarouselControlsProps> = ({ slides, activeSlide, navigateSlides }) => {
   return (
-    <div className="m-carousel__controls">
+    <div className="carousel__controls">
       {slides.map((_slide, index) => (
         <button
           key={index}
           type="button"
-          className={`m-carousel__btn${index === activeSlide ? ` is-active` : ""}`}
+          className={`carousel__btn${index === activeSlide ? ` is-active` : ""}`}
           onClick={() => navigateSlides(index)}
         >
           <span>{index + 1}</span>
@@ -43,12 +39,7 @@ const CarouselControls: React.FC<CarouselControlsProps> = ({
   );
 };
 
-export const Carousel: React.FC<CarouselProps> = ({
-  children,
-  className,
-  noloop,
-  setSlide,
-}) => {
+export const Carousel: React.FC<CarouselProps> = ({ children, className, noloop, setSlide }) => {
   const [isActiveSlide, setActiveSlide] = useState(0);
   const [isPresentedSlide, setPresentedSlide] = useState(0);
   const carouselRef = useRef<HTMLUListElement>(null);
@@ -133,9 +124,11 @@ export const Carousel: React.FC<CarouselProps> = ({
   }, []);
 
   return (
-    <div className={`m-carousel${className ? ` ${className}` : ""}`}>
+    <div className={`carousel${className ? ` ${className}` : ""}`}>
+      {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
       <ul
-        className="m-carousel__slides"
+        role="list"
+        className="carousel__slides"
         onScroll={setScrollState}
         ref={carouselRef}
       >
@@ -150,18 +143,14 @@ export const Carousel: React.FC<CarouselProps> = ({
       </ul>
       <button
         type="button"
-        className="m-carousel__prev"
+        className="carousel__prev"
         onClick={() => navigateSlides(SlideDirection.Prev)}
-      >
-        &lt;
-      </button>
+      />
       <button
         type="button"
-        className="m-carousel__next"
+        className="carousel__next"
         onClick={() => navigateSlides(SlideDirection.Next)}
-      >
-        &gt;
-      </button>
+      />
       <CarouselControls
         slides={children}
         activeSlide={isActiveSlide}
