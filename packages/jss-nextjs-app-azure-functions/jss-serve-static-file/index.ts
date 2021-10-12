@@ -8,7 +8,7 @@ let nextPath: string | undefined;
 const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
 
 if (isOnAzure) {
-    nextPath = path.dirname(require.resolve("../../jss-nextjs-app/.next/BUILD_ID"));
+    nextPath = path.dirname(require.resolve("../../../jss-nextjs-app/.next/BUILD_ID"));
 } else {
     nextPath = path.dirname(require.resolve("@nextjsonazure/jss-nextjs-app/.next/BUILD_ID"));
 }

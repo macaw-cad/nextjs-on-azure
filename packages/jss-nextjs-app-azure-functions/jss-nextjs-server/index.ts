@@ -15,7 +15,7 @@ let handle: (req: IncomingMessage, res: ServerResponse, parsedUrl?: URL | undefi
 const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
 
 if (isOnAzure) {
-    next = require("../../jss-nextjs-app/node_modules/next");
+    next = require("../../../jss-nextjs-app/node_modules/next");
 } else {
     next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
 }
