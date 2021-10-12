@@ -16,5 +16,6 @@
       "direction": "out",
       "name": "res"
     }
-  ]
+  ],
+  "scriptFile": "../dist/jss-nextjs-server/index.js"
 }

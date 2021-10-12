@@ -1,9 +1,9 @@
 fields:
-  pageTitle: GraphQL
+  pageTitle: Ordercloud
 placeholders:
   jss-header:
     - componentName: Navigation
   jss-main:
-  - componentName: FilmSearch
+  - componentName: ProductList
     fields:
-      searchTerm: James Bond
+      colorfacet: white

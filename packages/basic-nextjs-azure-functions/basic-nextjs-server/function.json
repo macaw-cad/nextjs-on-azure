@@ -6,15 +6,15 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get",
-        "post"
+        "get"
       ],
-      "route": "serveStaticFile"
+      "route": "nextjsserver/{*remainingPath}"
     },
     {
       "type": "http",
       "direction": "out",
-      "name": "$return"
+      "name": "res"
     }
-  ]
+  ],
+  "scriptFile": "../dist/basic-nextjs-server/index.js"
 }

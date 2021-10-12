@@ -39,6 +39,7 @@
     "next": "10.2.3",
     "next-localization": "^0.10.0",
     "nprogress": "~0.2.0",
+    "ordercloud-javascript-sdk": "^4.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sass": "^1.42.1"
@@ -82,7 +83,7 @@
   "scripts": {
     "jss": "jss",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts ./sitecore/definitions/**/*.ts ./scripts/**/*.ts ./data/**/*.yml",
-    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let",
+    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let && graphql-let --config .graphql-let-film.yml",
     "build": "npm-run-all --serial bootstrap next:build && rimraf dist && mkdir dist && ncp .next dist/.next && ncp package.json dist/package.json && ncp package-lock.json dist/package-lock.json && cd dist && npm install --production",
     "graphql:update": "ts-node --project tsconfig.scripts.json ./scripts/fetch-graphql-introspection-data.ts",
     "next:build": "next build",

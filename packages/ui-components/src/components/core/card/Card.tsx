@@ -1,23 +1,22 @@
-type CardImage = {
-    src: string;
-    alt?: string;
-}
+import React from "react"
 
 type CardProps = {
-    title: string;
-    description?: string;
-    image?: CardImage;
+    title: JSX.Element;
+    description?: JSX.Element;
+    image?: JSX.Element
 }
 
 export const Card: React.FC<CardProps> = ({ title, description, image }) => {
     return (
-        <div className="card" >
-            {image && 
-                <img className="card-img-top" {...image} />
+        <div className="card h-100">
+            {image &&
+                <>{React.cloneElement(image, { className: "card-img-top h-auto" })}</> 
             }
             <div className ="card-body">
-                <h5 className ="card-title">{title}</h5>
-                <p className ="card-text">{description}</p>
+                <h5 className="card-title">{title}</h5>
+                {description && 
+                    <p className="card-text">{description}</p>
+                }
             </div>
         </div>
     )

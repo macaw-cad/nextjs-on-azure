@@ -36,7 +36,9 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
         ...context.req,
     }
 
-    customContextReq.query.key = context.req.params.path
+    customContextReq.query.key = context.req.params.path;
+
+    // TODO: How will this work when language is dynamic?
     customContextReq.query["__nextDefaultLocale"] = "en";
     customContextReq.query["__nextLocale"] = "en";
     

@@ -43,6 +43,7 @@
     // needed for NextJS's in order to use jsx without react import
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "error",
-    "jsx-quotes": ["error", "prefer-double"]
+    "jsx-quotes": ["error", "prefer-double"],
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }
