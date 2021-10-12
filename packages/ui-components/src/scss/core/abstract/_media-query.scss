@@ -4,33 +4,39 @@
 * NOTE: consider using custom written media-queries for your components instead
 * of 'out of the box' values to best fit the content you are presenting.
 *
-* Uses $breakpoints map in 'variables' for definition of the breakpoints 
-*
 * default media-query names:
 *
-* XS
-* S
-* M
-* L
-* XL
+* xs
+* s
+* m
+* l
+* xl
 *
 * usage:
 * as min-width for [breakpoint] and wider styling:
 *
-*	@include mq(L){
+*	@include mq(l){
 *		[styles here]
 *	}
 *
 * as max-width for up to [breakpoint] width styling:
 *
-*	@include mq(L-max){
+*	@include mq(l-max){
 *		[styles here]
 *	}
 *
 * NOTE: max-width assumes breakpoints are set in 'px' units
 *
 **/
-@use './variables' as *;
+
+// media-query breakpoints
+$breakpoints: (
+  'xs':	400px,
+  's':	768px,
+  'm':	1024px,
+  'l':  1200px,
+  'xl': 1540px
+) !default;
 
 @mixin mq($media-query) {
   @each $breakpoint-name, $breakpoint-value in $breakpoints {

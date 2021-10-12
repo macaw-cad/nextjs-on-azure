@@ -1,0 +1,12 @@
+@use '../abstract/' as *;
+@use 'sass:map';
+
+@if map.get($spacing-classes, generate) {
+
+  @include make-spaces($space-prefixes, $spacing, map.get($spacing-classes, important));
+
+  @if map.get($spacing-classes, responsive) {
+    @include make-breakpoint-spaces($breakpoints, map.get($spacing-classes, important));
+  }
+
+}

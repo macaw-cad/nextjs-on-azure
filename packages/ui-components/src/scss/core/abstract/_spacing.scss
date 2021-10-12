@@ -1,4 +1,8 @@
+@use './svg-data-uri' as *;
+@use './media-query' as *;
 @use 'sass:map';
+@use 'sass:string';
+@use 'sass:meta';
 
 $spacing: (
   '0': 0,
@@ -38,6 +42,78 @@ $spacing: (
   '96': 24rem
 ) !default;
 
+// function for using spacing values in properties
 @function space($key) {
   @return map.get($spacing, #{$key});
+}
+
+//
+// for generating spacing classnames in utilities
+//
+
+// prefix and property map
+$space-prefixes: (
+  p  : padding,
+  pt : padding-top,
+  pb : padding-bottom,
+  pl : padding-left,
+  pr : padding-right,
+  ph : [padding-left, padding-right],
+  pv : [padding-top, padding-bottom],
+  m  : margin,
+  mt : margin-top,
+  mb : margin-bottom,
+  ml : margin-left,
+  mr : margin-right,
+  mh : [margin-left, margin-right],
+  mv : [margin-top, margin-bottom],
+) !default;
+
+// option to use !important
+@function is-important($boolean) {
+  @if $boolean {
+    @return !important;
+  } @else {
+    @return null;
+  }
+}
+
+// generate spacing classes
+@mixin make-spaces($space-prefixes, $spacing, $important: false, $fix: null) {
+  @each $prefix, $attr in $space-prefixes {
+
+    // add 'auto' as value option for margins
+    @if string.index($prefix, 'm') {
+      .#{$prefix + $fix}-auto {
+        @if meta.type-of($attr) == string {
+          #{$attr}: auto is-important($important);
+        } @else {
+          @each $item in $attr {
+            #{$item}: auto is-important($important);
+          }
+        }
+      }
+    }
+
+    @each $name, $space in $spacing {
+      .#{$prefix + $fix}-#{str-replace($name, '.', '-')} {
+        @if meta.type-of($attr) == string {
+          #{$attr}: $space is-important($important);
+        } @else {
+          @each $item in $attr {
+            #{$item}: $space is-important($important);
+          }
+        }
+      }
+    }
+  }
+}
+
+// create breakpoint variants of spacing classes
+@mixin make-breakpoint-spaces($breakpoints, $important: false) {
+  @each $name, $value in $breakpoints {
+    @include mq($name) {
+      @include make-spaces($space-prefixes, $spacing, $important, '-' + string.to-lower-case($name));
+    }
+  }
 }

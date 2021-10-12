@@ -8,23 +8,21 @@ $line-height: 1.5 !default;
 
 $border-radius: .25rem !default;
 
-// media-query breakpoints
-$breakpoints: (
-  'XS':	400px,
-  'S':	768px,
-  'M':	1024px,
-  'L':  1200px,
-  'XL': 1540px
-) !default;
-
 // buttons
 $btn-height: space(9) !default;
 $btn-spacing: space(.5) space(4) !default;
 $btn-radius: $border-radius !default;
-$btn-fontsize: 1rem;
-$btn-fontweight: bold;
-$btn-transition: color .12s linear, background-color .12s linear, border .12s linear;
+$btn-fontsize: 1rem !default;
+$btn-fontweight: bold !default;
+$btn-transition: color .12s linear, background-color .12s linear, border .12s linear !default;
 
 $btn-large-height: space(12) !default;
 $btn-large-spacing: space(1) space(5) !default;
-$btn-large-fontsize: 1.4rem;
+$btn-large-fontsize: 1.4rem !default;
+
+// configure utility spacing classes
+$spacing-classes: (
+  generate: true,
+  responsive: true,
+  important: false
+) !default;

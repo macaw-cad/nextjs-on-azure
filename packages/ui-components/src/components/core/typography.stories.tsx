@@ -42,7 +42,7 @@ const Template: Story = () => {
         <li>item</li>
       </ul>
       <p>
-        Facilis rerum sequi delectus autem itaque in expedita
+        Facilis <em>rerum sequi delectus autem itaque</em> in expedita
         debitis dignissimos, mollitia odit quae. Ullam repudiandae, consequatur
         officiis doloremque maxime totam atque rem? Placeat sequi quam,
         dignissimos veniam earum, nihil ducimus illo mollitia velit sunt

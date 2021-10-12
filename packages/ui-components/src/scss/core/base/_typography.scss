@@ -73,6 +73,10 @@ ul, ol {
 }
 
 table {
+  &:not(:last-child) {
+    margin: 0 0 space(4);
+  }
+
   th, td {
     padding: space(1) space(4);
     text-align: left;
