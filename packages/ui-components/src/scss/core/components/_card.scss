@@ -1,11 +1,54 @@
 @use '../abstract' as *;
+@use '../base/' as *;
 
-.c-card {
-  display: inline-flex;
+.card {
+  display: flex;
   flex-direction: column;
+  overflow: hidden;
   background: $neutral-light;
+  border-radius: $border-radius;
 
-  @include mq(L) {
-    background-color: hsl(120, 100%, 25%);
+  &__img {
+    width: 100%;
+    height: space(64);
+    object-fit: cover;
+  }
+
+  &__body {
+    @extend %box;
+  }
+
+  &__title {
+    margin-bottom: 0;
+    font-size: space(4);
+  }
+
+  // variants
+
+  &--img-16-9 {
+    .card__img {
+      height: unset;
+      aspect-ratio: 16/9;
+    }
+  }
+
+  &--img-1-1 {
+    .card__img {
+      height: unset;
+      aspect-ratio: 1/1;
+    }
+  }
+
+  &--img-bg {
+    position: relative;
+
+    .card__img {
+      position: absolute;
+      height: 100%;
+    }
+
+    .card__body {
+      position: relative;
+    }
   }
 }

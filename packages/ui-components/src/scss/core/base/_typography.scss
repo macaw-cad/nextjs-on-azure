@@ -1,62 +1,42 @@
 @use '../abstract/' as *;
 
 h1, %h1 {
-  font-size: space(11);
+  margin: 0 0 space(6);
+  font-size: space(10);
   font-weight: 300;
   line-height: 1.2;
-
-  &:not(:last-child) {
-    margin: 0 0 space(6);
-  }
 }
 
 h2, %h2 {
-  font-size: space(8);
+  margin: 0 0 space(5);
+  font-size: space(7);
   line-height: 1.2;
-  
-  &:not(:last-child) {
-    margin: 0 0 space(5);
-  }
 }
 
 h3, %h3 {
-  font-size: space(7);
+  margin: 0 0 space(5);
+  font-size: space(6);
   line-height: 1.35;
-  
-  &:not(:last-child) {
-    margin: 0 0 space(5);
-  }
 }
 
 h4, %h4 {
-  font-size: space(6);
+  margin: 0 0 space(4);
+  font-size: space(5);
   line-height: 1.35;
-  
-  &:not(:last-child) {
-    margin: 0 0 space(4);
-  }
 }
 
 h5, %h5 {
-  font-size: space(5);
-  
-  &:not(:last-child) {
-    margin: 0 0 space(4);
-  }
+  margin: 0 0 space(4);
+  font-size: space(4);
 }
 
 h6, %h6 {
+  margin: 0;
   font-size: space(4);
-  
-  &:not(:last-child) {
-    margin: 0;
-  }
 }
 
 p {
-  &:not(:last-child) {
-    margin: 0 0 space(4);
-  }
+  margin: 0 0 space(4);
 }
 
 a {

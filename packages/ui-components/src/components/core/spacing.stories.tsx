@@ -166,6 +166,9 @@ const Template: Story = (args) => {
         One spacing unit is equal to 0.25rem, which translates to 4px by default in common browsers
         and the value '4' is equal to the base font size.
         </p>
+        <p>
+        You can also apply these using <a href="/?path=/story/core-utilities-spacingclasses--spacing-classes">utility spacing classes</a>.
+        </p>
       </section>
 
       <table className="sb-table">
@@ -219,7 +222,6 @@ const Template: Story = (args) => {
 }
 
 export const Spacing = Template.bind({});
-
 Spacing.args = {
   fontsize: 16,
 };

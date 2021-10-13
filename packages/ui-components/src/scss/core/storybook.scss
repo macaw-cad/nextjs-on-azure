@@ -1,4 +1,4 @@
-@use './index.scss' as *;
+@use './index-typography.scss' as *;
 
 .sb-table {
   th, td {
@@ -32,4 +32,15 @@
 .sb-attn {
   font-weight: normal;
   color: rgb(196, 28, 159);
+}
+
+.sb-totop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: space(12);
+
+  a {
+    font-size: 1rem;
+  }
 }

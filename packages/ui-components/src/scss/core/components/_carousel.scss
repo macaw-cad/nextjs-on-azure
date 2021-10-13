@@ -26,7 +26,8 @@
       overflow: hidden;
       scroll-snap-align: center;
 
-      > img {
+      > img,
+      > video {
         width: 100%;
       }
     }

@@ -1,0 +1,13 @@
+@use '../abstract/' as *;
+
+%box {
+  padding: $box-padding;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}

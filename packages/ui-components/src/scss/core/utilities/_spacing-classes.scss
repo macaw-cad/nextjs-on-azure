@@ -8,5 +8,4 @@
   @if map.get($spacing-classes, responsive) {
     @include make-breakpoint-spaces($breakpoints, map.get($spacing-classes, important));
   }
-
 }
