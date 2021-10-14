@@ -8,16 +8,6 @@ $line-height: 1.5 !default;
 
 $border-radius: space(1.5) !default;
 
-// for generic spacing of a container
-// consider applying using:
-//
-// @extend %box;
-//
-// that will also chop margin-top and
-// margin-bottom from it's direct children
-// (handy for text content)
-$box-padding: space(4) !default;
-
 // buttons
 $btn-height: space(9) !default;
 $btn-spacing: space(.5) space(4) !default;
@@ -36,3 +26,13 @@ $spacing-classes: (
   responsive: true,
   important: false
 ) !default;
+
+// for generic spacing of a container
+// consider applying using:
+//
+// @extend %box;
+//
+// that will also chop margin-top and
+// margin-bottom from it's direct children
+// (handy for text content)
+$box-padding: space(4) !default;

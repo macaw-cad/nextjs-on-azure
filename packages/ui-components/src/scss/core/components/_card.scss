@@ -4,18 +4,21 @@
 .card {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  background: $neutral-light;
+  border: 1px solid #ccc;
   border-radius: $border-radius;
 
   &__img {
     width: 100%;
-    height: space(64);
+    height: space(72);
+    border-radius: $border-radius $border-radius 0 0;
     object-fit: cover;
   }
 
   &__body {
     @extend %box;
+    display: flex;
+    flex-direction: column;
+    min-height: space(36);
   }
 
   &__title {
@@ -23,32 +26,69 @@
     font-size: space(4);
   }
 
+  &__text {
+    flex: 1 0; // maximize space between text and cta button
+  }
+
+  &__cta {
+    align-self: flex-start; // do not stretch button 100% wide
+
+    &:not(:first-child) {
+      margin-top: space(4);
+    }
+  }
+
+  //
   // variants
+  //
 
-  &--img-16-9 {
-    .card__img {
-      height: unset;
-      aspect-ratio: 16/9;
+  &--hd-image {
+    .card {
+      &__img {
+        height: auto;
+        aspect-ratio: 16/9;
+      }
+
+      &__body {
+        min-height: auto;
+      }
     }
   }
 
-  &--img-1-1 {
-    .card__img {
-      height: unset;
-      aspect-ratio: 1/1;
+  &--square-image {
+    .card {
+      &__img {
+        height: auto;
+        aspect-ratio: 1/1;
+      }
+
+      &__body {
+        min-height: auto;
+      }
     }
   }
 
-  &--img-bg {
+  &--bg-image {
     position: relative;
 
-    .card__img {
-      position: absolute;
-      height: 100%;
-    }
+    .card {
+      &__img {
+        position: absolute;
+        height: 100%;
+        border-radius: $border-radius;
+      }
 
-    .card__body {
-      position: relative;
+      // content will be bottom aligned
+      &__body {
+        position: relative;
+        justify-content: flex-end;
+        min-height: space(64);
+        background-color: hsla(0, 0%, 100%, 50%);
+      }
+
+      &__text {
+        flex: 0 0;
+      }
     }
   }
 }
