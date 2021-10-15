@@ -30,10 +30,10 @@ const FilmSearch: React.FC<FilmSearchProps> = ({ fields, rendering }): JSX.Eleme
     <div data-e2e-id="graphql-connected">
       <h2>Displaying a list of films using a search term configured in Sitecore</h2>
       <p>
-        Currently using this search term: <strong>{fields.searchTerm.value}</strong>
+        Currently using this search term: <strong>{fields.searchTerm.value.replace(/\s+/g, '')}</strong>
       </p>
 
-      {data?.search.edges && (
+      {data?.search?.edges && (
         <div className="row">
           {data.search.edges.map((edge, i) => {
             const film = edge as MovieEdge;
@@ -47,7 +47,7 @@ const FilmSearch: React.FC<FilmSearchProps> = ({ fields, rendering }): JSX.Eleme
             return (
               <div className="col-sm-4 mb-3" key={i}>
                 <Card
-                  title={<>${film.node.title}</>}
+                  title={<>{film.node.title}</>}
                   description={<>{date ? `Release date: ${date}` : ''}</>}
                 />
               </div>
@@ -64,7 +64,7 @@ export const getStaticProps: GetStaticComponentProps = async (rendering) => {
 
   const result = await graphQLClient.request<FilmSearchData>(FilmSearchDocument, {
     // @ts-ignore
-    searchTerm: rendering.fields?.searchTerm?.value,
+    searchTerm: rendering.fields?.searchTerm?.value.replace(/\s+/g, ''),
   });
 
   return result;

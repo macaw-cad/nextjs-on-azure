@@ -30,6 +30,6 @@ export async function getStaticProps() {
             meats,
             date: `${now.toLocaleDateString()} - ${now.toLocaleTimeString()}`
         },
-        revalidate: 10
+        revalidate: 55
     }
 }

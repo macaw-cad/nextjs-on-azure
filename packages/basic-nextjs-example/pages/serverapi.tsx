@@ -13,7 +13,7 @@ function Page({ meats, date }) {
     )
 }
 
-Page.getInitialProps = async () => {
+export async function getServerSideProps() {
     const res = await fetch('https://baconipsum.com/api/?type=meat-and-filler')
     const meats = await res.json()
     const now = new Date();

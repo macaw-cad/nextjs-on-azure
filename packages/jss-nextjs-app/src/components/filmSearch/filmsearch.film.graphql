@@ -4,10 +4,8 @@ query FilmSearch($searchTerm: String!){
         edges {
             node {
                 ...on Movie {
-                    budget
                     title
                     releaseDate
-                    imdbID
                 }
             }
         }
