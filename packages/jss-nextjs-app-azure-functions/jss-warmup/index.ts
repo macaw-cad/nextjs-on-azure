@@ -15,7 +15,19 @@ const warmupFunction: AzureFunction = async function (context: Context) {
         context.log('Error: ', err.message);
     });
 
-    httpFunction.get(`${baseUrl}/testroute`, () => {
+    httpFunction.get(`${baseUrl}/index`, () => {
+        // not interested in the results, we just want to warmup
+    }).on('error', err => {
+        context.log('Error: ', err.message);
+    });
+
+    httpFunction.get(`${baseUrl}/jss-exp-editor-render`, () => {
+        // not interested in the results, we just want to warmup
+    }).on('error', err => {
+        context.log('Error: ', err.message);
+    });
+
+    httpFunction.get(`${baseUrl}/jss-editor-data`, () => {
         // not interested in the results, we just want to warmup
     }).on('error', err => {
         context.log('Error: ', err.message);
