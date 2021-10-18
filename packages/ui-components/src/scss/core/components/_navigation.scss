@@ -1,0 +1,123 @@
+@use '../abstract/' as *;
+
+.navigation {
+  > ul {
+    display: flex;
+    flex-direction: column;
+
+    @include mq(m) {
+      flex-direction: row;
+    }
+  }
+
+  li {
+    @include mq(m) {
+      position: relative;
+    }
+  }
+
+  // items
+  &__item,
+  &__menuitem {
+    display: flex;
+    padding: space(2) space(3);
+    color: $color-brand;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color .12s linear, color .12s linear;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background-color: #f6f6f6;
+    }
+
+    &:focus-visible {
+      outline: 0;
+    }
+
+    &:active {
+      color: #fff;
+      text-decoration: none;
+      background-color: $color-brand;
+    }
+  }
+
+  .has-menu &__item {
+    &::after {
+      @include triangle(bottom, space(1.5), space(1), currentColor);
+      display: inline-flex;
+      align-self: center;
+      margin-left: space(2);
+      transition: transform .3s cubic-bezier(.455, .03, .515, .955);
+      transform-origin: center;
+    }
+
+    &.is-active {
+      &::after {
+        @include mq(m-max) {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .has-menu:hover &__item,
+  .has-menu:focus-within &__item {
+    &::after {
+      @include mq(m) {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__menuitem {
+    @include mq(m-max) {
+      padding-left: space(5);
+    }
+  }
+
+  // menus
+  &__menu {
+    height: 0;
+    overflow: hidden;
+    transform-origin: top;
+
+    @include mq(m) {
+      position: absolute;
+      min-width: 100%;
+      clip-path: inset(1px 0 1px 0);
+      background-color: #fff;
+      border: 1px solid #f6f6f6;
+      border-radius: 0 0 $border-radius $border-radius;
+      box-shadow: 0 0 12px rgba(0, 0, 0, .25);
+    }
+
+    .is-active + & {
+      @include mq(m-max) {
+        height: auto;
+        animation: quickslide .3s cubic-bezier(.165, .84, .44, 1);
+      }
+    }
+
+    .has-menu:focus-within &,
+    .has-menu:hover & {
+      @include mq(m) {
+        height: auto;
+        clip-path: inset(-1px -20px -20px -20px);
+        animation: quickslide .3s cubic-bezier(.165, .84, .44, 1);
+      }
+    }
+  }
+}
+
+@keyframes quickslide {
+  0% {
+    clip-path: inset(100% -20px -20px -20px);
+    transform: translateY(-100%);
+  }
+  
+  100% {
+    clip-path: inset(-1px -20px -20px -20px);
+  }
+}

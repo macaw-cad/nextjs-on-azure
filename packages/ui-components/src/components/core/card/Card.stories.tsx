@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Card } from './Card';
-import { url } from 'inspector';
 
 export default {
   title: 'Core/Components/Card',
@@ -30,7 +29,7 @@ const CardWrapper: React.FC<{title: string, image: string, description: string, 
 )
 
 const Template: ComponentStory<typeof CardWrapper> = (args) => {
-  return <CardWrapper {...args} />  
+  return <CardWrapper {...args} />
 }
 
 export const Default = Template.bind({});

@@ -5,7 +5,6 @@
 * @include triangle(direction,width,height,color);
 
 * Example:
-
 * selector {
 *	 @include triangle(bottomright, 50px, 50px, red);
 * }
@@ -21,7 +20,7 @@
   }
   @if $direction == bottom {
     border-color: $color transparent transparent transparent;
-    border-width: $sizeV $sizeH 0 $sizeV;
+    border-width: $sizeH $sizeV 0 $sizeV;
   }
   @if $direction == left {
     border-color: transparent $color transparent transparent;
