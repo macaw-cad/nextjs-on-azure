@@ -22,7 +22,6 @@
     display: flex;
     padding: space(2) space(3);
     color: $color-brand;
-    white-space: nowrap;
     cursor: pointer;
     transition: background-color .12s linear, color .12s linear;
 
@@ -72,8 +71,14 @@
   }
 
   &__menuitem {
+    // a submenu item on mobile has an indent
     @include mq(m-max) {
       padding-left: space(5);
+    }
+
+    // a submenu item on desktop can force the submenu to be more than 100% the width of parent menu item
+    @include mq(l) {
+      white-space: nowrap;
     }
   }
 

@@ -46,7 +46,7 @@ NavigationStory.args = {
       ]
     },
     {
-      text: 'Products sdsdf',
+      text: 'All the products',
       children: [
         {
           text: 'product A',
