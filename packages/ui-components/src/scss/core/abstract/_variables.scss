@@ -20,6 +20,11 @@ $btn-large-height: space(12) !default;
 $btn-large-spacing: space(1) space(5) !default;
 $btn-large-fontsize: 1.4rem !default;
 
+// navigation
+$nav-menu-shadow: 0 0 12px hsla(0, 0%, 0%, .25) !default;
+$nav-mobile-menu-top-offset: 4em !default;
+$nav-mobile-menu-shadow: 0 12px 12px hsla(0, 0%, 0%, .15) !default;
+
 // configure utility spacing classes
 $spacing-classes: (
   generate: true,

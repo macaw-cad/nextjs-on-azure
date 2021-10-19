@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 export type NavigationLink = {
   text?: string;
@@ -12,10 +12,13 @@ type NavigationProps = {
 }
 
 export const Navigation: React.FC<NavigationProps> = ({ links, classname }) => {
+  const [isOpenMenu, setOpenMenu] = useState(false);
+  const submenuContainers = document.querySelectorAll(".navigation .has-submenu");
+
   const renderMenu = (links: NavigationProps["links"]) => {
     return links && links.map((link: NavigationLink, key) => {
       if (link.children && link.children.length) {
-        return <li key={key} className="has-menu" onClick={toggleSubmenuMobile}>
+        return <li key={key} className="has-submenu" onClick={toggleSubmenu}>
           <a href={link.url} className="navigation__item">{link.text}</a>
           {renderSubMenu(link)}
         </li>
@@ -29,31 +32,50 @@ export const Navigation: React.FC<NavigationProps> = ({ links, classname }) => {
 
   const renderSubMenu = (links: NavigationLink) => {
     // eslint-disable-next-line jsx-a11y/no-redundant-roles
-    return <ul className="navigation__menu" role="list">{links.children && links.children.map((listItem, key) => {
+    return <ul className="navigation__submenu">{links.children && links.children.map((listItem, key) => {
       return (listItem.url && listItem.text ? (
         <li key={key}>
-          <a href={listItem.url} className="navigation__menuitem">{listItem.text}</a>
+          <a href={listItem.url} className="navigation__submenu-item">{listItem.text}</a>
         </li>
       ) : (undefined));
     })}</ul>
   };
 
-  const toggleSubmenuMobile = (event: any) => {
-    let target = event.target;
+  const toggleSubmenu = (e: any) => {
+    e.preventDefault();
+    let submenuContainer = e.target.parentElement;
 
-    return target.classList.contains('is-active') ?
-      target.classList.remove('is-active') :
-      target.classList.add('is-active');
+    return submenuContainer.classList.contains('is-open') ?
+      submenuContainer.classList.remove('is-open') :
+      submenuContainer.classList.add('is-open');
+  };
+
+  const handleMobileMenuTrigger = () => {
+    isOpenMenu ? setOpenMenu(false) : setOpenMenu(true);
+    !isOpenMenu && submenuContainers.forEach((submenuContainer) => {
+      submenuContainer.classList.remove('is-open');
+    })
   };
 
   return (
-    <nav className={`navigation ${classname ? classname : ''}`}>
-      {links &&
-        // eslint-disable-next-line jsx-a11y/no-redundant-roles
-        <ul role="list">
-          {renderMenu(links)}
-        </ul>
-      }
-    </nav>
+    <div className={`navigation ${classname ? classname : ''}`}>
+      <button className={`navigation__button${isOpenMenu ? ' is-active' : ''}`} onClick={handleMobileMenuTrigger}>
+        <div className="navigation__button-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span className="navigation__button-text">menu</span>
+      </button>
+      <nav className={`navigation__container${isOpenMenu ? ' is-active' : ''}`}>
+        {links &&
+          // eslint-disable-next-line jsx-a11y/no-redundant-roles
+          <ul className="navigation__menu">
+            {renderMenu(links)}
+          </ul>
+        }
+      </nav>
+    </div>
   )
 }

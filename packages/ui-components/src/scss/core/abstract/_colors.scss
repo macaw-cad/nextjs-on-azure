@@ -27,3 +27,13 @@ $btn-primary-border: $btn-primary-background !default;
 $btn-primary-text-h: $btn-primary-text !default;
 $btn-primary-background-h: color.scale($btn-primary-background, $lightness: 15%) !default;
 $btn-primary-border-h: $btn-primary-background-h !default; 
+
+// navigation
+$nav-link: $brand !default;
+$nav-active: #fff !default;
+$nav-active-bg: $nav-link !default;
+$nav-hover-bg: #f6f6f6 !default;
+$nav-menu-bg: #fff !default;
+$nav-menu-border: #f6f6f6 !default;
+$nav-mobile-menu-bg: #fff !default;
+$nav-mobile-menu-button: #999 !default;
