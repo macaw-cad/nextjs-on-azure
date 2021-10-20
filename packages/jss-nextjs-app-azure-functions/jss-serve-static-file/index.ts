@@ -26,7 +26,6 @@ module.exports = async function (context: Context, req: HttpRequest) {
     } catch(e) {
         console.error(e);
         return {
-            status: 404,
             body: `File not found ${JSON.stringify(req.query)}`
         }
     }
