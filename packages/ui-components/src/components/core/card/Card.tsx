@@ -18,7 +18,7 @@ export const Card: React.FC<CardProps> = ({ title, description, image, callToAct
           <>{React.cloneElement(image, { className: "card__img" })}</>
       }
       <div className="card__body">
-        <h5 className="card__title">{title}</h5>
+        <div className="card__title">{title}</div>
         {description &&
           <div className="card__text">{description}</div>
         }

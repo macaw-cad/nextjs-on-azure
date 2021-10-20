@@ -1,29 +1,19 @@
 @use './spacing' as *;
+@use './media-query' as *;
+@use 'sass:map';
 
 $neutral-light: #edebe9 !default;
 
+// max width of site
+$max-site-width: map.get($breakpoints, xl);
+
+// default font settings
 $font-size: 16px !default;
 $font-family: Arial, Helvetica, sans-serif !default;
 $line-height: 1.5 !default;
 
 $border-radius: space(1.5) !default;
 
-// buttons
-$btn-height: space(9) !default;
-$btn-spacing: space(.5) space(4) !default;
-$btn-radius: $border-radius !default;
-$btn-fontsize: 1rem !default;
-$btn-fontweight: bold !default;
-$btn-transition: color .12s linear, background-color .12s linear, border .12s linear !default;
-
-$btn-large-height: space(12) !default;
-$btn-large-spacing: space(1) space(5) !default;
-$btn-large-fontsize: 1.4rem !default;
-
-// navigation
-$nav-menu-shadow: 0 0 12px hsla(0, 0%, 0%, .25) !default;
-$nav-mobile-menu-top-offset: 4em !default;
-$nav-mobile-menu-shadow: 0 12px 12px hsla(0, 0%, 0%, .15) !default;
 
 // configure utility spacing classes
 $spacing-classes: (
@@ -41,3 +31,20 @@ $spacing-classes: (
 // margin-bottom from it's direct children
 // (handy for text content)
 $box-padding: space(4) !default;
+
+// buttons
+$btn-height: space(9) !default;
+$btn-spacing: space(.5) space(4) !default;
+$btn-radius: $border-radius !default;
+$btn-fontsize: 1rem !default;
+$btn-fontweight: bold !default;
+$btn-transition: color .12s linear, background-color .12s linear, border .12s linear !default;
+
+$btn-large-height: space(12) !default;
+$btn-large-spacing: space(1) space(5) !default;
+$btn-large-fontsize: 1.4rem !default;
+
+// navigation
+$nav-menu-shadow: 0 0 12px hsla(0, 0%, 0%, .25) !default;
+$nav-mobile-menu-top-offset: 4em !default;
+$nav-mobile-menu-shadow: 0 12px 12px hsla(0, 0%, 0%, .15) !default;

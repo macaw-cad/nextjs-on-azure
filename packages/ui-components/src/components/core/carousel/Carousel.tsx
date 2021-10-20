@@ -121,6 +121,7 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className, noloop,
 
   useEffect(() => {
     setInitialSlide();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
