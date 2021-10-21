@@ -1,6 +1,8 @@
 import { Field, Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import React, { useEffect } from 'react';
+import { Carousel as UICarousel } from '@nextjsonazure/ui-components/src/components/core/carousel/Carousel';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
+const parse = require('html-react-parser').default;
 
 type CarouselProps = ComponentProps & {
   fields: {
@@ -9,44 +11,38 @@ type CarouselProps = ComponentProps & {
 };
 
 const Carousel = (props: CarouselProps): JSX.Element => {
+  const slidesAsHtml = useRef<HTMLDivElement | null>(null);
+  const [slides, setSlides] = useState<HTMLImageElement[]>([])
+
   useEffect(() => {
-    const firstItem = document.querySelector('.carousel-item:first-child');
-    firstItem?.classList.add('active');
+    const images = slidesAsHtml.current?.querySelectorAll("img");
+    setSlides(images ? Array.from(images) : [])
   }, []);
 
   return (
-    <div id="carouselExampleIndicators" className="carousel slide mb-3" data-ride="carousel">
-      <div className="carousel-inner">
+    <>
+      <div style={{display: "none"}} ref={slidesAsHtml}>
         <Placeholder
           rendering={props.rendering}
           name="carousel-items"
           renderEach={(component, index) => (
-            <div className="carousel-item" key={index}>
+            <Fragment key={index}>
               {component}
-            </div>
+            </Fragment>
           )}
           renderEmpty={(components) => <div>{components}</div>}
         />
       </div>
-      <a
-        className="carousel-control-prev"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="sr-only">Previous</span>
-      </a>
-      <a
-        className="carousel-control-next"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="sr-only">Next</span>
-      </a>
-    </div>
+      <UICarousel>
+        {slides.map((slide, index) => 
+          <Fragment key={index}>
+            {parse(
+                slide.outerHTML
+            )}
+          </Fragment>
+        )}
+      </UICarousel>
+    </>
   );
 };
 

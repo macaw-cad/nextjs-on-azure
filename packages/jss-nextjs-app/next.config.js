@@ -1,6 +1,7 @@
 const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
 const { JSS_MODE_DISCONNECTED } = require('@sitecore-jss/sitecore-jss-nextjs');
+const path = require('path');
 
 const disconnectedServerUrl = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
 const isDisconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
@@ -122,6 +123,14 @@ const applyGraphQLCodeGenerationLoaders = (config, options) => {
     type: 'json',
     use: 'yaml-loader',
   })
+
+  config.resolve = {
+    ...config.resolve,
+    alias: {
+      ...config.resolve.alias,
+      'react': path.join(__dirname, 'node_modules', 'react'), // stop multiple versions of react being bundled
+    }
+  }
 
   return config;
 }

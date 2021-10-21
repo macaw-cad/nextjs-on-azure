@@ -36,12 +36,13 @@
     "bootstrap": "^4.3.1",
     "graphql": "~15.4.0",
     "graphql-tag": "^2.11.0",
+    "html-react-parser": "^1.4.0",
     "next": "10.2.3",
     "next-localization": "^0.10.0",
     "nprogress": "~0.2.0",
     "ordercloud-javascript-sdk": "^4.2.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "sass": "^1.42.1"
   },
   "devDependencies": {

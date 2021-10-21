@@ -9,12 +9,10 @@ type CarouselItemProps = ComponentProps & {
 };
 
 const CarouselItem: React.FC<CarouselItemProps> = ({ fields }): JSX.Element => (
-  <>
-    <Image field={fields.image} className="d-block w-100 h-auto" />
-    <div className="carousel-caption d-none d-md-block">
+    <Image field={fields.image} />
+    /* <div className="carousel-caption d-none d-md-block">
       <Text tag="h5" field={fields.heading} />
-    </div>
-  </>
+    </div> */
 );
 
 export default CarouselItem;
