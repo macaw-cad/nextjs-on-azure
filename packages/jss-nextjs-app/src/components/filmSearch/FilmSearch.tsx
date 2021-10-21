@@ -8,7 +8,7 @@ import { ComponentProps } from 'lib/component-props';
 import React from 'react';
 import {
   FilmSearchDocument,
-  FilmSearchQuery
+  FilmSearchQuery,
 } from './filmsearch.film.graphql';
 import { Card } from '@nextjsonazure/ui-components/src/components/core/card/Card';
 
@@ -20,7 +20,7 @@ type FilmSearchProps = ComponentProps & {
 
 const FilmSearch: React.FC<FilmSearchProps> = ({ fields, rendering }): JSX.Element => {
   const data = rendering.uid ? useComponentProps<FilmSearchQuery>(rendering.uid) : undefined;
-
+ 
   return (
     <div data-e2e-id="graphql-connected">
       <h2>Displaying a list of films using a search term configured in Sitecore</h2>
@@ -45,7 +45,7 @@ const FilmSearch: React.FC<FilmSearchProps> = ({ fields, rendering }): JSX.Eleme
             }
 
             return (
-              <div className="col-sm-4 mb-3" key={i}>
+              <div className="column" key={i}>
                 <Card
                   title={<>{film.title}</>}
                   description={<>{date ? `Release date: ${date}` : ''}</>}
@@ -66,8 +66,6 @@ export const getStaticProps: GetStaticComponentProps = async (rendering) => {
     // @ts-ignore
     searchTerm: rendering.fields?.searchTerm?.value.replace(/\s+/g, ''),
   });
-
-  console.log("result", result.search.edges)
 
   return result;
 };

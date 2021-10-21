@@ -90,7 +90,7 @@ const ProductList: React.FC<ProductListProps> = ({ rendering, fields }): JSX.Ele
         <div className="row">
           {data.Items.map((product) => {
             return (
-              <div className="col-sm-4 mb-4" key={product.ID}>
+              <div className="column" key={product.ID}>
                 <Card
                   title={<>{product.Name}</>}
                   description={
@@ -103,6 +103,10 @@ const ProductList: React.FC<ProductListProps> = ({ rendering, fields }): JSX.Ele
                       <img src={product.xp.Images[0].url} />
                     ) : undefined
                   }
+                  callToAction={{
+                    text: "Add to card",
+                    url: "#"
+                  }}
                 />
               </div>
             );
