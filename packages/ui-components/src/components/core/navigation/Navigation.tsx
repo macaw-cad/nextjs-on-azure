@@ -13,8 +13,8 @@ type NavigationProps = {
 
 export const Navigation: React.FC<NavigationProps> = ({ links, classname }) => {
   const [isOpenMenu, setOpenMenu] = useState(false);
-  const submenuContainers = document.querySelectorAll(".navigation .has-submenu");
-
+  const submenuContainers = typeof window !== "undefined" ? document.querySelectorAll(".navigation .has-submenu") : [];
+ 
   const renderMenu = (links: NavigationProps["links"]) => {
     return links && links.map((link: NavigationLink, key) => {
       if (link.children && link.children.length) {
@@ -42,9 +42,15 @@ export const Navigation: React.FC<NavigationProps> = ({ links, classname }) => {
   };
 
   const toggleSubmenu = (e: any) => {
+    const target = e.target as HTMLElement
+    console.log("target.classList", target.classList);
+
+    if (target.classList.contains("navigation__submenu-item")) {
+      return;
+    }
     e.preventDefault();
     let submenuContainer = e.target.parentElement;
-
+   
     return submenuContainer.classList.contains('is-open') ?
       submenuContainer.classList.remove('is-open') :
       submenuContainer.classList.add('is-open');

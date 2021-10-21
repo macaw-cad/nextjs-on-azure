@@ -33,7 +33,7 @@ const Carousel = (props: CarouselProps): JSX.Element => {
           renderEmpty={(components) => <div>{components}</div>}
         />
       </div>
-      <UICarousel>
+      <UICarousel className="mb-4">
         {slides.map((slide, index) => 
           <Fragment key={index}>
             {parse(

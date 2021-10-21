@@ -67,6 +67,8 @@ export const getStaticProps: GetStaticComponentProps = async (rendering) => {
     searchTerm: rendering.fields?.searchTerm?.value.replace(/\s+/g, ''),
   });
 
+  console.log("result", result.search.edges)
+
   return result;
 };
 
