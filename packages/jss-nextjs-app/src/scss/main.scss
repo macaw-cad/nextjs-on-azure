@@ -1,5 +1,15 @@
-@use "@nextjsonazure/ui-components/src/scss/core/index-typography";
 
-// @use "@nextjsonazure/ui-components/src/scss/core" with (
-//     $neutral-light: #ccc
-// );
+@use "@nextjsonazure/ui-components/src/scss/core/index-typography" with (
+    $color-brand: #000
+);
+
+a[target='_blank']:after {
+    content: '\1F5D7'
+}
+
+/*
+Hides Sitecore Experience Editor markup,
+if you run the app in connected mode while the Sitecore cookies
+are set to edit mode.
+*/
+.scChromeData, .scpm { display: none !important; }

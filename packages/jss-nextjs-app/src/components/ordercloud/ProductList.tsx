@@ -87,7 +87,11 @@ const ProductList: React.FC<ProductListProps> = ({ rendering, fields }): JSX.Ele
       </p>
 
       {data?.Items && (
-        <div className="row">
+         <div className="row" style={{
+          // temp fix for now to get a nice repeating grid
+          gridAutoFlow: "row",
+          gridTemplateColumns: "repeat(4, minmax(10px, 1fr))"
+        }}>
           {data.Items.map((product) => {
             return (
               <div className="column" key={product.ID}>
