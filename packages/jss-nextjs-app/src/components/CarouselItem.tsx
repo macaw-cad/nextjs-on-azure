@@ -1,4 +1,4 @@
-import { Field, ImageField, Image, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type CarouselItemProps = ComponentProps & {
@@ -10,9 +10,6 @@ type CarouselItemProps = ComponentProps & {
 
 const CarouselItem: React.FC<CarouselItemProps> = ({ fields }): JSX.Element => (
     <Image field={fields.image} />
-    /* <div className="carousel-caption d-none d-md-block">
-      <Text tag="h5" field={fields.heading} />
-    </div> */
 );
 
 export default CarouselItem;
