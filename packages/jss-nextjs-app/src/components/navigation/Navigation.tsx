@@ -77,8 +77,6 @@ const Navigation: React.FC<NavigationProps> = (props): JSX.Element => {
         maxWidth: "1400px",
         margin: "0 auto"
       }} 
-      // className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom" 
-      // style={{borderBottom: "1px solid #dee2e6", justifyContent: "space-between"}}
       >
         <h5 className="mb-0 font-weight-normal">
           <Link href="/">

@@ -58,7 +58,7 @@ export const Navigation: React.FC<NavigationProps> = ({ links, classname }) => {
 
   const handleMobileMenuTrigger = () => {
     isOpenMenu ? setOpenMenu(false) : setOpenMenu(true);
-    !isOpenMenu && submenuContainers.forEach((submenuContainer) => {
+    !isOpenMenu && submenuContainers.forEach((submenuContainer: Element) => {
       submenuContainer.classList.remove('is-open');
     })
   };
