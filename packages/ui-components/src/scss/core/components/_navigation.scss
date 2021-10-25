@@ -147,6 +147,12 @@
       position: relative;
     }
 
+    &:last-child {
+      .navigation__submenu {
+        right: 0;
+      }
+    }
+
     .navigation__item {
       // arrow
       &::after {
@@ -194,6 +200,8 @@
       white-space: nowrap;
     }
   }
+
+
 
   // menus
   &__submenu {

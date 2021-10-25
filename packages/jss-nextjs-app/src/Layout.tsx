@@ -49,7 +49,7 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
       <Placeholder name="jss-header" rendering={route} />
 
       {/* root placeholder for the app, which we add components to using route data */}
-      <div className="container">
+      <div className="container" style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 15px" }}>
         <Placeholder name="jss-main" rendering={route} />
       </div>
     </>

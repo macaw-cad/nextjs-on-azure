@@ -8,9 +8,8 @@ import NProgress from 'nprogress';
 //  bootstrap is used here to provide a clean layout for samples, without needing extra CSS in the sample app
 //  nprogress provides a loading indicator on page/route changes
 // Remove these in package.json as well if removed here.
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap-grid.css';
 import 'nprogress/nprogress.css';
-import 'assets/app.css';
 import '../scss/main.scss';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
@@ -26,18 +25,8 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
     <>
       <Head>
         <script
-          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-          crossOrigin="anonymous"
-        ></script>
-        <script
           src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
           integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossOrigin="anonymous"
-        ></script>
-        <script
-          src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
           crossOrigin="anonymous"
         ></script>
       </Head>

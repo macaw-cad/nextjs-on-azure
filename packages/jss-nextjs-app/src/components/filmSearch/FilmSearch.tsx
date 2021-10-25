@@ -8,8 +8,7 @@ import { ComponentProps } from 'lib/component-props';
 import React from 'react';
 import {
   FilmSearchDocument,
-  MovieEdge,
-  MovieOrTvOrPeopleConnection,
+  FilmSearchQuery,
 } from './filmsearch.film.graphql';
 import { Card } from '@nextjsonazure/ui-components/src/components/core/card/Card';
 
@@ -19,13 +18,9 @@ type FilmSearchProps = ComponentProps & {
   };
 };
 
-type FilmSearchData = {
-  search: MovieOrTvOrPeopleConnection;
-};
-
 const FilmSearch: React.FC<FilmSearchProps> = ({ fields, rendering }): JSX.Element => {
-  const data = rendering.uid ? useComponentProps<FilmSearchData>(rendering.uid) : undefined;
-
+  const data = rendering.uid ? useComponentProps<FilmSearchQuery>(rendering.uid) : undefined;
+ 
   return (
     <div data-e2e-id="graphql-connected">
       <h2>Displaying a list of films using a search term configured in Sitecore</h2>
@@ -34,20 +29,29 @@ const FilmSearch: React.FC<FilmSearchProps> = ({ fields, rendering }): JSX.Eleme
       </p>
 
       {data?.search?.edges && (
-        <div className="row">
+        <div className="row" style={{
+          // temp fix for now to get a nice repeating grid
+          gridAutoFlow: "row",
+          gridTemplateColumns: "repeat(4, minmax(10px, 1fr))"
+        }}>
           {data.search.edges.map((edge, i) => {
-            const film = edge as MovieEdge;
-            const date = film.node?.releaseDate
-              ? new Date(film.node.releaseDate).toLocaleDateString()
+            const film = edge?.node?.__typename === "Movie" ? edge.node : undefined;
+
+            if (!film) {
+              return null;
+            }
+
+            const date = film.releaseDate
+              ? new Date(film.releaseDate).toLocaleDateString()
               : '';
-            if (!film.node?.title) {
+            if (!film.title) {
               return null;
             }
 
             return (
-              <div className="col-sm-4 mb-3" key={i}>
+              <div className="column" key={i}>
                 <Card
-                  title={<>{film.node.title}</>}
+                  title={<>{film.title}</>}
                   description={<>{date ? `Release date: ${date}` : ''}</>}
                 />
               </div>
@@ -62,7 +66,7 @@ const FilmSearch: React.FC<FilmSearchProps> = ({ fields, rendering }): JSX.Eleme
 export const getStaticProps: GetStaticComponentProps = async (rendering) => {
   const graphQLClient = new GraphQLRequestClient('https://tmdb.apps.quintero.io/', {});
 
-  const result = await graphQLClient.request<FilmSearchData>(FilmSearchDocument, {
+  const result = await graphQLClient.request<FilmSearchQuery>(FilmSearchDocument, {
     // @ts-ignore
     searchTerm: rendering.fields?.searchTerm?.value.replace(/\s+/g, ''),
   });

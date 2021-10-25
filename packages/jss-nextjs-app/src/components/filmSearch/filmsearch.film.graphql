@@ -3,6 +3,7 @@ query FilmSearch($searchTerm: String!){
     search(term: $searchTerm) {
         edges {
             node {
+                __typename
                 ...on Movie {
                     title
                     releaseDate

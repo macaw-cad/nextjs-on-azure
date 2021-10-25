@@ -7,7 +7,6 @@ enum SlideDirection {
 }
 
 interface CarouselProps {
-  children: React.ReactElement[];
   className?: string;
   noloop?: boolean;
   setSlide?: number;
@@ -19,13 +18,13 @@ interface NavigateSlidesProps {
 
 interface CarouselControlsProps extends NavigateSlidesProps {
   activeSlide: number;
-  slides: React.ReactElement[];
+  slides: React.ReactNode;
 }
 
 const CarouselControls: React.FC<CarouselControlsProps> = ({ slides, activeSlide, navigateSlides }) => {
   return (
     <div className="carousel__controls">
-      {slides.map((_slide, index) => (
+      {React.Children.map(slides, (_slide, index) => (
         <button
           key={index}
           type="button"
@@ -43,26 +42,27 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className, noloop,
   const [isActiveSlide, setActiveSlide] = useState(0);
   const [isPresentedSlide, setPresentedSlide] = useState(0);
   const carouselRef = useRef<HTMLUListElement>(null);
-
+  const childrenCount = React.Children.count(children);
+  
   const navigateSlides = (slideNr: SlideDirection | number) => {
     if (!carouselRef.current) {
       return;
     }
 
-    const scrollStep = carouselRef.current.scrollWidth / children.length;
+    const scrollStep = carouselRef.current.scrollWidth / childrenCount;
 
     let goSlide: number;
     switch (slideNr) {
       case SlideDirection.Prev:
         if (isActiveSlide < 1) {
-          goSlide = !noloop ? children.length - 1 : isActiveSlide;
+          goSlide = !noloop ? childrenCount - 1 : isActiveSlide;
         } else {
           goSlide = isActiveSlide - 1;
         }
         break;
 
       case SlideDirection.Next:
-        if (isActiveSlide >= children.length - 1) {
+        if (isActiveSlide >= childrenCount - 1) {
           goSlide = !noloop ? 0 : isActiveSlide;
         } else {
           goSlide = isActiveSlide + 1;
@@ -104,7 +104,7 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className, noloop,
 
     const scrollTotal = carouselRef.current.scrollWidth;
     const scrollDelta = carouselRef.current.scrollLeft;
-    const newSlide = Math.round((scrollDelta / scrollTotal) * children.length);
+    const newSlide = Math.round((scrollDelta / scrollTotal) * childrenCount);
     debounceActiveSlide(newSlide);
     debouncePresentedSlide(newSlide);
   };
@@ -113,7 +113,7 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className, noloop,
     if (setSlide && carouselRef.current) {
       carouselRef.current?.scrollTo({
         top: 0,
-        left: (carouselRef.current.scrollWidth / children.length) * setSlide,
+        left: (carouselRef.current.scrollWidth / childrenCount) * setSlide,
         behavior: "auto",
       });
     }
@@ -133,14 +133,18 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className, noloop,
         onScroll={setScrollState}
         ref={carouselRef}
       >
-        {children.map((child, index) => (
-          <li
-            key={index}
-            className={index === isPresentedSlide ? "is-active": ""}
-          >
-            {child}
-          </li>
-        ))}
+        {children &&
+        <>
+          {React.Children.map(children, (child, index) => (
+            <li
+              key={index}
+              className={index === isPresentedSlide ? "is-active": ""}
+            >
+              {child}
+            </li>
+          ))}
+          </>
+        }
       </ul>
       <button
         type="button"

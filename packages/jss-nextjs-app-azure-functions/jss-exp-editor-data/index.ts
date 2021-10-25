@@ -2,8 +2,10 @@ const fs = require("fs"); // Or `import fs from "fs";` with ESM
 
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { editingDataDiskCache } from "../lib/editingDataCache";
+import { getNextResponseHandler } from "../lib/nextResponseHandler";
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+
     const isBuildEnvironment = context.executionContext.functionDirectory.includes("www");
 
     let EditingDataMiddleware;
@@ -18,19 +20,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
         editingDataCache: editingDataDiskCache
     }).getHandler();
     
-    const customContextRes: any = context.res;
-
-    customContextRes.status = (statusCode: number) => {
-        customContextRes.status = statusCode;
-
-        return customContextRes;
-    }
-
-    customContextRes.json = (body) => {
-        customContextRes.body = body;
-
-        return customContextRes;
-    }
+    const nextResponseHandler = getNextResponseHandler(context);
 
     const customContextReq = {
         ...context.req,
@@ -44,7 +34,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     
     try {
         // @ts-ignore
-        await handler(customContextReq, customContextRes);
+        await handler(customContextReq, nextResponseHandler);
     } catch (e) {
         context.log(e);
         context.res = {
