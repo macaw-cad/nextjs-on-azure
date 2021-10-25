@@ -2,25 +2,16 @@
 @use './media-query' as *;
 @use 'sass:map';
 
-$neutral-light: #edebe9 !default;
-
 // max width of site
-$max-site-width: map.get($breakpoints, xl);
+$max-site-width: map.get($breakpoints, xl) !default;
 
-// default font settings
-$font-size: 16px !default;
-$font-family: Arial, Helvetica, sans-serif !default;
-$line-height: 1.5 !default;
-
-$border-radius: space(1.5) !default;
-
-
-// configure utility spacing classes
-$spacing-classes: (
-  generate: true,
-  responsive: true,
-  important: false
-) !default;
+// page layout spacing
+//
+// the gutter is on the outside; on the left and right of the entire page
+// the gap is on the inside; between rows, columns and components both horizontally and vertically
+$grid-gap: space(5) !default;
+$page-gutter: $grid-gap !default;
+$page-gutter-mobile: $page-gutter !default;
 
 // for generic spacing of a container
 // consider applying using:
@@ -30,7 +21,26 @@ $spacing-classes: (
 // that will also chop margin-top and
 // margin-bottom from it's direct children
 // (handy for text content)
-$box-padding: space(4) !default;
+// see ./abstract/box.scss
+$box-padding: space(5) !default;
+
+// configure utility spacing classes
+$spacing-classes: (
+  generate: true,
+  responsive: true,
+  important: false
+) !default;
+
+// default font settings
+$font-size: 16px !default;
+$font-family: Arial, Helvetica, sans-serif !default;
+$line-height: 1.5 !default;
+
+$border-radius: space(1.5) !default;
+
+//
+// components
+//
 
 // buttons
 $btn-height: space(9) !default;
@@ -45,6 +55,23 @@ $btn-large-spacing: space(1) space(5) !default;
 $btn-large-fontsize: 1.4rem !default;
 
 // navigation
-$nav-menu-shadow: 0 0 12px hsla(0, 0%, 0%, .25) !default;
 $nav-mobile-menu-top-offset: 4em !default;
+$nav-menu-shadow: 0 0 12px hsla(0, 0%, 0%, .25) !default;
 $nav-mobile-menu-shadow: 0 12px 12px hsla(0, 0%, 0%, .15) !default;
+
+// cards
+$card: (
+  image-height: space(72),
+  min-body-height: space(36),
+  // variants
+  bg-image: (
+    min-body-height: space(64),
+    bg-color: hsla(0, 0%, 100%, 50%),
+  ),
+  square-image: (
+    min-body-height: auto,
+  ),
+  hd-image: (
+    min-body-height: auto,
+  ),
+) !default;

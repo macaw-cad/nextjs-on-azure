@@ -167,7 +167,7 @@ const Template: Story = (args) => {
         and the value '4' is equal to the base font size.
         </p>
         <p>
-        You can also apply these using <a href="/?path=/story/core-utilities-spacingclasses--spacing-classes">utility spacing classes</a>.
+        You can also apply these using <a href="/?path=/story/core-utilities-spacing-classes--spacing-classes">utility spacing classes</a>.
         </p>
       </section>
 
@@ -201,17 +201,17 @@ const Template: Story = (args) => {
               </div>
             </td>
           </tr>
-          {spaces.map(space => {
+          {spaces.map((space, key) => {
             const highlight = space.name === '4' ? 'sb-highlight' : '';
             return (
-              <tr className={highlight}>
+              <tr className={highlight} key={key}>
                 <td>{space.name}</td>
                 <td>{space.value}rem</td>
                 <td>{(space.value * args.fontsize)}px</td>
-            <td className="hidden sm:table-cell">
-              <div className="sb-bar" style={{width: (space.value * args.fontsize) + "px"}}>
-              </div>
-            </td>
+                <td className="hidden sm:table-cell">
+                  <div className="sb-bar" style={{width: (space.value * args.fontsize) + "px"}}>
+                  </div>
+                </td>
               </tr>
             )
           })}

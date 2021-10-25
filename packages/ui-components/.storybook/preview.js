@@ -6,7 +6,7 @@ export const parameters = {
   options: {
     storySort: {
       method: 'alphabetical',
-      order: ['Core', ['Introduction', 'Abstract', 'Base', ['Reset', 'Font', 'Typography', 'Spacing', 'Button'], 'Atoms', 'Elements', 'Molecules', 'Components', 'Organisms', 'Composites', 'Pages'], 'Example'], 
+      order: ['Core', ['Introduction', 'Abstract', 'Base', ['Reset', 'Layout', 'Font', 'Typography', 'Spacing', 'Button'], 'Atoms', 'Elements', 'Molecules', 'Components', 'Organisms', 'Composites', 'Pages', 'Utilities'], 'Example'], 
       locales: '', 
     },
   },

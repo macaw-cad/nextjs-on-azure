@@ -1,5 +1,6 @@
 @use '../abstract' as *;
 @use '../base/' as *;
+@use 'sass:map';
 
 .card {
   display: flex;
@@ -9,7 +10,7 @@
 
   &__img {
     width: 100%;
-    height: space(72);
+    height: map.get($card, image-height);
     border-radius: $border-radius $border-radius 0 0;
     object-fit: cover;
   }
@@ -18,15 +19,16 @@
     @extend %box;
     display: flex;
     flex-direction: column;
-    min-height: space(36);
+    min-height: map.get($card, min-body-height);
   }
 
   &__title {
+    @extend %strip-child-margins;
     margin-bottom: 0;
-    font-size: space(4);
   }
 
   &__text {
+    @extend %strip-child-margins;
     flex: 1 0; // maximize space between text and cta button
   }
 
@@ -50,7 +52,7 @@
       }
 
       &__body {
-        min-height: auto;
+        min-height: map.get($card, hd-image, min-body-height);
       }
     }
   }
@@ -63,7 +65,7 @@
       }
 
       &__body {
-        min-height: auto;
+        min-height: map.get($card, square-image, min-body-height);
       }
     }
   }
@@ -82,8 +84,8 @@
       &__body {
         position: relative;
         justify-content: flex-end;
-        min-height: space(64);
-        background-color: hsla(0, 0%, 100%, 50%);
+        min-height: map.get($card, bg-image, min-body-height);
+        background-color: map.get($card, bg-image, bg-color);
       }
 
       &__text {

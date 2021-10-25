@@ -4,9 +4,11 @@
 @use 'sass:string';
 @use 'sass:meta';
 
+/* stylelint-disable length-zero-no-unit */
+// for some css functions we need an explicit unit (css bug in max()?)
 $spacing: (
-  '0': 0,
-  'px': 1px,
+  '0': 0px,
+  '1px': 1px,
   '0.5': .125rem,
   '1': .25rem,
   '1.5': .375rem,
@@ -41,6 +43,7 @@ $spacing: (
   '80': 20rem,
   '96': 24rem
 ) !default;
+/* stylelint-enable length-zero-no-unit */
 
 // function for using spacing values in properties
 @function space($key) {

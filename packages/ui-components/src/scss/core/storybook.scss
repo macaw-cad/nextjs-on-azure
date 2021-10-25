@@ -48,3 +48,15 @@
     font-size: 1rem;
   }
 }
+
+.sb-show-columns {
+  .column {
+    background-color: rgb(255, 252, 234);
+  }
+}
+
+.sb-card-s {
+  .card__body {
+    min-height: space(20);
+  }
+}

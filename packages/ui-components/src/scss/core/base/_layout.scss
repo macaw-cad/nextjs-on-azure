@@ -1,0 +1,157 @@
+@use '../abstract/' as *;
+@use 'sass:math';
+
+.page {
+  display: grid;
+  grid-template-areas:  'header'
+    'main'
+    'footer';
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+
+  > header {
+    grid-area: header;
+  }
+
+  > main {
+    grid-area: main;
+  }
+
+  > footer {
+    grid-area: footer;
+  }
+
+  // page gutter
+  > main > .row,
+  > header > .container,
+  > footer > .container {
+    @if $page-gutter != $page-gutter-mobile {
+      @include mq(s-max) {
+        padding-right: $page-gutter-mobile;
+        padding-left: $page-gutter-mobile;
+      }
+    }
+    padding-right: max($page-gutter, calc(50% - math.div($max-site-width, 2)));
+    padding-left: max($page-gutter, calc(50% - math.div($max-site-width, 2)));
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: $grid-gap;
+  margin-top: $grid-gap;
+  margin-bottom: $grid-gap;
+
+  > .column {
+    grid-column: 1 / -1;
+
+    > .row {
+      @if ($grid-gap > 0) {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // modifiers for specific column layouts with responsive behaviour on a 12 column grid
+  &--2c {
+    > .column {
+      @include mq(m) {
+        grid-column: auto / span 6;
+      }
+    }
+    
+  }
+
+  &--3c {
+    > .column {
+      @include mq(m) {
+        grid-column: auto / span 4;
+      }
+    }
+  }
+
+  &--4c {
+    > .column {
+      @include mq(s) {
+        grid-column: auto / span 6;
+      }
+      @include mq(m) {
+        grid-column: auto / span 3;
+      }
+    }
+  }
+
+  &--sidebar-r {
+    > .column {
+      @include mq(s) {
+        &:first-child {
+          grid-column: 1 / span 8;
+        }
+
+        &:last-child {
+          grid-column: 9 / span 4;
+        }
+      }
+
+      @include mq(m) {
+        &:first-child {
+          grid-column: 1 / span 9;
+        }
+
+        &:last-child {
+          grid-column: 10 / span 3;
+        }
+      }
+    }
+  }
+
+  &--sidebar-l {
+    > .column {
+      @include mq(s) {
+        &:first-child {
+          grid-column: 1 / span 4;
+        }
+
+        &:last-child {
+          grid-column: 5 / span 8;
+        }
+      }
+
+      @include mq(m) {
+        &:first-child {
+          grid-column: 1 / span 3;
+        }
+
+        &:last-child {
+          grid-column: 4 / span 9;
+        }
+      }
+    }
+  }
+
+  // solid background color
+  &--accent {
+    @if ($grid-gap > 0) {
+      padding-top: $grid-gap;
+      padding-bottom: $grid-gap;
+
+      // avoid whitespace when at top or bottom of <main>
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    background-color: $color-row-accent;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: $grid-gap;
+}
