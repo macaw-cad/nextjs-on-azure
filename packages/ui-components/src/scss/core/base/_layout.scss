@@ -1,6 +1,11 @@
 @use '../abstract/' as *;
 @use 'sass:math';
 
+:root {
+  --grid-gap: #{$grid-gap};
+  --row-bg-color: #{$color-row-accent};
+}
+
 .page {
   display: grid;
   grid-template-areas:  'header'
@@ -14,7 +19,10 @@
   }
 
   > main {
+    display: flex;
+    flex-direction: column;
     grid-area: main;
+    gap: var(--grid-gap);
   }
 
   > footer {
@@ -39,19 +47,10 @@
 .row {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: $grid-gap;
-  margin-top: $grid-gap;
-  margin-bottom: $grid-gap;
+  gap: var(--grid-gap);
 
   > .column {
     grid-column: 1 / -1;
-
-    > .row {
-      @if ($grid-gap > 0) {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-    }
   }
 
   // modifiers for specific column layouts with responsive behaviour on a 12 column grid
@@ -133,25 +132,19 @@
 
   // solid background color
   &--accent {
-    @if ($grid-gap > 0) {
-      padding-top: $grid-gap;
-      padding-bottom: $grid-gap;
+    padding-top: var(--grid-gap);
+    padding-bottom: var(--grid-gap);
+    background-color: var(--row-bg-color);
 
-      // avoid whitespace when at top or bottom of <main>
-      &:first-child {
-        margin-top: 0;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+    // remove a gap between two accented rows
+    & + & {
+      margin-top: calc(0px - var(--grid-gap));
     }
-    background-color: $color-row-accent;
   }
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  gap: $grid-gap;
+  gap: var(--grid-gap);
 }

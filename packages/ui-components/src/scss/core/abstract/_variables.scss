@@ -9,6 +9,9 @@ $max-site-width: map.get($breakpoints, xl) !default;
 //
 // the gutter is on the outside; on the left and right of the entire page
 // the gap is on the inside; between rows, columns and components both horizontally and vertically
+//
+// $grid-gap will set the css custom property --grid-gap in base/layout.scss
+// which can them be overruled on a local level in rows and columns if needed
 $grid-gap: space(5) !default;
 $page-gutter: $grid-gap !default;
 $page-gutter-mobile: $page-gutter !default;

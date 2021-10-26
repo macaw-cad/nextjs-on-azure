@@ -52,11 +52,28 @@
 .sb-show-columns {
   .column {
     background-color: rgb(255, 252, 234);
+    
+    .column {
+      background-color: rgb(234, 255, 248);
+    }
+  }
+}
+
+.sb-page {
+  .card {
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    outline: 1px solid #ccc;
+
+    &__body {
+      min-height: space(24);
+    }
   }
 }
 
 .sb-card-s {
   .card__body {
-    min-height: space(20);
+    min-height: space(16);
   }
 }

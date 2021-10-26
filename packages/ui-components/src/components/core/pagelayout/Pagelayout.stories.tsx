@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Card } from '../card/Card';
+
+type CSSWithCustomProps = CSSProperties & Record<`--${string}`, number | string>;
 
 export default {
   title: 'Core/Base/Layout',
@@ -16,7 +18,10 @@ export default {
 
 const Template: Story = (args) => {
   return (
-    <div className={`page ${args.showColumns ? 'sb-show-columns' : ''}`}>
+    <div
+      className={`page sb-page ${args.showColumns ? 'sb-show-columns' : ''}`}
+      style={{ '--grid-gap': args.gap } as CSSWithCustomProps}
+    >
 
       <header style={{ backgroundColor: '#000', color: '#fff' }}>
         <div className="container">
@@ -26,10 +31,10 @@ const Template: Story = (args) => {
 
       <main>
 
-        {args.show1column && (
+        {(args.show1column || args.showRowAccent) && (
           <div className={`row ${args.showRowAccent ? 'row--accent' : ''}`}>
             <div className="column">
-              <Card title={<h4>row1</h4>} />
+              <Card title={<h5>.row{args.showRowAccent ? '.row--accent' : ''}</h5>} />
             </div>
           </div>
         )}
@@ -37,67 +42,71 @@ const Template: Story = (args) => {
         {args.show2column && (
           <div className="row row--2c">
             <div className="column">
-              <Card title={<h4>row2a</h4>} />
+              <Card title={<h5>.row--2c a</h5>} />
             </div>
             <div className="column">
-              <Card title={<h4>row2b</h4>} />
+              <Card title={<h5>.row--2c b</h5>} classname="sb-card-s" />
+              <Card title={<h5>.row--2c b</h5>} classname="sb-card-s" />
             </div>
           </div>
         )}
 
-        {args.show3column && (
-          <>
-            <div className="row row--3c">
-              <div className="column">
-                <Card title={<h4>row3a</h4>} />
-              </div>
-              <div className="column">
-                <Card title={<h4>row3b</h4>} classname="sb-card-s" />
-                <Card title={<h4>row3b</h4>} classname="sb-card-s" />
-              </div>
-              <div className="column">
-                <Card title={<h4>row3c</h4>} />
-              </div>
+        {(args.show3column || args.showRowAccent) && (
+          <div
+            className={`row row--3c ${args.showRowAccent ? 'row--accent' : ''}`}
+            style={{ '--row-bg-color': args.set2ndRowBgcolor } as CSSWithCustomProps}
+          >
+            <div className="column">
+              <Card title={<h5>.row--3c{args.showRowAccent ? '.row--accent' : ''} a</h5>} />
             </div>
-
-            <div className={`row row--3c ${args.showRowAccent ? 'row--accent' : ''}`}>
-              <div className="column">
-                <Card title={<h4>row3a</h4>} />
-              </div>
-              <div className="column">
-                <Card title={<h4>row3b</h4>} />
-              </div>
-              <div className="column">
-                <Card title={<h4>row3c</h4>} />
-              </div>
+            <div className="column">
+              <Card title={<h5>.row--3c{args.showRowAccent ? '.row--accent' : ''} b</h5>} classname="sb-card-s" />
+              <Card title={<h5>.row--3c{args.showRowAccent ? '.row--accent' : ''} b</h5>} classname="sb-card-s" />
             </div>
-          </>
+            <div className="column">
+              <Card title={<h5>.row--3c{args.showRowAccent ? '.row--accent' : ''} c</h5>} />
+            </div>
+          </div>
         )}
 
         {args.show4column && (
           <div className="row row--4c">
             <div className="column">
-              <Card title={<h4>row4a</h4>} />
+              <Card title={<h5>.row--4c a</h5>} />
             </div>
             <div className="column">
-              <Card title={<h4>row4b</h4>} />
+              <Card title={<h5>.row--4c b</h5>} />
             </div>
             <div className="column">
-              <Card title={<h4>row4c</h4>} />
+              <Card title={<h5>.row--4c c</h5>} classname="sb-card-s" />
+              <Card title={<h5>.row--4c c</h5>} classname="sb-card-s" />
             </div>
             <div className="column">
-              <Card title={<h4>row4d</h4>} />
+              <Card title={<h5>.row--4c d</h5>} />
             </div>
           </div>
         )}
 
         {args.showSidebarL && (
-          <div className="row row--sidebar-l">
+          <div
+            className="row row--sidebar-l"
+          >
             <div className="column">
-              <Card title={<h4>sidebar-l a</h4>} />
+              <Card title={<h5>.row--sidebar-l a</h5>} />
             </div>
             <div className="column">
-              <Card title={<h4>sidebar-l b</h4>} />
+              <div
+                className="row row--4c"
+                style={{ '--grid-gap': args.sidebarLNestedRowGap } as CSSWithCustomProps}
+              >
+                <Card title={<h5>nested .row--4c a</h5>} classname="column sb-card-s" />
+                <Card title={<h5>nested .row--4c b</h5>} classname="column sb-card-s" />
+                <Card title={<h5>nested .row--4c c</h5>} classname="column sb-card-s" />
+                <Card title={<h5>nested .row--4c d</h5>} classname="column sb-card-s" />
+                <Card title={<h5>nested .row--4c e</h5>} classname="column sb-card-s" />
+                <Card title={<h5>nested .row--4c f</h5>} classname="column sb-card-s" />
+                <Card title={<h5>nested .row--4c g</h5>} classname="column sb-card-s" />
+              </div>
             </div>
           </div>
         )}
@@ -105,18 +114,10 @@ const Template: Story = (args) => {
         {args.showSidebarR && (
           <div className="row row--sidebar-r">
             <div className="column">
-              <Card title={<h4>sidebar-r a</h4>} classname="sb-card-s" />
-              <div className="row row--2c">
-                <div className="column">
-                  <Card title={<h4>row2a</h4>} classname="sb-card-s" />
-                </div>
-                <div className="column">
-                  <Card title={<h4>row2b</h4>} classname="sb-card-s" />
-                </div>
-              </div>
+              <Card title={<h5>.row--sidebar-r a</h5>} />
             </div>
             <aside className="column">
-              <Card title={<h4>sidebar-r b</h4>} />
+              <Card title={<h5>.row--sidebar-r b</h5>} />
             </aside>
           </div>
         )}
@@ -135,12 +136,15 @@ const Template: Story = (args) => {
 
 export const Layout = Template.bind({});
 Layout.args = {
+  gap: '16px',
   showColumns: false,
   showRowAccent: false,
+  set2ndRowBgcolor: '#f6f6f6',
   show1column: true,
   show2column: true,
   show3column: true,
   show4column: true,
   showSidebarL: false,
+  sidebarLNestedRowGap: '8px',
   showSidebarR: false
 };
