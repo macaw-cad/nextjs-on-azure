@@ -1,5 +1,6 @@
 @use '../abstract/' as *;
 @use '../utilities/screenreader-only' as *;
+@use 'sass:math';
 
 .navigation {
   display: flex;
@@ -125,6 +126,10 @@
     cursor: pointer;
     transition: background-color .12s linear, color .12s linear;
 
+    @include mq(m-max) {
+      padding-left: math.max(space(3), $page-gutter-mobile);
+    }
+
     &:hover,
     &:focus {
       text-decoration: none;
@@ -191,7 +196,7 @@
   &__submenu-item {
     // a submenu item on mobile has an indent
     @include mq(m-max) {
-      padding-left: space(5);
+      padding-left: math.max(space(5), $page-gutter-mobile + space(3));
     }
 
     // a submenu item on desktop can force the submenu to be 

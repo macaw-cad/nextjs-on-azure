@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Card } from '../card/Card';
+import { HeaderStory } from '../header/Header.stories';
 
 type CSSWithCustomProps = CSSProperties & Record<`--${string}`, number | string>;
 
@@ -23,11 +24,7 @@ const Template: Story = (args) => {
       style={{ '--grid-gap': args.gap } as CSSWithCustomProps}
     >
 
-      <header style={{ backgroundColor: '#000', color: '#fff' }}>
-        <div className="container">
-          Header
-        </div>
-      </header>
+      <HeaderStory {...args.headerProps}/>
 
       <main>
 
@@ -45,8 +42,8 @@ const Template: Story = (args) => {
               <Card title={<h5>.row--2c a</h5>} />
             </div>
             <div className="column">
-              <Card title={<h5>.row--2c b</h5>} classname="sb-card-s" />
-              <Card title={<h5>.row--2c b</h5>} classname="sb-card-s" />
+              <Card title={<h5>.row--2c b</h5>} className="sb-card-s" />
+              <Card title={<h5>.row--2c b</h5>} className="sb-card-s" />
             </div>
           </div>
         )}
@@ -60,8 +57,8 @@ const Template: Story = (args) => {
               <Card title={<h5>.row--3c{args.showRowAccent ? '.row--accent' : ''} a</h5>} />
             </div>
             <div className="column">
-              <Card title={<h5>.row--3c{args.showRowAccent ? '.row--accent' : ''} b</h5>} classname="sb-card-s" />
-              <Card title={<h5>.row--3c{args.showRowAccent ? '.row--accent' : ''} b</h5>} classname="sb-card-s" />
+              <Card title={<h5>.row--3c{args.showRowAccent ? '.row--accent' : ''} b</h5>} className="sb-card-s" />
+              <Card title={<h5>.row--3c{args.showRowAccent ? '.row--accent' : ''} b</h5>} className="sb-card-s" />
             </div>
             <div className="column">
               <Card title={<h5>.row--3c{args.showRowAccent ? '.row--accent' : ''} c</h5>} />
@@ -78,8 +75,8 @@ const Template: Story = (args) => {
               <Card title={<h5>.row--4c b</h5>} />
             </div>
             <div className="column">
-              <Card title={<h5>.row--4c c</h5>} classname="sb-card-s" />
-              <Card title={<h5>.row--4c c</h5>} classname="sb-card-s" />
+              <Card title={<h5>.row--4c c</h5>} className="sb-card-s" />
+              <Card title={<h5>.row--4c c</h5>} className="sb-card-s" />
             </div>
             <div className="column">
               <Card title={<h5>.row--4c d</h5>} />
@@ -99,13 +96,13 @@ const Template: Story = (args) => {
                 className="row row--4c"
                 style={{ '--grid-gap': args.sidebarLNestedRowGap } as CSSWithCustomProps}
               >
-                <Card title={<h5>nested .row--4c a</h5>} classname="column sb-card-s" />
-                <Card title={<h5>nested .row--4c b</h5>} classname="column sb-card-s" />
-                <Card title={<h5>nested .row--4c c</h5>} classname="column sb-card-s" />
-                <Card title={<h5>nested .row--4c d</h5>} classname="column sb-card-s" />
-                <Card title={<h5>nested .row--4c e</h5>} classname="column sb-card-s" />
-                <Card title={<h5>nested .row--4c f</h5>} classname="column sb-card-s" />
-                <Card title={<h5>nested .row--4c g</h5>} classname="column sb-card-s" />
+                <Card title={<h5>nested .row--4c a</h5>} className="column sb-card-s" />
+                <Card title={<h5>nested .row--4c b</h5>} className="column sb-card-s" />
+                <Card title={<h5>nested .row--4c c</h5>} className="column sb-card-s" />
+                <Card title={<h5>nested .row--4c d</h5>} className="column sb-card-s" />
+                <Card title={<h5>nested .row--4c e</h5>} className="column sb-card-s" />
+                <Card title={<h5>nested .row--4c f</h5>} className="column sb-card-s" />
+                <Card title={<h5>nested .row--4c g</h5>} className="column sb-card-s" />
               </div>
             </div>
           </div>
@@ -146,5 +143,6 @@ Layout.args = {
   show4column: true,
   showSidebarL: false,
   sidebarLNestedRowGap: '8px',
-  showSidebarR: false
+  showSidebarR: false,
+  headerProps: HeaderStory.args,
 };

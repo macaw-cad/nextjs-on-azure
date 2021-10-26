@@ -6,12 +6,12 @@ export type NavigationLink = {
   children?: NavigationLink[];
 }
 
-type NavigationProps = {
+export type NavigationProps = {
   links: NavigationLink[];
-  classname?: string;
+  className?: string;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({ links, classname }) => {
+export const Navigation: React.FC<NavigationProps> = ({ links, className }) => {
   const [isOpenMenu, setOpenMenu] = useState(false);
   const submenuContainers = typeof window !== "undefined" ? document.querySelectorAll(".navigation .has-submenu") : [];
  
@@ -50,7 +50,7 @@ export const Navigation: React.FC<NavigationProps> = ({ links, classname }) => {
     }
     e.preventDefault();
     let submenuContainer = e.target.parentElement;
-   
+
     return submenuContainer.classList.contains('is-open') ?
       submenuContainer.classList.remove('is-open') :
       submenuContainer.classList.add('is-open');
@@ -64,7 +64,7 @@ export const Navigation: React.FC<NavigationProps> = ({ links, classname }) => {
   };
 
   return (
-    <div className={`navigation ${classname ? classname : ''}`}>
+    <div className={`navigation ${className ? className : ''}`}>
       <button className={`navigation__button${isOpenMenu ? ' is-active' : ''}`} onClick={handleMobileMenuTrigger}>
         <div className="navigation__button-icon">
           <span></span>
