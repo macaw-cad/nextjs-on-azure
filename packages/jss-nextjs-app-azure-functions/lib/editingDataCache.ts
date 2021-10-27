@@ -14,8 +14,7 @@ export interface EditingDataCache {
 export class EditingDataDiskCache implements EditingDataCache {
     private cache: CacheInstance;
 
-    constructor() {
-        const tmpDir = isOnAzure ? "C:\\home\\data\\temp" : os.tmpdir();
+    constructor(tmpDir: string = os.tmpdir()) {
         this.cache = new Cache('editing-data', { location: tmpDir });
     }
 
@@ -38,6 +37,7 @@ export class EditingDataDiskCache implements EditingDataCache {
             return undefined;
         }
         const data = JSON.parse(entry.value);
+        this.cache.remove(key);
         return data as EditingData;
     }
 }
