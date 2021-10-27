@@ -1,8 +1,10 @@
-const fs = require("fs"); // Or `import fs from "fs";` with ESM
-
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-import { editingDataDiskCache } from "../lib/editingDataCache";
+import { EditingDataDiskCache } from "../lib/editingDataCache";
 import { getNextResponseHandler } from "../lib/nextResponseHandler";
+import os from 'os';
+
+const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
+const editingDataDiskCache = new EditingDataDiskCache(isOnAzure ? "C:\\home\\data\\temp" : os.tmpdir())
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
 
