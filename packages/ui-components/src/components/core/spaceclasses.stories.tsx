@@ -4,6 +4,13 @@ import { Story, Meta } from "@storybook/react";
 export default {
   title: 'Core/Utilities/Spacing classes',
   component: 'SpacingClasses',
+  decorators: [
+    (Story: any) => (
+      <div className="sb-macaw">
+        {Story()}
+      </div>
+    ),
+  ],
 } as unknown as Meta;
 
 const Template: Story = (args) => {

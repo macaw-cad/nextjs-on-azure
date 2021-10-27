@@ -44,8 +44,9 @@
   justify-content: space-between;
   margin-top: space(12);
 
-  a {
+  a:not([class]) {
     font-size: 1rem;
+    text-decoration: none;
   }
 }
 
@@ -75,5 +76,17 @@
 .sb-card-s {
   .card__body {
     min-height: space(16);
+  }
+}
+
+.sb-macaw {
+  font-family: Assistant, 'Segoe UI', Roboto, 'Open Sans', sans-serif;
+
+  a {
+    text-decoration: underline;
+
+    &:not([class]) {
+      color: #007e9d;
+    }
   }
 }

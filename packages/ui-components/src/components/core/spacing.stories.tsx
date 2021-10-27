@@ -4,6 +4,13 @@ import { Story, Meta } from "@storybook/react";
 export default {
   title: 'Core/Base/Spacing',
   component: 'Spacing',
+  decorators: [
+    (Story: any) => (
+      <div className="sb-macaw">
+        {Story()}
+      </div>
+    ),
+  ],
   argTypes: {
     fontsize: {
       name: 'Base font size',
