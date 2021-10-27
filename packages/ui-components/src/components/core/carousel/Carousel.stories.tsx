@@ -14,7 +14,7 @@ export default {
   decorators: [
     (Story) => (
       <div className="sb-width">
-        <Story />
+        {Story()}
       </div>
     ),
   ],

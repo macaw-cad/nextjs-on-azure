@@ -13,7 +13,7 @@ export default {
     (Story) => (
       <div className="sb-fullwidth">
         <div className="page">
-          <Story />
+          {Story()}
         </div>
       </div>
     ),
@@ -29,6 +29,6 @@ const Template: ComponentStory<typeof Header> = (args) => {
 export const HeaderStory = Template.bind({});
 HeaderStory.storyName = 'Header';
 HeaderStory.args = {
-  image: { src: "logo192.png"},
+  image: { src: "sitecore-jss-azure-logo.png"},
   navigation: NavigationStory.args as NavigationProps,
 };

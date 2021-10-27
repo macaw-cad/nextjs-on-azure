@@ -12,7 +12,7 @@ export default {
   decorators: [
     (Story) => (
       <div style={{width: "300px"}}>
-        <Story />
+        {Story()}
       </div>
     ),
   ],

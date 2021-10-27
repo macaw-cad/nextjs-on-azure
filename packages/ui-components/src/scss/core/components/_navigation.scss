@@ -12,10 +12,12 @@
     align-items: center;
     align-self: flex-end;
     justify-content: center;
-    min-width: space(8);
-    height: space(8);
+    min-width: space(7);
+    height: space(7);
+    margin-right: 0 - space(1.5); // to visually align menu icon with the page gutter instead of the button border (which has been set to 0 here)
+    font-size: 1.2em;
     color: $color-nav-mobile-menu-button;
-    border: 2px solid currentColor;
+    border: 0 solid currentColor;
     border-radius: $border-radius;
     transition: .1s linear;
 
