@@ -15,7 +15,7 @@ import {
   Tokens,
   ApiRole,
 } from 'ordercloud-javascript-sdk';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Card } from '@nextjsonazure/ui-components/src/components/core/card/Card';
 
 type ProductListProps = ComponentProps & {
@@ -57,25 +57,12 @@ async function getProducts(
 }
 
 const ProductList: React.FC<ProductListProps> = ({ rendering, fields }): JSX.Element => {
-  const [orderCloudClientResponse, setOrderCloudClientResponse] = useState<RequiredDeep<
-    ListPageWithFacets<BuyerProduct>
-  > | null>();
-
   // first try server side, otherwise client side
   const data =
     rendering.uid &&
     useComponentProps<RequiredDeep<ListPageWithFacets<BuyerProduct>>>(rendering.uid)
       ? useComponentProps<RequiredDeep<ListPageWithFacets<BuyerProduct>>>(rendering.uid)
-      : orderCloudClientResponse;
-
-  async function setProducts() {
-    const response = await getProducts(fields.colorfacet.value);
-    setOrderCloudClientResponse(response);
-  }
-
-  useEffect(() => {
-    setProducts();
-  }, []);
+      : null;
 
   return (
     <div>
@@ -87,11 +74,7 @@ const ProductList: React.FC<ProductListProps> = ({ rendering, fields }): JSX.Ele
       </p>
 
       {data?.Items && (
-         <div className="row" style={{
-          // temp fix for now to get a nice repeating grid
-          gridAutoFlow: "row",
-          gridTemplateColumns: "repeat(4, minmax(10px, 1fr))"
-        }}>
+        <div className="row row--4c">
           {data.Items.map((product) => {
             return (
               <div className="column" key={product.ID}>

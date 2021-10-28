@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps } from 'next';
 import NotFound from 'src/NotFound';
 import Layout from 'src/Layout';
@@ -18,6 +19,12 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
     // Since Experience Editor does not support Fast Refresh need to refresh EE chromes after Fast Refresh finished
     handleExperienceEditorFastRefresh();
   }, []);
+
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <></>
+  }
 
   if (notFound || !layoutData?.sitecore?.route) {
     // Shouldn't hit this (as long as 'notFound' is being returned below), but just to be safe
@@ -65,7 +72,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: [],
-    fallback: 'blocking',
+    fallback: true,
   };
 };
 

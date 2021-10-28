@@ -9,37 +9,37 @@ type ThreeColumnsProps = ComponentProps & {
 };
 
 const ThreeColumns = (props: ThreeColumnsProps): JSX.Element => (
-  <div className="row mb-4">
+  <div className="row mb-4 row--3c">
     <Placeholder
       rendering={props.rendering}
       name="col1"
       renderEach={(component, index) => (
-        <div className="col-sm" key={index}>
+        <div className="column" key={index}>
           {component}
         </div>
       )}
-      renderEmpty={(components) => <div className="col-sm">{components}</div>}
+      renderEmpty={(components) => <div className="column">{components}</div>}
     />
 
     <Placeholder
       rendering={props.rendering}
       name="col2"
       renderEach={(component, index) => (
-        <div className="col-sm" key={index}>
+        <div className="column" key={index}>
           {component}
         </div>
       )}
-      renderEmpty={(components) => <div className="col-sm">{components}</div>}
+      renderEmpty={(components) => <div className="column">{components}</div>}
     />
     <Placeholder
       rendering={props.rendering}
       name="col3"
       renderEach={(component, index) => (
-        <div className="col-sm" key={index}>
+        <div className="column" key={index}>
           {component}
         </div>
       )}
-      renderEmpty={(components) => <div className="col-sm">{components}</div>}
+      renderEmpty={(components) => <div className="column">{components}</div>}
     />
   </div>
 );

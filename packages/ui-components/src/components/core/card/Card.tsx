@@ -4,7 +4,7 @@ import { Image } from "../image/Image"
 type CardProps = {
   title: JSX.Element;
   description?: JSX.Element;
-  image?: string;
+  image?: string | JSX.Element;
   callToAction?: {
     text: string;
     url: string;
@@ -15,9 +15,12 @@ type CardProps = {
 export const Card: React.FC<CardProps> = ({ title, description, image, callToAction, className }) => {
   return (
     <div className={`card ${className ? className : ''}`}>
-      {image &&
+      {typeof image === "string" &&
         <Image src={image} className="card__img" />
       }
+      {typeof image === "object" &&
+        <>{React.cloneElement(image, { className: "card__img" })}</>
+      } 
       <div className="card__body">
         <div className="card__title">{title}</div>
         {description &&

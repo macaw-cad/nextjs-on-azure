@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ComponentProps } from 'lib/component-props';
 import { NavigationLink, Navigation as UINavigation } from "@nextjsonazure/ui-components/src/components/core/navigation/Navigation";
 import React from 'react';
+import { Image } from '@nextjsonazure/ui-components/src/components/core/image/Image';
 
 type Result = {
   pageTitle?: {
@@ -63,39 +64,30 @@ const mapToNavigationLinks = (navigationProps: NavigationProps): NavigationLink[
 
 const Navigation: React.FC<NavigationProps> = (props): JSX.Element => {
   return (
-    <div 
-      style={{
-        borderBottom: "1px solid #dee2e6",
-      }}
-      className="mb-5"
-    >
-      <div style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "1em 15px",
-        alignItems: "center",
-        maxWidth: "1400px",
-        margin: "0 auto"
-      }} 
-      >
-        <h5 className="mb-0 font-weight-normal">
+    <header className="header mb-4">
+      <div className="container">
+        {/* <a href={homeUrl ? homeUrl : '/'} className="header__logo">
+          <Image {...image} />
+        </a>
+        <Navigation {...navigation} className="header__menu" /> */}
+    
+  
           <Link href="/">
-            <a className="text-dark" style={{display: "flex", alignItems: "center", color: "#000", textDecoration: "none"}}>
-              <h1 className="m-0 p-0 align-middle" style={{ display: 'inline-block' }}>
-                Sitecore JSS @
-              </h1>
-              <img
+            <a className="header__logo">
+              <Image 
+                src="/sitecore-jss-azure-logo.png"
+              />
+              {/* <img
                 className="ml-1"
                 src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg"
                 alt="Azure"
-              />
+              /> */}
             </a>
           </Link>
-        </h5>
-
-        <UINavigation links={mapToNavigationLinks(props)} />
+      
+        <UINavigation links={mapToNavigationLinks(props)} className="header__menu" />
       </div>
-    </div>
+    </header>
   );
 };
 
