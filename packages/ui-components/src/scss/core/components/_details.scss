@@ -1,0 +1,48 @@
+@use '../abstract/' as *;
+
+.details {
+  margin: 1em 0;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: $border-radius;
+
+  &__summary {
+    @extend %strip-child-margins;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: space(2) $box-padding;
+    cursor: pointer;
+    background-color: $color-lightgray;
+
+    &::marker {
+      display: none; // should work but doesn't
+      font-size: 0; // stupid, but does work
+    }
+
+    &::after {
+      font-size: 1.4rem;
+      font-weight: bold;
+      line-height: 1.2rem;
+      content: '+';
+      transition: transform .15s cubic-bezier(.445, .05, .55, .95);
+      transform: rotate(90deg);
+    }
+  }
+
+  &[open] &__summary::after {
+    content: '\002212';
+    transition-duration: .3s;
+    transform: rotate(180deg);
+  }
+
+  &__container {
+    overflow: hidden;
+    transition: height .4s cubic-bezier(.165, .84, .44, 1);
+  }
+
+  &__content {
+    @extend %strip-child-margins;
+    padding: space(2) $box-padding;
+  }
+}
