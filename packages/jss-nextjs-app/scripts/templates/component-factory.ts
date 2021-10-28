@@ -18,12 +18,12 @@ function generateComponentFactory(components: ComponentFile[]): string {
 // See scripts/generate-component-factory.ts to modify the generation of this file.
 ${components
   .map((component) => `import * as ${component.moduleName} from '${component.path}';`)
-  .join('\n')}
+  .join("\n")}
 
 const components = new Map();
 ${components
   .map((component) => `components.set('${component.componentName}', ${component.moduleName});`)
-  .join('\n')}
+  .join("\n")}
 
 export function componentModule(componentName: string) {
   return components.get(componentName);

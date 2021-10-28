@@ -1,4 +1,4 @@
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from "@sitecore-jss/sitecore-jss-manifest";
 
 /**
  * Adds the Styleguide-CustomRouteType component to the disconnected manifest.
@@ -13,18 +13,18 @@ export default function (manifest: Manifest): void {
   // article sections, where you may wish to use route-level fields for
   // _sorting and filtering_ (it's difficult to query on component-level field data).
   manifest.addRouteType({
-    name: 'ExampleCustomRouteType',
+    name: "ExampleCustomRouteType",
     fields: [
-      { name: 'headline', type: CommonFieldTypes.SingleLineText },
-      { name: 'author', type: CommonFieldTypes.SingleLineText },
-      { name: 'content', type: CommonFieldTypes.RichText },
+      { name: "headline", type: CommonFieldTypes.SingleLineText },
+      { name: "author", type: CommonFieldTypes.SingleLineText },
+      { name: "content", type: CommonFieldTypes.RichText },
     ],
   });
 
   // We're also adding a component, that we can put on our sample custom route type route.
   // This component will display the route level fields on the custom route type.
   manifest.addComponent({
-    name: 'Styleguide-CustomRouteType',
+    name: "Styleguide-CustomRouteType",
     icon: SitecoreIcon.DocumentTag,
   });
 }

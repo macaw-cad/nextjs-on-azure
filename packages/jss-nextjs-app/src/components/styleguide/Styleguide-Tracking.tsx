@@ -1,11 +1,11 @@
-import React, { RefObject } from 'react';
-import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import { trackingApi } from '@sitecore-jss/sitecore-jss-tracking';
-import { dataFetcher } from 'lib/data-fetcher';
-import config from 'temp/config';
-import StyleguideSpecimen from './Styleguide-Specimen';
-import { TrackingRequestOptions } from '@sitecore-jss/sitecore-jss-tracking/types/trackingRequestOptions';
-import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
+import React, { RefObject } from "react";
+import { withSitecoreContext } from "@sitecore-jss/sitecore-jss-nextjs";
+import { trackingApi } from "@sitecore-jss/sitecore-jss-tracking";
+import { dataFetcher } from "lib/data-fetcher";
+import config from "temp/config";
+import StyleguideSpecimen from "./Styleguide-Specimen";
+import { TrackingRequestOptions } from "@sitecore-jss/sitecore-jss-tracking/types/trackingRequestOptions";
+import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from "lib/component-props";
 
 /* eslint-disable no-alert,no-undef */
 
@@ -50,7 +50,7 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
 
     trackingApi
       .trackEvent([{ eventId: this.event.current.value }], this.trackingApiOptions)
-      .then(() => alert('Page event pushed'))
+      .then(() => alert("Page event pushed"))
       .catch((error) => alert(error));
   }
 
@@ -59,7 +59,7 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
 
     trackingApi
       .trackEvent([{ goalId: this.goal.current.value }], this.trackingApiOptions)
-      .then(() => alert('Goal pushed'))
+      .then(() => alert("Goal pushed"))
       .catch((error) => alert(error));
   }
 
@@ -80,13 +80,13 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
             url: this.pageUrl.current.value,
             pageId: this.pageId.current.value,
             outcomeId: this.outcomeName.current.value,
-            currencyCode: 'USD',
+            currencyCode: "USD",
             monetaryValue: this.outcomeValue.current.value,
           },
         ],
         this.trackingApiOptions
       )
-      .then(() => alert('Outcome pushed'))
+      .then(() => alert("Outcome pushed"))
       .catch((error) => alert(error));
   }
 
@@ -95,7 +95,7 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
 
     trackingApi
       .trackEvent([{ campaignId: this.campaign.current.value }], this.trackingApiOptions)
-      .then(() => alert('Campaign set'))
+      .then(() => alert("Campaign set"))
       .catch((error) => alert(error));
   }
 
@@ -112,19 +112,19 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
         ],
         this.trackingApiOptions
       )
-      .then(() => alert('Page view pushed'))
+      .then(() => alert("Page view pushed"))
       .catch((error) => alert(error));
   }
 
   abandonSession() {
     const abandonOptions = {
-      action: 'flush',
+      action: "flush",
       ...this.trackingApiOptions,
     };
 
     trackingApi
       .trackEvent([], abandonOptions)
-      .then(() => alert('Interaction has been terminated and its data pushed to xConnect.'))
+      .then(() => alert("Interaction has been terminated and its data pushed to xConnect."))
       .catch((error) => alert(error));
   }
 
@@ -132,24 +132,24 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
     trackingApi
       .trackEvent(
         [
-          { eventId: 'Download' },
-          { goalId: 'Instant Demo' },
-          { outcomeId: 'Opportunity' },
+          { eventId: "Download" },
+          { goalId: "Instant Demo" },
+          { outcomeId: "Opportunity" },
           {
-            pageId: '{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}',
-            url: '/arbitrary/url/you/own',
+            pageId: "{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}",
+            url: "/arbitrary/url/you/own",
           },
           // this goal will be added to the new page/route ID set above, not the current route
-          { goalId: 'Register' },
+          { goalId: "Register" },
         ],
         this.trackingApiOptions
       )
-      .then(() => alert('Batch of events pushed'))
+      .then(() => alert("Batch of events pushed"))
       .catch((error) => alert(error));
   }
 
   render() {
-    const disconnectedMode = this.props.sitecoreContext.itemId === 'available-in-connected-mode';
+    const disconnectedMode = this.props.sitecoreContext.itemId === "available-in-connected-mode";
 
     return (
       <StyleguideSpecimen {...this.props} e2eId="styleguide-tracking">
@@ -159,10 +159,10 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
         {!disconnectedMode && (
           <div>
             <p className="alert alert-warning">
-              Note: The JSS tracker API is disabled by default. Consult the{' '}
+              Note: The JSS tracker API is disabled by default. Consult the{" "}
               <a href="https://jss.sitecore.com/docs/fundamentals/services/tracking">
                 tracking documentation
-              </a>{' '}
+              </a>{" "}
               to enable it.
             </p>
             <div className="row">
@@ -208,7 +208,7 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
               <fieldset className="form-group col-sm">
                 <legend>Outcome</legend>
                 <p>
-                  Outcomes are defined in{' '}
+                  Outcomes are defined in{" "}
                   <code>/sitecore/system/Marketing Control Panel/Outcomes</code>
                 </p>
                 <label htmlFor="outcomeName">Outcome GUID or Name</label>
@@ -240,7 +240,7 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
               <fieldset className="form-group col-sm">
                 <legend>Campaign</legend>
                 <p>
-                  Campaigns are defined in{' '}
+                  Campaigns are defined in{" "}
                   <code>/sitecore/system/Marketing Control Panel/Campaigns</code>
                 </p>
                 <label htmlFor="campaign">Campaign GUID or Name</label>
@@ -314,7 +314,7 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
                 <p className="alert alert-warning">
                   Note: By default <em>anonymous</em> contacts will not be shown in Experience
                   Profile. If your interactions are not showing up in Experience Profile, you may
-                  need to{' '}
+                  need to{" "}
                   <a href="https://doc.sitecore.net/developers/xp/xconnect/xconnect-search-indexer/enable-anonymous-contact-indexing.html">
                     enable anonymous contact indexing.
                   </a>

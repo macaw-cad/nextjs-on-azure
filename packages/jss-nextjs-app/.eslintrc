@@ -44,6 +44,8 @@
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "error",
     "jsx-quotes": ["error", "prefer-double"],
+    "quotes":  ["error", "double"],
+    "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/ban-ts-comment": "off"
   }
 }

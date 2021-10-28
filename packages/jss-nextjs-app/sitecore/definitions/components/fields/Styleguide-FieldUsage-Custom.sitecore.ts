@@ -1,4 +1,4 @@
-import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { SitecoreIcon, Manifest } from "@sitecore-jss/sitecore-jss-manifest";
 
 /**
  * Adds the Styleguide-FieldUsage-Custom component to the disconnected manifest.
@@ -7,14 +7,14 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  */
 export default function (manifest: Manifest): void {
   manifest.addComponent({
-    name: 'Styleguide-FieldUsage-Custom',
+    name: "Styleguide-FieldUsage-Custom",
     icon: SitecoreIcon.Gearwheel,
     // NOTE: not using 'CommonFieldTypes' here, because it's a custom field.
     // The 'Integer' field ships with Sitecore; something really custom would need to be
     // implemented as a Sitecore field type as well.
-    fields: [{ name: 'customIntField', type: 'Integer' }],
+    fields: [{ name: "customIntField", type: "Integer" }],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['styleguide-explanatory-component-template'],
+    inherits: ["styleguide-explanatory-component-template"],
   });
 }

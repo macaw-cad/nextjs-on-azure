@@ -1,6 +1,6 @@
-import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import { Field } from "@sitecore-jss/sitecore-jss-nextjs";
+import { Placeholder } from "@sitecore-jss/sitecore-jss-nextjs";
+import { ComponentProps } from "lib/component-props";
 
 type ThreeColumnsProps = ComponentProps & {
   fields: {

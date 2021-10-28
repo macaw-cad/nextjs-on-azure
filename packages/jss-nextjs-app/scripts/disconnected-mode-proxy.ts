@@ -9,19 +9,19 @@
 
 /* eslint-disable no-console */
 
-import fs from 'fs';
-import path from 'path';
-import { createDefaultDisconnectedServer } from '@sitecore-jss/sitecore-jss-dev-tools';
-import { config } from '../package.json';
+import fs from "fs";
+import path from "path";
+import { createDefaultDisconnectedServer } from "@sitecore-jss/sitecore-jss-dev-tools";
+import { config } from "../package.json";
 
-const touchToReloadFilePath = 'src/temp/config.js';
+const touchToReloadFilePath = "src/temp/config.js";
 
 const serverOptions = {
-  appRoot: path.join(__dirname, '..'),
+  appRoot: path.join(__dirname, ".."),
   appName: config.appName,
   // Prevent require of ./sitecore/definitions/config.js, because ts-node is running
-  requireArg: '',
-  watchPaths: ['./data'],
+  requireArg: "",
+  watchPaths: ["./data"],
   language: config.language,
   port: Number(process.env.PROXY_PORT) || 3042,
   onManifestUpdated: () => {
@@ -30,13 +30,13 @@ const serverOptions = {
     // an actual reload, so we append "// reloadnow" to the file each time. This will not cause a problem,
     // since every build regenerates the config file from scratch and it's ignored from source control.
     if (fs.existsSync(touchToReloadFilePath)) {
-      const currentFileContents = fs.readFileSync(touchToReloadFilePath, 'utf8');
+      const currentFileContents = fs.readFileSync(touchToReloadFilePath, "utf8");
       const newFileContents = `${currentFileContents}\n// reloadnow`;
-      fs.writeFileSync(touchToReloadFilePath, newFileContents, 'utf8');
+      fs.writeFileSync(touchToReloadFilePath, newFileContents, "utf8");
 
-      console.log('Manifest data updated. Reloading the browser.');
+      console.log("Manifest data updated. Reloading the browser.");
     } else {
-      console.log('Manifest data updated. Refresh the browser to see latest content!');
+      console.log("Manifest data updated. Refresh the browser to see latest content!");
     }
   },
 };

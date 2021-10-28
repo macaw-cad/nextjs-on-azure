@@ -1,6 +1,6 @@
-import { Link, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
-import { ComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { Link, LinkField } from "@sitecore-jss/sitecore-jss-nextjs";
+import StyleguideSpecimen from "components/styleguide/Styleguide-Specimen";
+import { ComponentProps, StyleguideSpecimenFields } from "lib/component-props";
 
 type StyleguideFieldUsageLinkProps = ComponentProps &
   StyleguideSpecimenFields & {

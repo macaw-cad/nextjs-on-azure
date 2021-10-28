@@ -1,7 +1,7 @@
-import { Manifest, ItemDefinition } from '@sitecore-jss/sitecore-jss-manifest';
-import { mergeFs, MergeFsResult } from '@sitecore-jss/sitecore-jss-dev-tools';
-import path from 'path';
-import fs from 'fs';
+import { Manifest, ItemDefinition } from "@sitecore-jss/sitecore-jss-manifest";
+import { mergeFs, MergeFsResult } from "@sitecore-jss/sitecore-jss-dev-tools";
+import path from "path";
+import fs from "fs";
 
 /**
  * Adds non-route content items to the disconnected manifest.
@@ -11,8 +11,8 @@ import fs from 'fs';
  * @returns {Promise}
  */
 export default function addContentToManifest(manifest: Manifest): Promise<void> {
-  const rootItemName = 'Content';
-  const startPath = './data/content'; // relative to process invocation (i.e. where package.json lives)
+  const rootItemName = "Content";
+  const startPath = "./data/content"; // relative to process invocation (i.e. where package.json lives)
 
   if (!fs.existsSync(startPath)) return Promise.resolve();
 
@@ -48,11 +48,11 @@ function convertToItems(
   language: string
 ): ItemDefinition {
   const itemPath = convertPhsyicalPathToItemRelativePath(data.path, basePath);
-  const name = itemPath.substr(itemPath.lastIndexOf('/') + 1);
+  const name = itemPath.substr(itemPath.lastIndexOf("/") + 1);
 
   let result;
 
-  const contentItemPattern = new RegExp(`^${language}\\.(yaml|yml|json)$`, 'i');
+  const contentItemPattern = new RegExp(`^${language}\\.(yaml|yml|json)$`, "i");
 
   const contentFileData = data.files.find((f) => contentItemPattern.test(f.filename));
 
@@ -76,7 +76,7 @@ function convertToItems(
       path: itemPath,
       name: name || rootItemName,
       displayName: name || rootItemName,
-      template: 'Folder',
+      template: "Folder",
       children: [],
     };
   }
@@ -98,10 +98,10 @@ function convertToItems(
  * @param {string} basePath
  */
 function convertPhsyicalPathToItemRelativePath(physicalPath: string, basePath: string) {
-  const targetPathSeparator = '/';
+  const targetPathSeparator = "/";
 
   // normalize path separators to /
-  const normalizedPath = physicalPath.replace(basePath, '').replace(/\\/g, targetPathSeparator);
+  const normalizedPath = physicalPath.replace(basePath, "").replace(/\\/g, targetPathSeparator);
 
   if (!normalizedPath) {
     return targetPathSeparator;

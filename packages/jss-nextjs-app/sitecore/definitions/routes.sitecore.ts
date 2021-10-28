@@ -1,6 +1,6 @@
-import path from 'path';
-import { Manifest, RouteDefinition, CommonFieldTypes } from '@sitecore-jss/sitecore-jss-manifest';
-import { mergeFs, MergeFsResult } from '@sitecore-jss/sitecore-jss-dev-tools';
+import path from "path";
+import { Manifest, RouteDefinition, CommonFieldTypes } from "@sitecore-jss/sitecore-jss-manifest";
+import { mergeFs, MergeFsResult } from "@sitecore-jss/sitecore-jss-dev-tools";
 
 /**
  * Collects the disconnected routes defined in data/routes into the manifest.
@@ -16,22 +16,22 @@ export default function addRoutesToManifest(manifest: Manifest): Promise<void> {
   // which most apps will want for metadata like page titles, SEO metas, or OpenGraph.
   // You can add additional non-default route types using `manifest.addRouteType()`,
   // which routes can use by setting `template: YourCustomRouteTypeName` in their definition.
-  const appTemplateSection = 'Page Metadata';
+  const appTemplateSection = "Page Metadata";
 
   manifest.setDefaultRouteType({
-    name: 'App Route',
+    name: "App Route",
     fields: [
       {
-        name: 'pageTitle',
-        displayName: 'Page Title',
+        name: "pageTitle",
+        displayName: "Page Title",
         section: appTemplateSection,
         type: CommonFieldTypes.SingleLineText,
       },
     ],
-    insertOptions: ['App Route'],
+    insertOptions: ["App Route"],
   });
 
-  return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)
+  return mergeFs("./data/routes") // relative to process invocation (i.e. your package.json)
     .then((result) => convertToRoutes(result, manifest.language))
     .then((routeData) => {
       manifest.addRoute(routeData);
@@ -49,7 +49,7 @@ function convertToRoutes(data: MergeFsResult, language: string): RouteDefinition
   let routeData;
 
   // regex that matches the expected route file name
-  const routeFilePattern = new RegExp(`^${language}\\.(yaml|yml|json)$`, 'i');
+  const routeFilePattern = new RegExp(`^${language}\\.(yaml|yml|json)$`, "i");
 
   // find the expected file in the list of files in the current folder
   const routeFileData = data.files.find((f) => routeFilePattern.test(f.filename));
@@ -62,7 +62,7 @@ function convertToRoutes(data: MergeFsResult, language: string): RouteDefinition
       // no name = imply one from parent folder name
       routeData.name = path.basename(path.dirname(routeFileData.path));
       // special case for the home route item as its parent folder is 'routes'
-      if (routeData.name === 'routes') routeData.name = 'home';
+      if (routeData.name === "routes") routeData.name = "home";
     }
   } else {
     console.warn(

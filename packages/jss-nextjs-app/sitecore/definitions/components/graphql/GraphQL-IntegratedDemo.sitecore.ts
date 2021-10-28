@@ -1,9 +1,9 @@
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
-import fs from 'fs';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from "@sitecore-jss/sitecore-jss-manifest";
+import fs from "fs";
 
 const query = fs.readFileSync(
-  'sitecore/definitions/components/graphql/GraphQL-IntegratedDemo.sitecore.graphql',
-  'utf8'
+  "sitecore/definitions/components/graphql/GraphQL-IntegratedDemo.sitecore.graphql",
+  "utf8"
 );
 
 /**
@@ -13,12 +13,12 @@ const query = fs.readFileSync(
  */
 export default function (manifest: Manifest): void {
   manifest.addComponent({
-    name: 'GraphQL-IntegratedDemo',
+    name: "GraphQL-IntegratedDemo",
     icon: SitecoreIcon.GraphConnection_directed,
     graphQLQuery: query,
     fields: [
-      { name: 'sample1', type: CommonFieldTypes.SingleLineText },
-      { name: 'sample2', type: CommonFieldTypes.GeneralLink },
+      { name: "sample1", type: CommonFieldTypes.SingleLineText },
+      { name: "sample2", type: CommonFieldTypes.GeneralLink },
     ],
   });
 }

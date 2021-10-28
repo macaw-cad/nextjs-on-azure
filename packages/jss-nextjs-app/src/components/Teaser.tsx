@@ -1,6 +1,6 @@
-import { Text, Field, Image, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-import { Card } from '@nextjsonazure/ui-components/src/components/core/card/Card';
+import { Text, Field, Image, ImageField } from "@sitecore-jss/sitecore-jss-nextjs";
+import { ComponentProps } from "lib/component-props";
+import { Card } from "@nextjsonazure/ui-components/src/components/core/card/Card";
 
 type TeaserProps = ComponentProps & {
   fields: {

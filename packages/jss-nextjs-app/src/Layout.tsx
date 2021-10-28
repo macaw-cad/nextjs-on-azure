@@ -1,12 +1,12 @@
-import Head from 'next/head';
-import { useEffect } from 'react';
-import { getPublicUrl } from 'lib/util';
+import Head from "next/head";
+import { useEffect } from "react";
+import { getPublicUrl } from "lib/util";
 import {
   Placeholder,
   VisitorIdentification,
   useSitecoreContext,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideSitecoreContextValue } from 'lib/component-props';
+} from "@sitecore-jss/sitecore-jss-nextjs";
+import { StyleguideSitecoreContextValue } from "lib/component-props";
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -33,7 +33,7 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
   return (
     <>
       <Head>
-        <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
+        <title>{route?.fields?.pageTitle?.value || "Page"}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
@@ -51,11 +51,7 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
 
         {/* root placeholder for the app, which we add components to using route data */}
         <main>
-          <div className="row">
-            <div className="column">
-              <Placeholder name="jss-main" rendering={route} />
-            </div>
-          </div>
+          <Placeholder name="jss-main" rendering={route} />
         </main>
       </div>
     </>

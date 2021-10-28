@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react';
-import { withPlaceholder, withSitecoreContext, Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from './Styleguide-Specimen';
-import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
+import React, { ReactElement } from "react";
+import { withPlaceholder, withSitecoreContext, Text } from "@sitecore-jss/sitecore-jss-nextjs";
+import StyleguideSpecimen from "./Styleguide-Specimen";
+import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from "lib/component-props";
 
 interface StyleguideLayoutTabsState {
   activeTabIndex: number;
@@ -58,7 +58,7 @@ class StyleguideLayoutTabs extends React.Component<
               .map((tab: ReactElement, index: number) => (
                 <li className="nav-item" key={`tab${index}`}>
                   <a
-                    className={`nav-link ${index === this.state.activeTabIndex ? 'active' : null}`}
+                    className={`nav-link ${index === this.state.activeTabIndex ? "active" : null}`}
                     onClick={() => this.setActiveTab(index)}
                     href="#t"
                   >
@@ -96,8 +96,8 @@ class StyleguideLayoutTabs extends React.Component<
 // in this case, chosen because we primarily need access to the _data_
 // of the placeholder.
 const tabsComponentWithPlaceholderInjected = withPlaceholder({
-  placeholder: 'jss-tabs',
-  prop: 'tabsPlaceholder',
+  placeholder: "jss-tabs",
+  prop: "tabsPlaceholder",
 })(StyleguideLayoutTabs);
 
 // We need to know if experience editor is active, to disable the dynamic tab behavior for editing.

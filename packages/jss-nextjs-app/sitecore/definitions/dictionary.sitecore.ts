@@ -1,6 +1,6 @@
-import { Manifest } from '@sitecore-jss/sitecore-jss-manifest';
-import { mergeFs, MergeFsResult } from '@sitecore-jss/sitecore-jss-dev-tools';
-import fs from 'fs';
+import { Manifest } from "@sitecore-jss/sitecore-jss-manifest";
+import { mergeFs, MergeFsResult } from "@sitecore-jss/sitecore-jss-dev-tools";
+import fs from "fs";
 
 /**
  * Reads dictionary definition file in /data/dictionary,
@@ -10,7 +10,7 @@ import fs from 'fs';
  * @returns {Promise}
  */
 export default function addDictionaryToManifest(manifest: Manifest): Promise<void> | undefined {
-  const startPath = './data/dictionary'; // relative to process invocation (i.e. where package.json lives)
+  const startPath = "./data/dictionary"; // relative to process invocation (i.e. where package.json lives)
 
   if (!fs.existsSync(startPath)) return;
 
@@ -39,7 +39,7 @@ function mergeDictionaryFiles(data: MergeFsResult, language: string) {
   let dictionaryResult = {};
 
   // regex that matches the expected dictionary file name
-  const dictionaryFilePattern = new RegExp(`^${language}\\.(yaml|yml|json)$`, 'i');
+  const dictionaryFilePattern = new RegExp(`^${language}\\.(yaml|yml|json)$`, "i");
   const dictionaryFileData = data.files.find((f) => dictionaryFilePattern.test(f.filename));
 
   if (dictionaryFileData && dictionaryFileData.contents) {

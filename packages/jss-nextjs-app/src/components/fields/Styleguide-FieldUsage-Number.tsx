@@ -1,6 +1,6 @@
-import { Text, Field, getFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
-import { ComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { Text, Field, getFieldValue } from "@sitecore-jss/sitecore-jss-nextjs";
+import StyleguideSpecimen from "components/styleguide/Styleguide-Specimen";
+import { ComponentProps, StyleguideSpecimenFields } from "lib/component-props";
 
 type StyleguideFieldUsageTextProps = ComponentProps &
   StyleguideSpecimenFields & {
@@ -13,7 +13,7 @@ type StyleguideFieldUsageTextProps = ComponentProps &
  * Demonstrates usage of a Number (decimal) content field within JSS.
  */
 const StyleguideFieldUsageText = (props: StyleguideFieldUsageTextProps): JSX.Element => {
-  const fieldValue = getFieldValue(props.fields, 'sample');
+  const fieldValue = getFieldValue(props.fields, "sample");
 
   return (
     <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-number">

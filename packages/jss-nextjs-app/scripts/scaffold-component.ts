@@ -14,14 +14,14 @@
 
 /* eslint-disable no-throw-literal,no-console */
 
-import fs from 'fs';
-import path from 'path';
-import chalk from 'chalk';
-import generateComponentSrc from './templates/component-src';
-import generateComponentManifest from './templates/component-manifest';
+import fs from "fs";
+import path from "path";
+import chalk from "chalk";
+import generateComponentSrc from "./templates/component-src";
+import generateComponentManifest from "./templates/component-manifest";
 
-const componentManifestDefinitionsPath = 'sitecore/definitions/components';
-const componentRootPath = 'src/components';
+const componentManifestDefinitionsPath = "sitecore/definitions/components";
+const componentRootPath = "src/components";
 
 // Matches component names that start with a capital letter, and contain only letters, number,
 // underscores, or dashes. Optionally, the component name can be preceded by a relative path
@@ -29,7 +29,7 @@ const nameParamFormat = new RegExp(/^((?:[\w-]+\/)*)([A-Z][\w-]+)$/);
 const componentArg = process.argv[2];
 
 if (!componentArg) {
-  throw 'Component name was not passed. Usage: jss scaffold <ComponentName>';
+  throw "Component name was not passed. Usage: jss scaffold <ComponentName>";
 }
 
 const regExResult = nameParamFormat.exec(componentArg);
@@ -86,16 +86,16 @@ if (componentOutputPath) {
 if (manifestOutputPath) {
   console.log(
     `* Add the component to a route layout (/data/routes) and test it with ${chalk.green(
-      'jss start'
+      "jss start"
     )}`
   );
 } else {
   console.log(
     `* Deploy your app with the new component to Sitecore (${chalk.green(
-      'jss deploy:watch'
-    )} or ${chalk.green('jss deploy files')})`
+      "jss deploy:watch"
+    )} or ${chalk.green("jss deploy files")})`
   );
-  console.log(`* Add the component to a route using Sitecore Experience Editor, and test it.`);
+  console.log("* Add the component to a route using Sitecore Experience Editor, and test it.");
 }
 
 /**
@@ -104,7 +104,7 @@ if (manifestOutputPath) {
  * @param {string} content
  */
 function editLineEndings(content: string) {
-  return content.replace(/\r|\n/gm, '\r\n');
+  return content.replace(/\r|\n/gm, "\r\n");
 }
 
 /**
@@ -124,7 +124,7 @@ function scaffoldFile(rootPath: string, fileContent: string, filename: string): 
   }
 
   fs.mkdirSync(outputDir, { recursive: true });
-  fs.writeFileSync(outputFile, editLineEndings(fileContent), 'utf8');
+  fs.writeFileSync(outputFile, editLineEndings(fileContent), "utf8");
   console.log(chalk.green(`File ${outputFile} has been scaffolded.`));
   return outputFile;
 }

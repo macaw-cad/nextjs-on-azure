@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { useSitecoreContext, Text, RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideSitecoreContextValue } from 'lib/component-props';
+import Link from "next/link";
+import { useSitecoreContext, Text, RichText, Field } from "@sitecore-jss/sitecore-jss-nextjs";
+import { StyleguideSitecoreContextValue } from "lib/component-props";
 
 type StyleguideCustomRouteTypeContext = StyleguideSitecoreContextValue & {
   route: {

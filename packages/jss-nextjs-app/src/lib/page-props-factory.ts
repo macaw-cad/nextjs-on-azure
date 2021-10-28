@@ -1,5 +1,5 @@
-import { ParsedUrlQuery } from 'querystring';
-import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
+import { ParsedUrlQuery } from "querystring";
+import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
 import {
   ComponentPropsService,
   DictionaryPhrases,
@@ -8,12 +8,12 @@ import {
   LayoutService,
   editingDataService,
   EditingPreviewData,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { SitecorePageProps } from 'lib/page-props';
-import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
-import { layoutServiceFactory } from 'lib/layout-service-factory';
-import { componentModule } from 'temp/componentFactory';
-import { config as packageConfig } from '../../package.json';
+} from "@sitecore-jss/sitecore-jss-nextjs";
+import { SitecorePageProps } from "lib/page-props";
+import { dictionaryServiceFactory } from "lib/dictionary-service-factory";
+import { layoutServiceFactory } from "lib/layout-service-factory";
+import { componentModule } from "temp/componentFactory";
+import { config as packageConfig } from "../../package.json";
 
 /**
  * Extract normalized Sitecore item path from query
@@ -21,13 +21,13 @@ import { config as packageConfig } from '../../package.json';
  */
 function extractPath(params: ParsedUrlQuery | undefined): string {
   if (params === undefined) {
-    return '/';
+    return "/";
   }
-  let path = Array.isArray(params.path) ? params.path.join('/') : params.path ?? '/';
+  let path = Array.isArray(params.path) ? params.path.join("/") : params.path ?? "/";
 
   // Ensure leading '/'
-  if (!path.startsWith('/')) {
-    path = '/' + path;
+  if (!path.startsWith("/")) {
+    path = "/" + path;
   }
 
   return path;

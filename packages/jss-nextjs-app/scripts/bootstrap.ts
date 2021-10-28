@@ -1,5 +1,5 @@
-import { generateConfig } from './generate-config';
-import { JSS_MODE_DISCONNECTED } from '@sitecore-jss/sitecore-jss-nextjs';
+import { generateConfig } from "./generate-config";
+import { JSS_MODE_DISCONNECTED } from "@sitecore-jss/sitecore-jss-nextjs";
 
 /*
   BOOTSTRAPPING
@@ -23,4 +23,4 @@ generateConfig(configOverride);
 /*
   COMPONENT FACTORY GENERATION
 */
-import './generate-component-factory';
+import "./generate-component-factory";

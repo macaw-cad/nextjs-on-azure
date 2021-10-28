@@ -1,5 +1,5 @@
-import { Text, RichText, useSitecoreContext, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, StyleguideSitecoreContextValue } from 'lib/component-props';
+import { Text, RichText, useSitecoreContext, Field } from "@sitecore-jss/sitecore-jss-nextjs";
+import { ComponentProps, StyleguideSitecoreContextValue } from "lib/component-props";
 
 type StyleguideLayoutTabsTabProps = ComponentProps & {
   fields: {

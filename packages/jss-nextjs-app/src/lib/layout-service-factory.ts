@@ -1,5 +1,5 @@
-import { LayoutService, RestLayoutService } from '@sitecore-jss/sitecore-jss-nextjs';
-import config from 'temp/config';
+import { LayoutService, RestLayoutService } from "@sitecore-jss/sitecore-jss-nextjs";
+import config from "temp/config";
 
 export class LayoutServiceFactory {
   create(): LayoutService {
@@ -7,7 +7,7 @@ export class LayoutServiceFactory {
       apiHost: config.sitecoreApiHost,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
-      configurationName: 'jss',
+      configurationName: "jss",
     });
   }
 }

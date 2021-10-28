@@ -1,6 +1,6 @@
-import { Text, Link } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-import NextLink from 'next/link';
+import { Text, Link } from "@sitecore-jss/sitecore-jss-nextjs";
+import { ComponentProps } from "lib/component-props";
+import NextLink from "next/link";
 
 type DataSource = {
   sample1: {

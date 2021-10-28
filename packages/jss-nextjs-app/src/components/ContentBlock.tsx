@@ -1,5 +1,5 @@
-import { Text, RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import { Text, RichText, Field } from "@sitecore-jss/sitecore-jss-nextjs";
+import { ComponentProps } from "lib/component-props";
 
 type ContentBlockProps = ComponentProps & {
   fields: {

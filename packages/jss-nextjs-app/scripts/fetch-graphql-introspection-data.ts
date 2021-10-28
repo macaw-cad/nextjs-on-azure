@@ -1,7 +1,7 @@
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs';
-import fs from 'fs';
-import { getIntrospectionQuery } from 'graphql';
-import { generateConfig } from './generate-config';
+import { GraphQLRequestClient } from "@sitecore-jss/sitecore-jss-nextjs";
+import fs from "fs";
+import { getIntrospectionQuery } from "graphql";
+import { generateConfig } from "./generate-config";
 
 // This script load graphql introspection data in order to use graphql code generator and generate typescript types
 // The `jss graphql:update` command should be executed when Sitecore templates related to the site are altered.
@@ -15,7 +15,7 @@ try {
   jssConfig = require('../src/temp/config');
 } catch (e) {
   console.error(
-    'Unable to require JSS config. Ensure `jss setup` has been run, and the app has been started at least once after setup.'
+    "Unable to require JSS config. Ensure `jss setup` has been run, and the app has been started at least once after setup."
   );
   console.error(e);
   process.exit(1);
@@ -31,15 +31,15 @@ client
   .request(getIntrospectionQuery())
   .then((result) => {
     fs.writeFile(
-      './src/temp/GraphQLIntrospectionResult.json',
+      "./src/temp/GraphQLIntrospectionResult.json",
       JSON.stringify(result, null, 2),
       (err) => {
         if (err) {
-          console.error('Error writing GraphQLIntrospectionResult file', err);
+          console.error("Error writing GraphQLIntrospectionResult file", err);
           return;
         }
 
-        console.log('GraphQL Introspection Data successfully fetched!');
+        console.log("GraphQL Introspection Data successfully fetched!");
       }
     );
   })
@@ -48,21 +48,21 @@ client
     process.exit(1);
   });
 
-const filmClient = new GraphQLRequestClient('https://tmdb.apps.quintero.io/');
+const filmClient = new GraphQLRequestClient("https://tmdb.apps.quintero.io/");
 
 filmClient
   .request(getIntrospectionQuery())
   .then((result) => {
     fs.writeFile(
-      './src/temp/GraphQLIntrospectionResultFilm.json',
+      "./src/temp/GraphQLIntrospectionResultFilm.json",
       JSON.stringify(result, null, 2),
       (err) => {
         if (err) {
-          console.error('Error writing GraphQLIntrospectionResultFilm file', err);
+          console.error("Error writing GraphQLIntrospectionResultFilm file", err);
           return;
         }
 
-        console.log('GraphQL Film Introspection Data successfully fetched!');
+        console.log("GraphQL Film Introspection Data successfully fetched!");
       }
     );
   })

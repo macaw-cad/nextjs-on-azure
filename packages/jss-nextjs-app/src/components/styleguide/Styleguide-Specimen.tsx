@@ -1,5 +1,5 @@
 // import { Text, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { ComponentProps, StyleguideSpecimenFields } from "lib/component-props";
 
 type StyleguideSpecimenProps = ComponentProps &
   StyleguideSpecimenFields & {
@@ -28,7 +28,7 @@ const StyleguideSpecimen = ({
     <p>
       <small>
         <br />
-        Definition:{' '}
+        Definition:{" "}
       </small>
     </p>
     <div className="border p-2">{children}</div>

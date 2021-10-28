@@ -5,7 +5,7 @@ import {
   ComponentRendering,
   LayoutServiceContext,
   RouteData,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+} from "@sitecore-jss/sitecore-jss-nextjs";
 
 /**
  * Styleguide sitecore context value shape

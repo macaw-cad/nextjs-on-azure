@@ -1,4 +1,4 @@
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from "@sitecore-jss/sitecore-jss-manifest";
 
 /**
  * Adds the Styleguide-FieldUsage-Image component to the disconnected manifest.
@@ -7,14 +7,14 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function (manifest: Manifest): void {
   manifest.addComponent({
-    name: 'Styleguide-FieldUsage-Image',
+    name: "Styleguide-FieldUsage-Image",
     icon: SitecoreIcon.PhotoPortrait,
     fields: [
-      { name: 'sample1', type: CommonFieldTypes.Image },
-      { name: 'sample2', type: CommonFieldTypes.Image },
+      { name: "sample1", type: CommonFieldTypes.Image },
+      { name: "sample2", type: CommonFieldTypes.Image },
     ],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['styleguide-explanatory-component-template'],
+    inherits: ["styleguide-explanatory-component-template"],
   });
 }
