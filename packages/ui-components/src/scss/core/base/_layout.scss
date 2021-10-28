@@ -30,6 +30,17 @@
   }
 
   // page gutter
+  > main > :not(.row) {
+    @if $page-gutter != $page-gutter-mobile {
+      @include mq(s-max) {
+        margin-right: $page-gutter-mobile;
+        margin-left: $page-gutter-mobile;
+      }
+    }
+    margin-right: max($page-gutter, calc(50% - math.div($max-site-width, 2)));
+    margin-left: max($page-gutter, calc(50% - math.div($max-site-width, 2)));
+  }
+
   > main > .row,
   > header > .container,
   > footer > .container {
