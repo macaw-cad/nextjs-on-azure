@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from "@sitecore-jss/sitecore-jss-manifest";
 
 /**
  * Adds the Hero component to the disconnected manifest.
@@ -8,12 +8,12 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function (manifest: Manifest): void {
   manifest.addComponent({
-    name: 'Hero',
+    name: "Hero",
     icon: SitecoreIcon.DocumentTag,
     fields: [
-      { name: 'heading', type: CommonFieldTypes.SingleLineText },
-      { name: 'teaser', type: CommonFieldTypes.SingleLineText },
-      { name: 'image', type: CommonFieldTypes.Image },
+      { name: "heading", type: CommonFieldTypes.SingleLineText },
+      { name: "teaser", type: CommonFieldTypes.SingleLineText },
+      { name: "image", type: CommonFieldTypes.Image },
     ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,

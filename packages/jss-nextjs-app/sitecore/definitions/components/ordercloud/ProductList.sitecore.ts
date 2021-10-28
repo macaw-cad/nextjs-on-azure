@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from "@sitecore-jss/sitecore-jss-manifest";
 
 /**
  * Adds the ProductList component to the disconnected manifest.
@@ -8,8 +8,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function (manifest: Manifest): void {
   manifest.addComponent({
-    name: 'ProductList',
+    name: "ProductList",
     icon: SitecoreIcon.DocumentTag,
-    fields: [{ name: 'colorfacet', type: CommonFieldTypes.SingleLineText }],
+    fields: [{ name: "colorfacet", type: CommonFieldTypes.SingleLineText }],
   });
 }

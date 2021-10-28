@@ -1,5 +1,5 @@
-import { Field, Placeholder, Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import { Field, Placeholder, Text } from "@sitecore-jss/sitecore-jss-nextjs";
+import { ComponentProps } from "lib/component-props";
 
 type StyleguideSectionProps = ComponentProps & {
   fields: {
@@ -13,7 +13,7 @@ type StyleguideSectionProps = ComponentProps & {
  * exposes.
  */
 const StyleguideSection = (props: StyleguideSectionProps): JSX.Element => (
-  <div className="pt-3" id={`i${props.rendering.uid && props.rendering.uid.replace(/[{}]/g, '')}`}>
+  <div className="pt-3" id={`i${props.rendering.uid && props.rendering.uid.replace(/[{}]/g, "")}`}>
     <Text className="border-bottom" field={props.fields.heading} tag="h3" />
     <Placeholder name="jss-styleguide-section" rendering={props.rendering} />
   </div>

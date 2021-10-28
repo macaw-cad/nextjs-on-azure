@@ -1,12 +1,12 @@
-import StyleguideSpecimen from './Styleguide-Specimen';
-import { ComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
+import StyleguideSpecimen from "./Styleguide-Specimen";
+import { ComponentProps, StyleguideSpecimenFields } from "lib/component-props";
 
 type StyleguideComponentParamsProps = ComponentProps &
   StyleguideSpecimenFields & {
     params: {
       cssClass: string;
       columns: string;
-      useCallToAction: 'false' | 'true';
+      useCallToAction: "false" | "true";
     };
   };
 
@@ -26,7 +26,7 @@ const StyleguideComponentParams = (props: StyleguideComponentParamsProps): JSX.E
         useCallToAction param: <code>{useCallToAction}</code>
         <br />
         param type: <code>{typeof useCallToAction}</code>
-        {useCallToAction === 'true' && (
+        {useCallToAction === "true" && (
           <div className="alert alert-info">the call to action is shown</div>
         )}
       </div>

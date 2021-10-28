@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import Head from "next/head";
 
 /**
  * Rendered in case if we have 404 error

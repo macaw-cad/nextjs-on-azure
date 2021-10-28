@@ -1,5 +1,5 @@
-import { DictionaryService, RestDictionaryService } from '@sitecore-jss/sitecore-jss-nextjs';
-import config from 'temp/config';
+import { DictionaryService, RestDictionaryService } from "@sitecore-jss/sitecore-jss-nextjs";
+import config from "temp/config";
 
 export class DictionaryServiceFactory {
   create(): DictionaryService {

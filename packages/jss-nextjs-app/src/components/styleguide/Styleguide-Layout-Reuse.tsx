@@ -1,6 +1,6 @@
-import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from './Styleguide-Specimen';
-import { ComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { Placeholder } from "@sitecore-jss/sitecore-jss-nextjs";
+import StyleguideSpecimen from "./Styleguide-Specimen";
+import { ComponentProps, StyleguideSpecimenFields } from "lib/component-props";
 
 type StyleguideLayoutReuseProps = ComponentProps & StyleguideSpecimenFields;
 

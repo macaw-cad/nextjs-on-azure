@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Text,
   Link,
@@ -7,16 +7,16 @@ import {
   useComponentProps,
   JSS_MODE_DISCONNECTED,
   GraphQLRequestClient,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import NextLink from 'next/link';
+} from "@sitecore-jss/sitecore-jss-nextjs";
+import NextLink from "next/link";
 import {
   ConnectedDemoQueryDocument,
   AppRoute,
   Item,
   GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
-} from './GraphQL-ConnectedDemo.sitecore.graphql';
-import { ComponentProps } from 'lib/component-props';
-import config from 'temp/config';
+} from "./GraphQL-ConnectedDemo.sitecore.graphql";
+import { ComponentProps } from "lib/component-props";
+import config from "temp/config";
 
 type RouteItem = AppRoute & Item;
 

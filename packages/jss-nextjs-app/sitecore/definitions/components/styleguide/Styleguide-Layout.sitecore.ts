@@ -1,4 +1,4 @@
-import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { SitecoreIcon, Manifest } from "@sitecore-jss/sitecore-jss-manifest";
 
 /**
  * Adds the Styleguide-Layout component to the disconnected manifest.
@@ -7,8 +7,8 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  */
 export default function (manifest: Manifest): void {
   manifest.addComponent({
-    name: 'Styleguide-Layout',
+    name: "Styleguide-Layout",
     icon: SitecoreIcon.Layout,
-    placeholders: ['jss-styleguide-layout'],
+    placeholders: ["jss-styleguide-layout"],
   });
 }

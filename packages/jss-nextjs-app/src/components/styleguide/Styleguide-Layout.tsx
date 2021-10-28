@@ -4,8 +4,8 @@ import {
   getFieldValue,
   ComponentRendering,
   HtmlElementRendering,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+} from "@sitecore-jss/sitecore-jss-nextjs";
+import { ComponentProps } from "lib/component-props";
 
 /**
  * The main layout (columns) of the styleguide.
@@ -17,21 +17,21 @@ const StyleguideLayout = (props: ComponentProps): JSX.Element => {
     section as ComponentRendering;
 
   const convertUID = (uid?: string) => {
-    if (!uid) return '';
-    return uid.replace(/[{}]/g, '');
+    if (!uid) return "";
+    return uid.replace(/[{}]/g, "");
   };
 
   // this code reads the components in the child placeholders of this component,
   // and projects them into the left navigation column for the styleguide
-  const sections = getChildPlaceholder(props.rendering, 'jss-styleguide-layout')
-    .filter((section) => getFieldValue(getRendering(section), 'heading'))
+  const sections = getChildPlaceholder(props.rendering, "jss-styleguide-layout")
+    .filter((section) => getFieldValue(getRendering(section), "heading"))
     .map((section) => ({
-      heading: getFieldValue<string>(getRendering(section), 'heading'),
+      heading: getFieldValue<string>(getRendering(section), "heading"),
       id: `i${convertUID(getRendering(section).uid)}`,
-      children: getChildPlaceholder(getRendering(section), 'jss-styleguide-section')
-        .filter((component) => getFieldValue(getRendering(component), 'heading'))
+      children: getChildPlaceholder(getRendering(section), "jss-styleguide-section")
+        .filter((component) => getFieldValue(getRendering(component), "heading"))
         .map((component) => ({
-          heading: getFieldValue<string>(getRendering(component), 'heading'),
+          heading: getFieldValue<string>(getRendering(component), "heading"),
           id: `i${convertUID(getRendering(component).uid)}`,
         })),
     }))

@@ -1,10 +1,10 @@
-import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import { useSitecoreContext } from "@sitecore-jss/sitecore-jss-nextjs";
+import StyleguideSpecimen from "./Styleguide-Specimen";
 import {
   StyleguideSpecimenFields,
   StyleguideSitecoreContextValue,
   ComponentProps,
-} from 'lib/component-props';
+} from "lib/component-props";
 
 type StyleguideSitecoreContextProps = ComponentProps & StyleguideSpecimenFields;
 
@@ -18,7 +18,7 @@ const StyleguideSitecoreContext = (props: StyleguideSitecoreContextProps): JSX.E
   return (
     <StyleguideSpecimen {...props} e2eId="styleguide-sitecore-context">
       <p>The current Sitecore Context is...</p>
-      <pre style={{ maxHeight: '400px', overflow: 'scroll' }}>
+      <pre style={{ maxHeight: "400px", overflow: "scroll" }}>
         {JSON.stringify(sitecoreContext, null, 2)}
       </pre>
     </StyleguideSpecimen>

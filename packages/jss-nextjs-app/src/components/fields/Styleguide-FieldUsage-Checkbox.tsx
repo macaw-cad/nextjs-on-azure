@@ -1,6 +1,6 @@
-import { Field, getFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
-import { ComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { Field, getFieldValue } from "@sitecore-jss/sitecore-jss-nextjs";
+import StyleguideSpecimen from "components/styleguide/Styleguide-Specimen";
+import { ComponentProps, StyleguideSpecimenFields } from "lib/component-props";
 
 type StyleguideFieldUsageCheckboxProps = ComponentProps &
   StyleguideSpecimenFields & {
@@ -34,12 +34,12 @@ const StyleguideFieldUsageCheckbox = (props: StyleguideFieldUsageCheckboxProps):
             <code>checkbox</code> is false
           </li>
         ))}
-      {getFieldValue(props.fields, 'checkbox2', false) && (
+      {getFieldValue(props.fields, "checkbox2", false) && (
         <li>
           <code>checkbox2</code> is true
         </li>
       )}
-      {!getFieldValue(props.fields, 'checkbox2', false) && (
+      {!getFieldValue(props.fields, "checkbox2", false) && (
         <li>
           <code>checkbox2</code> is false
         </li>

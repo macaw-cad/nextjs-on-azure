@@ -4,6 +4,11 @@ placeholders:
   jss-header:
     - componentName: Navigation
   jss-main:
-  - componentName: FilmSearch
-    fields:
-      searchTerm: James Bond
+    - componentName: ContentBlock
+      fields:
+        heading: GraphQL example
+        content: <p>Below an example of a GraphQL component consuming an external data source</p>
+
+    - componentName: FilmSearch
+      fields:
+        searchTerm: James Bond

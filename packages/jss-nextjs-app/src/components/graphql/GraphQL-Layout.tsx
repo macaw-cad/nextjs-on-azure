@@ -1,11 +1,11 @@
-import { Placeholder, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, StyleguideSitecoreContextValue } from 'lib/component-props';
+import { Placeholder, useSitecoreContext } from "@sitecore-jss/sitecore-jss-nextjs";
+import { ComponentProps, StyleguideSitecoreContextValue } from "lib/component-props";
 
 const GraphQLLayout = ({ rendering }: ComponentProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext<StyleguideSitecoreContextValue>();
 
   const disconnectedMode =
-    sitecoreContext.route && sitecoreContext.route.layoutId === 'available-in-connected-mode';
+    sitecoreContext.route && sitecoreContext.route.layoutId === "available-in-connected-mode";
 
   return (
     <div data-e2e-id="graphql-layout">

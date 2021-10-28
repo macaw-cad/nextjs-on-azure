@@ -1,4 +1,4 @@
-import NotFound from 'src/NotFound';
+import NotFound from "src/NotFound";
 
 const Custom404 = (): JSX.Element => <NotFound />;
 

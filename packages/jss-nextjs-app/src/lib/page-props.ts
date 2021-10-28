@@ -2,7 +2,7 @@ import {
   DictionaryPhrases,
   LayoutServiceData,
   ComponentPropsCollection,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+} from "@sitecore-jss/sitecore-jss-nextjs";
 
 /**
  * Sitecore page props

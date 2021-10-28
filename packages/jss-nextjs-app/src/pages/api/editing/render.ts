@@ -1,4 +1,4 @@
-import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
+import { EditingRenderMiddleware } from "@sitecore-jss/sitecore-jss-nextjs/middleware";
 
 /**
  * This Next.js API route is used to handle POST requests from the Sitecore Experience Editor.
@@ -19,7 +19,7 @@ import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middl
 export const config = {
   api: {
     bodyParser: {
-      sizeLimit: '2mb',
+      sizeLimit: "2mb",
     },
   },
 };

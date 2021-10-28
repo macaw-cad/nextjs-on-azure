@@ -1,4 +1,4 @@
-import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { SitecoreIcon, Manifest } from "@sitecore-jss/sitecore-jss-manifest";
 
 /**
  * Adds the GraphQL-Layout component to the disconnected manifest.
@@ -7,8 +7,8 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  */
 export default function (manifest: Manifest): void {
   manifest.addComponent({
-    name: 'GraphQL-Layout',
+    name: "GraphQL-Layout",
     icon: SitecoreIcon.Layout,
-    placeholders: ['jss-graphql-layout'],
+    placeholders: ["jss-graphql-layout"],
   });
 }

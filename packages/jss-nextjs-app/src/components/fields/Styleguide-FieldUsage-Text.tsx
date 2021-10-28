@@ -1,6 +1,6 @@
-import { Text, Field, getFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
-import { ComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { Text, Field, getFieldValue } from "@sitecore-jss/sitecore-jss-nextjs";
+import StyleguideSpecimen from "components/styleguide/Styleguide-Specimen";
+import { ComponentProps, StyleguideSpecimenFields } from "lib/component-props";
 
 type StyleguideFieldUsageTextProps = ComponentProps &
   StyleguideSpecimenFields & {
@@ -35,7 +35,7 @@ const StyleguideFieldUsageText = (props: StyleguideFieldUsageTextProps): JSX.Ele
       editing must be used to edit a value emitted like this (the pencil icon when the rendering
       is selected in xEditor)
     */}
-    <div>Raw value (not editable): {getFieldValue(props.fields, 'sample')}</div>
+    <div>Raw value (not editable): {getFieldValue(props.fields, "sample")}</div>
   </StyleguideSpecimen>
 );
 

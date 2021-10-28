@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import chokidar from 'chokidar';
-import generateComponentFactory, { ComponentFile } from './templates/component-factory';
+import fs from "fs";
+import path from "path";
+import chokidar from "chokidar";
+import generateComponentFactory, { ComponentFile } from "./templates/component-factory";
 
 /*
   COMPONENT FACTORY GENERATION
@@ -26,13 +26,13 @@ import generateComponentFactory, { ComponentFile } from './templates/component-f
 
 /* eslint-disable no-console */
 
-const componentFactoryPath = path.resolve('src/temp/componentFactory.ts');
-const componentRootPath = 'src/components';
+const componentFactoryPath = path.resolve("src/temp/componentFactory.ts");
+const componentRootPath = "src/components";
 
 // Matches TypeScript files that are not type definition files
 const fileFormat = new RegExp(/(.+)(?<!\.d)\.tsx?$/);
 
-const isWatch = process.argv.some((arg) => arg === '--watch');
+const isWatch = process.argv.some((arg) => arg === "--watch");
 (isWatch ? watchComponentFactory : writeComponentFactory)();
 
 /**
@@ -45,8 +45,8 @@ function watchComponentFactory() {
 
   chokidar
     .watch(componentRootPath, { ignoreInitial: true, awaitWriteFinish: true })
-    .on('add', writeComponentFactory)
-    .on('unlink', writeComponentFactory);
+    .on("add", writeComponentFactory)
+    .on("unlink", writeComponentFactory);
 }
 
 /**
@@ -62,7 +62,7 @@ function writeComponentFactory() {
   const fileContent = generateComponentFactory(getComponentList(componentRootPath));
   console.log(`Writing component factory to ${componentFactoryPath}`);
   fs.writeFileSync(componentFactoryPath, fileContent, {
-    encoding: 'utf8',
+    encoding: "utf8",
   });
 }
 
@@ -82,7 +82,7 @@ function getComponentList(path: string): ComponentFile[] {
       components.push({
         path: `${path}/${name}`,
         componentName: name,
-        moduleName: name.replace(/[^\w]+/g, ''),
+        moduleName: name.replace(/[^\w]+/g, ""),
       });
     }
   });
