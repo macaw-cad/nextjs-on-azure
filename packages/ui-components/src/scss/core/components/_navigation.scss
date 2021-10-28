@@ -1,5 +1,6 @@
 @use '../abstract/' as *;
 @use '../utilities/screenreader-only' as *;
+@use 'sass:math';
 
 .navigation {
   display: flex;
@@ -11,10 +12,12 @@
     align-items: center;
     align-self: flex-end;
     justify-content: center;
-    min-width: space(8);
-    height: space(8);
+    min-width: space(7);
+    height: space(7);
+    margin-right: 0 - space(1.5); // to visually align menu icon with the page gutter instead of the button border (which has been set to 0 here)
+    font-size: 1.2em;
     color: $color-nav-mobile-menu-button;
-    border: 2px solid currentColor;
+    border: 0 solid currentColor;
     border-radius: $border-radius;
     transition: .1s linear;
 
@@ -125,6 +128,10 @@
     cursor: pointer;
     transition: background-color .12s linear, color .12s linear;
 
+    @include mq(m-max) {
+      padding-left: math.max(space(3), $page-gutter-mobile);
+    }
+
     &:hover,
     &:focus {
       text-decoration: none;
@@ -191,7 +198,7 @@
   &__submenu-item {
     // a submenu item on mobile has an indent
     @include mq(m-max) {
-      padding-left: space(5);
+      padding-left: math.max(space(5), $page-gutter-mobile + space(3));
     }
 
     // a submenu item on desktop can force the submenu to be 

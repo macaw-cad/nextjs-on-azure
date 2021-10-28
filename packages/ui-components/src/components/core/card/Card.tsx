@@ -1,21 +1,22 @@
 import React from "react"
+import { Image } from "../image/Image"
 
 type CardProps = {
   title: JSX.Element;
   description?: JSX.Element;
-  image?: JSX.Element;
+  image?: string;
   callToAction?: {
     text: string;
     url: string;
   };
-  classname?: string;
+  className?: string;
 }
 
-export const Card: React.FC<CardProps> = ({ title, description, image, callToAction, classname }) => {
+export const Card: React.FC<CardProps> = ({ title, description, image, callToAction, className }) => {
   return (
-    <div className={`card ${classname ? classname : ''}`}>
+    <div className={`card ${className ? className : ''}`}>
       {image &&
-          <>{React.cloneElement(image, { className: "card__img" })}</>
+        <Image src={image} className="card__img" />
       }
       <div className="card__body">
         <div className="card__title">{title}</div>

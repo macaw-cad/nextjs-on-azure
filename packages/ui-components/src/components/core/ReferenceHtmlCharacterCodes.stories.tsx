@@ -9,7 +9,7 @@ export default {
 
 const Template: Story = () => {
   return (
-    <div id="top" tabIndex={-1}>
+    <div id="top" className="sb-macaw" tabIndex={-1}>
       <h1 className="pt-4">Html Character Codes</h1>
       <p>ASCII Entity and Unicode Symbols</p>
       <ol>

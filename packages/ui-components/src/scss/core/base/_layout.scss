@@ -1,0 +1,150 @@
+@use '../abstract/' as *;
+@use 'sass:math';
+
+:root {
+  --grid-gap: #{$grid-gap};
+  --row-bg-color: #{$color-row-accent};
+}
+
+.page {
+  display: grid;
+  grid-template-areas:  'header'
+    'main'
+    'footer';
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+
+  > header {
+    grid-area: header;
+  }
+
+  > main {
+    display: flex;
+    flex-direction: column;
+    grid-area: main;
+    gap: var(--grid-gap);
+  }
+
+  > footer {
+    grid-area: footer;
+  }
+
+  // page gutter
+  > main > .row,
+  > header > .container,
+  > footer > .container {
+    @if $page-gutter != $page-gutter-mobile {
+      @include mq(s-max) {
+        padding-right: $page-gutter-mobile;
+        padding-left: $page-gutter-mobile;
+      }
+    }
+    padding-right: max($page-gutter, calc(50% - math.div($max-site-width, 2)));
+    padding-left: max($page-gutter, calc(50% - math.div($max-site-width, 2)));
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gap);
+
+  > .column {
+    grid-column: 1 / -1;
+  }
+
+  // modifiers for specific column layouts with responsive behaviour on a 12 column grid
+  &--2c {
+    > .column {
+      @include mq(m) {
+        grid-column: auto / span 6;
+      }
+    }
+    
+  }
+
+  &--3c {
+    > .column {
+      @include mq(m) {
+        grid-column: auto / span 4;
+      }
+    }
+  }
+
+  &--4c {
+    > .column {
+      @include mq(s) {
+        grid-column: auto / span 6;
+      }
+      @include mq(m) {
+        grid-column: auto / span 3;
+      }
+    }
+  }
+
+  &--sidebar-r {
+    > .column {
+      @include mq(s) {
+        &:first-child {
+          grid-column: 1 / span 8;
+        }
+
+        &:last-child {
+          grid-column: 9 / span 4;
+        }
+      }
+
+      @include mq(m) {
+        &:first-child {
+          grid-column: 1 / span 9;
+        }
+
+        &:last-child {
+          grid-column: 10 / span 3;
+        }
+      }
+    }
+  }
+
+  &--sidebar-l {
+    > .column {
+      @include mq(s) {
+        &:first-child {
+          grid-column: 1 / span 4;
+        }
+
+        &:last-child {
+          grid-column: 5 / span 8;
+        }
+      }
+
+      @include mq(m) {
+        &:first-child {
+          grid-column: 1 / span 3;
+        }
+
+        &:last-child {
+          grid-column: 4 / span 9;
+        }
+      }
+    }
+  }
+
+  // solid background color
+  &--accent {
+    padding-top: var(--grid-gap);
+    padding-bottom: var(--grid-gap);
+    background-color: var(--row-bg-color);
+
+    // remove a gap between two accented rows
+    & + & {
+      margin-top: calc(0px - var(--grid-gap));
+    }
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--grid-gap);
+}

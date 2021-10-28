@@ -8,9 +8,9 @@ export default {
   component: Navigation,
 } as ComponentMeta<typeof Navigation>;
 
-const NavigationWrapper: React.FC<{links: NavigationLink[], classname: string}> = ({links, classname}) => (
+const NavigationWrapper: React.FC<{links: NavigationLink[], className: string}> = ({links, className}) => (
   <Navigation
-    classname={classname}
+    className={className}
     links={links}
   />
 )
@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof NavigationWrapper> = (args) => {
 export const NavigationStory = Template.bind({});
 NavigationStory.storyName = 'Navigation';
 NavigationStory.args = {
-  classname: "",
+  className: "",
   links: [
     {
       text: 'Home',

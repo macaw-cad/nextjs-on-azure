@@ -6,10 +6,17 @@ $info: hsl(212, 87%, 47%) !default;
 $success: hsl(110, 91%, 30%) !default;
 $warning: hsl(34, 88%, 45%) !default;
 $danger: hsl(0, 100%, 35%) !default;
+$lightgray: #f6f6f6 !default;
+$mediumgray: #999 !default;
+$darkgray: #333 !default;
 
 // base
-$text: hsl(0, 0%, 20%) !default;
+$text: $darkgray !default;
 $link: $brand !default;
+
+// layout
+// this will set the css custom property --row-bg-color in base/layout.scss
+$row-accent: $lightgray !default;
 
 // buttons
 $btn-text: #fff !default;
@@ -32,8 +39,8 @@ $btn-primary-border-h: $btn-primary-background-h !default;
 $nav-link: $brand !default;
 $nav-active: #fff !default;
 $nav-active-bg: $nav-link !default;
-$nav-hover-bg: #f6f6f6 !default;
+$nav-hover-bg: $lightgray !default;
 $nav-menu-bg: #fff !default;
-$nav-menu-border: #f6f6f6 !default;
+$nav-menu-border: $lightgray !default;
 $nav-mobile-menu-bg: #fff !default;
-$nav-mobile-menu-button: #999 !default;
+$nav-mobile-menu-button: $mediumgray !default;

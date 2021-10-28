@@ -1,0 +1,16 @@
+@use './variables' as *;
+
+%strip-child-margins {
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+%box {
+  @extend %strip-child-margins;
+  padding: $box-padding;
+}

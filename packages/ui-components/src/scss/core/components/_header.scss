@@ -1,0 +1,34 @@
+@use '../abstract/' as *;
+
+.header {
+  .container {
+    display: grid;
+    grid-template-areas: 'logo menu';
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding-top: space(3);
+    padding-bottom: space(3);
+    box-shadow: 0 0 space(3) rgb(0% 0% 0% / .15);
+
+    @include mq(m) {
+      padding-top: space(4);
+      padding-bottom: space(4);
+    }
+  }
+
+  &__logo {
+    display: block;
+    grid-area: logo;
+    width: space(24);
+    margin-right: space(6);
+
+    @include mq(m) {
+      width: space(44);
+    }
+  }
+
+  &__menu {
+    grid-area: menu;
+    justify-self: flex-end;
+  }
+}
