@@ -28,6 +28,12 @@ const Template: Story = (args) => {
 
       <main>
 
+        {args.showNoGridContent && (
+          <div>
+            An object like this, placed outside of a row will respect the page gutter but not the gap or the option of a page wide background color
+          </div>
+        )}
+
         {(args.show1column || args.showRowAccent) && (
           <div className={`row ${args.showRowAccent ? 'row--accent' : ''}`}>
             <div className="column">
@@ -144,5 +150,6 @@ Layout.args = {
   showSidebarL: false,
   sidebarLNestedRowGap: '8px',
   showSidebarR: false,
+  showNoGridContent: false,
   headerProps: HeaderStory.args,
 };
