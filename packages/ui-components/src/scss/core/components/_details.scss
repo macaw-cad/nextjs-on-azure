@@ -1,9 +1,9 @@
 @use '../abstract/' as *;
 
 .details {
-  margin: 1em 0;
+  margin: 0 0 1em;
   overflow: hidden;
-  border: 1px solid #ddd;
+  border: 1px solid $color-details-border;
   border-radius: $border-radius;
 
   &__summary {
@@ -13,20 +13,29 @@
     justify-content: space-between;
     padding: space(2) $box-padding;
     cursor: pointer;
-    background-color: $color-lightgray;
+    background-color: $color-details-summary;
+    transition: background-color .15s linear;
 
     &::marker {
-      display: none; // should work but doesn't
-      font-size: 0; // stupid, but does work
+      display: none;
     }
 
     &::after {
       font-size: 1.4rem;
       font-weight: bold;
       line-height: 1.2rem;
+      color: $color-details-marker;
       content: '+';
-      transition: transform .15s cubic-bezier(.445, .05, .55, .95);
+      transition: transform .15s cubic-bezier(.445, .05, .55, .95), color .15s linear;
       transform: rotate(90deg);
+    }
+
+    &:hover {
+      background-color: $color-details-summary-hover;
+
+      &::after {
+        color: $color-details-marker-hover;
+      }
     }
   }
 
@@ -38,7 +47,8 @@
 
   &__container {
     overflow: hidden;
-    transition: height .4s cubic-bezier(.165, .84, .44, 1);
+    background-color: $color-details-description;
+    transition: height .3s cubic-bezier(.165, .84, .44, 1);
   }
 
   &__content {

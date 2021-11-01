@@ -31,7 +31,6 @@ export const Navigation: React.FC<NavigationProps> = ({ links, className }) => {
   };
 
   const renderSubMenu = (links: NavigationLink) => {
-    // eslint-disable-next-line jsx-a11y/no-redundant-roles
     return <ul className="navigation__submenu">{links.children && links.children.map((listItem, key) => {
       return (listItem.url && listItem.text ? (
         <li key={key}>
@@ -76,7 +75,6 @@ export const Navigation: React.FC<NavigationProps> = ({ links, className }) => {
       </button>
       <nav className={`navigation__container${isOpenMenu ? ' is-active' : ''}`}>
         {links &&
-          // eslint-disable-next-line jsx-a11y/no-redundant-roles
           <ul className="navigation__menu">
             {renderMenu(links)}
           </ul>

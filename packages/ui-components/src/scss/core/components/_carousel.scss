@@ -9,7 +9,7 @@
     padding: 0;
     margin: auto;
     overflow-x: scroll;
-    background-color: #f9f9f9;
+    background-color: $color-lightgray;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     scroll-snap-stop: always;
