@@ -9,7 +9,7 @@
         "get",
         "post"
       ],
-      "route": "nextjsserver/{*remainingPath}"
+      "route": "klaas"
     },
     {
       "type": "http",

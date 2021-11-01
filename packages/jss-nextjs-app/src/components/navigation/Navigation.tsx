@@ -67,7 +67,11 @@ const Navigation: React.FC<NavigationProps> = (props): JSX.Element => {
       <div className="container">
         <Link href="/">
           <a className="header__logo">
-            <img width="176" height="47" src="-/media/jss-nextjs-app/data/media/img/sitecore-jss-azure-logo.ashx" />
+            <img
+              width="176"
+              height="47"
+              src="-/media/jss-nextjs-app/data/media/img/sitecore-jss-azure-logo.ashx"
+            />
           </a>
         </Link>
 

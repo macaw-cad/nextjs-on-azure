@@ -5,5 +5,9 @@
     "azureFunctions.projectRuntime": "~3",
     "debug.internalConsoleOptions": "neverOpen",
     "azureFunctions.preDeployTask": "npm prune (functions)",
-    "azureFunctions.projectSubpath": "packages\\jss-nextjs-app-azure-functions"
+    "azureFunctions.projectSubpath": "packages\\jss-nextjs-app-azure-functions",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

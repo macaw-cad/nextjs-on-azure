@@ -6,6 +6,7 @@
     "rootDir": ".",
     "sourceMap": true,
     "strict": false,
+    "skipLibCheck": true,
     "esModuleInterop": true
   },
   "exclude": ["../jss-nextjs-app"]

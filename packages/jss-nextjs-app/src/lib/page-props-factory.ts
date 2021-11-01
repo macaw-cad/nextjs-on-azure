@@ -40,7 +40,8 @@ function extractPath(params: ParsedUrlQuery | undefined): string {
 const isServerSidePropsContext = function (
   context: GetServerSidePropsContext | GetStaticPropsContext
 ): context is GetServerSidePropsContext {
-  return (<GetServerSidePropsContext>context).req !== undefined;
+  // @ts-ignore
+  return context.req !== undefined;
 };
 
 export class SitecorePagePropsFactory {
