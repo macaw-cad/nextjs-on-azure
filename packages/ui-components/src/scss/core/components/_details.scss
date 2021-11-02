@@ -1,7 +1,7 @@
 @use '../abstract/' as *;
 
 .details {
-  margin: 0 0 1em;
+  margin: 0 0 space(1);
   overflow: hidden;
   border: 1px solid $color-details-border;
   border-radius: $border-radius;

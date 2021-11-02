@@ -37,6 +37,10 @@ const mapToNavigationLinks = (navigationProps: NavigationProps): NavigationLink[
   const fields = navigationProps.fields;
   const navigationLinks: NavigationLink[] = [];
 
+  if (!fields.data) {
+    return navigationLinks;
+  }
+
   fields.data.item.children.results.forEach((child) => {
     const grandChildren = child.children.results.map((grandChild) => {
       return {
