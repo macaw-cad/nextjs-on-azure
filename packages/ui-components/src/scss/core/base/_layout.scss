@@ -30,7 +30,9 @@
   }
 
   // page gutter
-  > main > :not(.row) {
+  > main > :not(.row),
+  > header > .container,
+  > footer > .container {
     @if $page-gutter != $page-gutter-mobile {
       @include mq(s-max) {
         margin-right: $page-gutter-mobile;
@@ -41,9 +43,8 @@
     margin-left: max($page-gutter, calc(50% - math.div($max-site-width, 2)));
   }
 
-  > main > .row,
-  > header > .container,
-  > footer > .container {
+  // page gutter for a row with padding so a page wide background color is possible
+  > main > .row {
     @if $page-gutter != $page-gutter-mobile {
       @include mq(s-max) {
         padding-right: $page-gutter-mobile;
