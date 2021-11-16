@@ -1,35 +1,29 @@
-import Head from 'next/head';
+import styles from '../styles/Home.module.css'
 
-export default function Static({meats, date}) {
+export default function Static({quote, date}) {
     return (
-        <>
-            <Head>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <div>
-                api called: {date}<br />
-                cdn test 24-8 11:08 build
-                <ul>
-                    {meats.map((meat, i) => 
-                        <li key={i}>{meat}</li>
-                    )}
-                </ul>
-            </div>
-        </>
+        <div className={styles.container}>
+            <strong>Api called:</strong> {date}
+           
+           <br />
+           <br />
+               <strong>{quote.author}</strong>
+               {quote.content}
+        </div>
     )
 }
 
 // static site generation...
 export async function getStaticProps() {
-    const res = await fetch('https://baconipsum.com/api/?type=meat-and-filler')
-    const meats = await res.json()
+    const res = await fetch('https://api.quotable.io/random');
+    const quote = await res.json();
     const now = new Date();
 
     return {
         props: {
-            meats,
-            date: `${now.toLocaleDateString()} - ${now.toLocaleTimeString()}`
-        },
-        revalidate: 55
+            quote: quote,
+            date: `${now.toLocaleDateString()} - ${now.toLocaleTimeString()}`,
+            revalidate: 55
+        }
     }
 }
