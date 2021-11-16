@@ -1,0 +1,17 @@
+query githubUserSearch($searchTerm: String!) { 
+  organization(login: $searchTerm) {
+    membersWithRole(first:100) {
+      nodes {
+        ... on User {
+          name, 
+          company,
+          email,
+          avatarUrl,
+          location,
+          login
+        }
+      }
+    }
+   
+  }
+}

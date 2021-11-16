@@ -9,6 +9,6 @@ placeholders:
         heading: GraphQL example
         content: <p>Below an example of a GraphQL component consuming an external data source</p>
 
-    - componentName: FilmSearch
+    - componentName: UserSearch
       fields:
-        searchTerm: James Bond
+        searchTerm: macaw-cad

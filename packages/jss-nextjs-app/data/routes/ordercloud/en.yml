@@ -6,4 +6,4 @@ placeholders:
   jss-main:
   - componentName: ProductList
     fields:
-      colorfacet: white
+      colorfacet: yellow|white
