@@ -129,7 +129,7 @@ client
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `bearer ${process.env.GITHUB_PRIVATE_KEY}`
+        "Authorization": `bearer ${process.env.GHUB_PRIVATE_KEY}`
       },
       body: JSON.stringify(introSpectionQuery)
     });
