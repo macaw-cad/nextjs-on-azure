@@ -1,4 +1,4 @@
 *
 !.gitignore
 !GraphQLIntrospectionResult.json
-!GraphQLIntrospectionResultFilm.json
+!GraphQLIntrospectionResultGithub.json
