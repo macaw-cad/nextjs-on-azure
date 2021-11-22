@@ -2,11 +2,17 @@ import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { EditingDataDiskCache } from "../lib/editingDataCache";
 import { getNextResponseHandler } from "../lib/nextResponseHandler";
 import os from 'os';
+import { warmupHeader } from "../lib/warmupHeader";
 
 const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
 const editingDataDiskCache = new EditingDataDiskCache(isOnAzure ? "C:\\home\\data\\temp" : os.tmpdir())
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    if (req.headers[warmupHeader]) {
+        context.res = {
+            status: 200
+        }
+    }
 
     const isBuildEnvironment = context.executionContext.functionDirectory.includes("www");
 

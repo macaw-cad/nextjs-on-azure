@@ -1,4 +1,5 @@
 import { Context, HttpRequest } from "@azure/functions";
+import { warmupHeader } from "../lib/warmupHeader";
 const fsPromises = require("fs").promises;
 const path = require("path");
 let nextPath: string | undefined;
@@ -15,7 +16,13 @@ if (isOnAzure) {
 
 module.exports = async function (context: Context, req: HttpRequest) {
     const staticFilePath = req?.query?.path;
-  
+
+    if (req.headers[warmupHeader]) {
+        return {
+            status: 200
+        }
+    }
+
     try {
         const data = await fsPromises.readFile(path.join(nextPath, "static", staticFilePath));
 

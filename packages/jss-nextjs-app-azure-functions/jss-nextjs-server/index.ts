@@ -3,6 +3,7 @@ import { NextServer } from "@nextjsonazure/jss-nextjs-app/node_modules/next/dist
 import { ServerConstructor} from "@nextjsonazure/jss-nextjs-app/node_modules/next/dist/next-server/server/next-server"; 
 import { NextConfig } from "@nextjsonazure/jss-nextjs-app/node_modules/next/dist/next-server/server/config-shared";    
 import { IncomingMessage, ServerResponse } from 'http';
+import { warmupHeader } from "../lib/warmupHeader";
 interface NextOptions extends ServerConstructor {
     conf?: NextConfig
 }
@@ -22,8 +23,16 @@ if (isOnAzure) {
 
 
 module.exports = async function (context, req) {
-    const path = (context.req?.params?.remainingPath && context.req?.params?.remainingPath !== "nextjsserver") ? `/${context.req?.params?.remainingPath}` : "/index"
-   
+    if (req.headers[warmupHeader]) {
+        context.res = {
+            status: 200
+        }
+
+        return
+    }
+
+    const path = (context.req?.params?.remainingPath && context.req?.params?.remainingPath !== "nextjsserver") ? `/${context.req?.params?.remainingPath}` : "/index";
+
     if (!app) {
         try {
             app = next({ 
@@ -65,6 +74,8 @@ module.exports = async function (context, req) {
                 status: 500,
                 body: path + JSON.stringify(e)
             };
+
+            return;
         }
     }
 

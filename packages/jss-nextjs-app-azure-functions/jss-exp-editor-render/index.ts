@@ -1,9 +1,16 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
 import { getNextResponseHandler } from "../lib/nextResponseHandler";
+import { warmupHeader } from "../lib/warmupHeader";
 const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
 const baseRequirePath = isOnAzure ? "../../../jss-nextjs-app" : "@nextjsonazure/jss-nextjs-app";
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    if (req.headers[warmupHeader]) {
+        context.res = {
+            status: 200
+        }
+    }
+
     const EditingRenderMiddleware = require(`${baseRequirePath}/node_modules/@sitecore-jss/sitecore-jss-nextjs/middleware`).EditingRenderMiddleware;
     
     const baseUrl = process.env.PUBLIC_URL.slice(0, process.env.PUBLIC_URL.length - 1);
