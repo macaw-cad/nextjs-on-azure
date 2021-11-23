@@ -20,8 +20,8 @@ dist
 .DS_Store
 
 # local env files
-.env.local
-.env.*.local
+.env.development
+.env.local.sitecore
 
 # Log files
 *.log*
