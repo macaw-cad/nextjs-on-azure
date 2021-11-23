@@ -1,0 +1,26 @@
+{
+  "name": "@nextjsonazure/jss-nextjs-app-azure-functions",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build",
+    "start": "cross-env NODE_ENV=development node func-start.js",
+    "start-local-sitecore": "cross-env NODE_ENV=local.sitecore node func-start.js",
+    "func-start": "func start --port 3000 ",
+    "test": "echo \"No tests yet...\"",
+    "debug": "cd dist && func start --port 3000"
+  },
+  "devDependencies": {
+    "@azure/functions": "^1.2.3",
+    "@types/node": "^16.9.6",
+    "cross-env": "^7.0.3",
+    "typescript": "^4.0.0"
+  },
+  "dependencies": {
+    "@nextjsonazure/jss-nextjs-app": "*",
+    "dotenv": "^10.0.0",
+    "sync-disk-cache": "^2.1.0"
+  }
+}
