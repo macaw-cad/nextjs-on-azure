@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Router from "next/router";
 import { I18nProvider } from "next-localization";
 import NProgress from "nprogress";
+import "../lib/ordercloud-init";
 
 // Using bootstrap and nprogress are completely optional.
 //  bootstrap is used here to provide a clean layout for samples, without needing extra CSS in the sample app
