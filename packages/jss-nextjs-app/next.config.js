@@ -107,9 +107,9 @@ const applyGraphQLCodeGenerationLoaders = (config, options) => {
   })
 
   config.module.rules.push({
-    test: /\.film.graphql$/,
+    test: /\.github.graphql$/,
     exclude: /node_modules/,
-    use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader', options: { configFile: ".graphql-let-film.yml" } }],
+    use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader', options: { configFile: ".graphql-let-github.yml" } }],
   })
 
   config.module.rules.push({
