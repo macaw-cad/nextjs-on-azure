@@ -72,7 +72,7 @@ const ProductList: React.FC<ProductListProps> = ({ rendering, fields }): JSX.Ele
                     ) : undefined
                   }
                   callToAction={{
-                    text: "Add to card",
+                    text: "Add to cart",
                     url: "#",
                   }}
                 />
