@@ -1,0 +1,61 @@
+name: Deploy jss nextjs
+
+on:
+  [workflow_dispatch]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: funcjssnextjsonazure    # set this to your application's name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: './packages/jss-nextjs-app-azure-functions'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '14.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x)
+  JSSNEXTJSBUILD: './packages/jss-nextjs-app/dist/*'
+  JSSAPPDEST: 'https://storageaccountnextj9121.file.core.windows.net/funcjssnextjsonazure/site/jss-nextjs-app'
+  AZUREFUNCDEST: 'https://storageaccountnextj9121.file.core.windows.net/funcjssnextjsonazure/site/wwwroot'
+
+jobs:
+  build-and-deploy:
+    env:
+      SITECORE_API_HOST: https://erwinazurejss.loca.lt
+      SITECORE_API_KEY: ${{ secrets.SITECORE_API_KEY }}
+      PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
+      JSS_EDITING_SECRET: ${{ secrets.JSS_EDITING_SECRET }}
+    runs-on: windows-latest
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
+
+    - name: Setup Node ${{ env.NODE_VERSION }} Environment
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: Install azcopy
+      uses: kheiakiyama/install-azcopy-action@v1.0.3
+
+    - name: 'Lerna bootstrap & next build & azure functions build'
+      shell: pwsh
+      run: |
+        lerna bootstrap
+        npm run build:jssnextjs
+        npm run build:azure-functions
+        popd
+
+    - uses: kheiakiyama/install-azcopy-action@v1
+      with:
+        version: 'v10'
+    - run: azcopy_v10 rm '${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
+
+
+    - uses: kheiakiyama/install-azcopy-action@v1
+      with:
+        version: 'v10'
+    - run: azcopy_v10 rm '${{ env.AZUREFUNCDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
+
+    - uses: kheiakiyama/install-azcopy-action@v1
+      with:
+        version: 'v10'
+    - run: azcopy_v10 copy '${{ env.JSSNEXTJSBUILD }}' '${{ env.JSSAPPDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
+    
+    - uses: kheiakiyama/install-azcopy-action@v1
+      with:
+        version: 'v10'
+    - run: azcopy_v10 copy './packages/jss-nextjs-app-azure-functions/*' '${{ env.AZUREFUNCDEST }}?${{ secrets.SECRETSASTOKEN }}' --recursive
