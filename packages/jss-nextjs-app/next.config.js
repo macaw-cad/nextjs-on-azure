@@ -14,7 +14,9 @@ const nextConfig = {
   experimental: {
     externalDir: true,
   },
-
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   compress: false,
 
   // Set assetPrefix to our public URL
