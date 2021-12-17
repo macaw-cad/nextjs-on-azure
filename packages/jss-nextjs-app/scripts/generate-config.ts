@@ -45,9 +45,7 @@ const config = {};\n`;
   });
   // Set computed values, allowing override with environment variables
   Object.keys(computedConfig).forEach((prop) => {
-    configText += `config.${prop} = process.env.${constantCase(prop)} || ${
-      computedConfig[prop]
-    };\n`;
+    configText += `config.${prop} = process.env.${constantCase(prop)} || ${computedConfig[prop]};\n`;
   });
   configText += "module.exports = config;";
 

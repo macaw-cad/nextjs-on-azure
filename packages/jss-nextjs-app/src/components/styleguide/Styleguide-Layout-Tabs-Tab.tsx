@@ -22,9 +22,7 @@ const StyleguideLayoutTabsTab = (props: StyleguideLayoutTabsTabProps): JSX.Eleme
           When we're editing the tabs we stack each tab vertically,
           which means there's no regular tab titles rendered.
           So we conditionally render the tab title here, when editing. */}
-      {sitecoreContext && sitecoreContext.pageEditing && (
-        <Text tag="h5" field={props.fields.title} />
-      )}
+      {sitecoreContext && sitecoreContext.pageEditing && <Text tag="h5" field={props.fields.title} />}
 
       {/* React.Fragment tells React to not use any wrapping tag for the component */}
       <RichText field={props.fields.content} />

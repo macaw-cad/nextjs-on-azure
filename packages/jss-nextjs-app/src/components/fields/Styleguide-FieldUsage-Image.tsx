@@ -45,12 +45,7 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
       IMPORTANT: srcSet params must be whitelisted for adaptive resizing to occur. See /sitecore/config/*.config (search for 'allowedMediaParams')
     */}
     <p>Srcset responsive image</p>
-    <Image
-      field={props.fields.sample2}
-      srcSet={[{ mw: 300 }, { mw: 100 }]}
-      sizes="(min-width: 960px) 300px, 100px"
-      className="img-fluid"
-    />
+    <Image field={props.fields.sample2} srcSet={[{ mw: 300 }, { mw: 100 }]} sizes="(min-width: 960px) 300px, 100px" className="img-fluid" />
   </StyleguideSpecimen>
 );
 

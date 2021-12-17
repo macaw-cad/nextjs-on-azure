@@ -1,16 +1,6 @@
-import {
-  Text,
-  Field,
-  GetStaticComponentProps,
-  useComponentProps,
-} from "@sitecore-jss/sitecore-jss-nextjs";
+import { Text, Field, GetStaticComponentProps, useComponentProps } from "@sitecore-jss/sitecore-jss-nextjs";
 import { ComponentProps } from "lib/component-props";
-import {
-  ListPageWithFacets,
-  Me,
-  RequiredDeep,
-  BuyerProduct
-} from "ordercloud-javascript-sdk";
+import { ListPageWithFacets, Me, RequiredDeep, BuyerProduct } from "ordercloud-javascript-sdk";
 import React from "react";
 import { Card } from "@nextjsonazure/ui-components/src/components/core/card/Card";
 
@@ -20,9 +10,7 @@ type ProductListProps = ComponentProps & {
   };
 };
 
-async function getProducts(
-  colorFacet: string
-): Promise<RequiredDeep<ListPageWithFacets<BuyerProduct>> | null> {
+async function getProducts(colorFacet: string): Promise<RequiredDeep<ListPageWithFacets<BuyerProduct>> | null> {
   try {
     const response = await Me.ListProducts({
       filters: {
@@ -40,8 +28,7 @@ async function getProducts(
 const ProductList: React.FC<ProductListProps> = ({ rendering, fields }): JSX.Element => {
   // first try server side, otherwise client side
   const data =
-    rendering.uid &&
-    useComponentProps<RequiredDeep<ListPageWithFacets<BuyerProduct>>>(rendering.uid)
+    rendering.uid && useComponentProps<RequiredDeep<ListPageWithFacets<BuyerProduct>>>(rendering.uid)
       ? useComponentProps<RequiredDeep<ListPageWithFacets<BuyerProduct>>>(rendering.uid)
       : null;
 
@@ -66,11 +53,7 @@ const ProductList: React.FC<ProductListProps> = ({ rendering, fields }): JSX.Ele
                       {product.xp.Price} {product.xp.PriceCurrency}
                     </>
                   }
-                  image={
-                    product.xp.Images && product.xp.Images[0] ? (
-                      <img src={product.xp.Images[0].url} />
-                    ) : undefined
-                  }
+                  image={product.xp.Images && product.xp.Images[0] ? <img src={product.xp.Images[0].url} /> : undefined}
                   callToAction={{
                     text: "Add to cart",
                     url: "#",

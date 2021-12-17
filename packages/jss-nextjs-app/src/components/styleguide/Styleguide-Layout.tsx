@@ -13,8 +13,7 @@ import { ComponentProps } from "lib/component-props";
  * and does not need to be manually maintained.
  */
 const StyleguideLayout = (props: ComponentProps): JSX.Element => {
-  const getRendering = (section: ComponentRendering | HtmlElementRendering) =>
-    section as ComponentRendering;
+  const getRendering = (section: ComponentRendering | HtmlElementRendering) => section as ComponentRendering;
 
   const convertUID = (uid?: string) => {
     if (!uid) return "";

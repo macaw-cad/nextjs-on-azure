@@ -43,21 +43,13 @@ const componentPath = regExResult[1];
 const componentName = regExResult[2];
 const filename = `${componentName}.tsx`;
 
-const componentOutputPath = scaffoldFile(
-  componentRootPath,
-  generateComponentSrc(componentName),
-  filename
-);
+const componentOutputPath = scaffoldFile(componentRootPath, generateComponentSrc(componentName), filename);
 
 let manifestOutputPath = null;
 if (fs.existsSync(componentManifestDefinitionsPath)) {
   const filename = `${componentName}.sitecore.ts`;
 
-  manifestOutputPath = scaffoldFile(
-    componentManifestDefinitionsPath,
-    generateComponentManifest(componentName),
-    filename
-  );
+  manifestOutputPath = scaffoldFile(componentManifestDefinitionsPath, generateComponentManifest(componentName), filename);
 } else {
   console.log(
     chalk.red(`Not scaffolding manifest because ${componentManifestDefinitionsPath}
@@ -84,16 +76,10 @@ if (componentOutputPath) {
   console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
 }
 if (manifestOutputPath) {
-  console.log(
-    `* Add the component to a route layout (/data/routes) and test it with ${chalk.green(
-      "jss start"
-    )}`
-  );
+  console.log(`* Add the component to a route layout (/data/routes) and test it with ${chalk.green("jss start")}`);
 } else {
   console.log(
-    `* Deploy your app with the new component to Sitecore (${chalk.green(
-      "jss deploy:watch"
-    )} or ${chalk.green("jss deploy files")})`
+    `* Deploy your app with the new component to Sitecore (${chalk.green("jss deploy:watch")} or ${chalk.green("jss deploy files")})`
   );
   console.log("* Add the component to a route using Sitecore Experience Editor, and test it.");
 }

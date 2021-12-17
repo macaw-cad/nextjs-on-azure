@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "prestart": "npm run build",
+    "prestarttt": "npm run build",
     "start": "cross-env NODE_ENV=development node func-start.js",
     "start-local-sitecore": "cross-env NODE_ENV=local.sitecore node func-start.js",
     "func-start": "func start --port 3000 ",

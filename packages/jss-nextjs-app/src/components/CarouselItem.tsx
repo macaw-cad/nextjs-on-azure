@@ -8,8 +8,6 @@ type CarouselItemProps = ComponentProps & {
   };
 };
 
-const CarouselItem: React.FC<CarouselItemProps> = ({ fields }): JSX.Element => (
-  <Image field={fields.image} />
-);
+const CarouselItem: React.FC<CarouselItemProps> = ({ fields }): JSX.Element => <Image field={fields.image} />;
 
 export default CarouselItem;

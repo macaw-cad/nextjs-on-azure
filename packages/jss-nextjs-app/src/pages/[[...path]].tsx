@@ -3,11 +3,7 @@ import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps } from "next";
 import NotFound from "src/NotFound";
 import Layout from "src/Layout";
-import {
-  SitecoreContext,
-  ComponentPropsContext,
-  handleExperienceEditorFastRefresh,
-} from "@sitecore-jss/sitecore-jss-nextjs";
+import { SitecoreContext, ComponentPropsContext, handleExperienceEditorFastRefresh } from "@sitecore-jss/sitecore-jss-nextjs";
 import { StyleguideSitecoreContextValue } from "lib/component-props";
 import { SitecorePageProps } from "lib/page-props";
 import { sitecorePagePropsFactory } from "lib/page-props-factory";
@@ -39,10 +35,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 
   return (
     <ComponentPropsContext value={componentProps}>
-      <SitecoreContext<StyleguideSitecoreContextValue>
-        componentFactory={componentFactory}
-        context={context}
-      >
+      <SitecoreContext<StyleguideSitecoreContextValue> componentFactory={componentFactory} context={context}>
         <Layout context={context} />
       </SitecoreContext>
     </ComponentPropsContext>

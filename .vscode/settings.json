@@ -1,9 +1,9 @@
 {
-    "azureFunctions.deploySubpath": "jss-nextjs-app\\azurefunctions",
+    "azureFunctions.deploySubpath": "packages\\jss-nextjs-app-azurefunctions\\dist",
     "azureFunctions.postDeployTask": "npm install (functions)",
     "azureFunctions.projectLanguage": "JavaScript",
     "azureFunctions.projectRuntime": "~3",
     "debug.internalConsoleOptions": "neverOpen",
     "azureFunctions.preDeployTask": "npm prune (functions)",
-    "azureFunctions.projectSubpath": "packages\\jss-nextjs-app-azure-functions"
+    "azureFunctions.projectSubpath": "packages\\jss-nextjs-app-azurefunctions"
 }

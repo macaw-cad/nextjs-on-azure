@@ -73,9 +73,8 @@ const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element =
       <h2>GraphQL Integrated Demo</h2>
 
       <p>
-        Integrated GraphQL executes GraphQL queries within the Layout Service endpoint, and merges
-        the query results into the Layout Service result JSON. The query results can be seen by
-        inspecting the Layout Service response.
+        Integrated GraphQL executes GraphQL queries within the Layout Service endpoint, and merges the query results into the Layout Service
+        result JSON. The query results can be seen by inspecting the Layout Service response.
       </p>
 
       {datasource && (

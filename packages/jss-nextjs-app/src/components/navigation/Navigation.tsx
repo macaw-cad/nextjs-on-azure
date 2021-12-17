@@ -1,9 +1,6 @@
 import Link from "next/link";
 import { ComponentProps } from "lib/component-props";
-import {
-  NavigationLink,
-  Navigation as UINavigation,
-} from "@nextjsonazure/ui-components/src/components/core/navigation/Navigation";
+import { NavigationLink, Navigation as UINavigation } from "@nextjsonazure/ui-components/src/components/core/navigation/Navigation";
 import React from "react";
 
 type Result = {

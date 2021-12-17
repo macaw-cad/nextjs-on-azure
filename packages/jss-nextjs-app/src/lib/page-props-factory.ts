@@ -59,9 +59,7 @@ export class SitecorePagePropsFactory {
    * @param {GetServerSidePropsContext | GetStaticPropsContext} context
    * @see SitecorePageProps
    */
-  public async create(
-    context: GetServerSidePropsContext | GetStaticPropsContext
-  ): Promise<SitecorePageProps> {
+  public async create(context: GetServerSidePropsContext | GetStaticPropsContext): Promise<SitecorePageProps> {
     let locale: string,
       layoutData: LayoutServiceData | null,
       dictionary: DictionaryPhrases,
@@ -73,14 +71,10 @@ export class SitecorePagePropsFactory {
        * Preview mode
        */
       // If we're in preview (editing) mode, use data already sent along with the editing request
-      const data = await editingDataService.getEditingData(
-        context.previewData as EditingPreviewData
-      );
+      const data = await editingDataService.getEditingData(context.previewData as EditingPreviewData);
 
       if (!data) {
-        throw new Error(
-          `Unable to get editing data for preview ${JSON.stringify(context.previewData)}`
-        );
+        throw new Error(`Unable to get editing data for preview ${JSON.stringify(context.previewData)}`);
       }
       locale = data.language;
       layoutData = data.layoutData;

@@ -1,8 +1,4 @@
-import {
-  DictionaryPhrases,
-  LayoutServiceData,
-  ComponentPropsCollection,
-} from "@sitecore-jss/sitecore-jss-nextjs";
+import { DictionaryPhrases, LayoutServiceData, ComponentPropsCollection } from "@sitecore-jss/sitecore-jss-nextjs";
 
 /**
  * Sitecore page props

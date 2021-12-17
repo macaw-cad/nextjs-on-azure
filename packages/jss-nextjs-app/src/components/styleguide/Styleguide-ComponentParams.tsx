@@ -26,9 +26,7 @@ const StyleguideComponentParams = (props: StyleguideComponentParamsProps): JSX.E
         useCallToAction param: <code>{useCallToAction}</code>
         <br />
         param type: <code>{typeof useCallToAction}</code>
-        {useCallToAction === "true" && (
-          <div className="alert alert-info">the call to action is shown</div>
-        )}
+        {useCallToAction === "true" && <div className="alert alert-info">the call to action is shown</div>}
       </div>
       <p>columns param: {columns}</p>
       <div className="row">

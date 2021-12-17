@@ -1,14 +1,10 @@
 import { Context, HttpRequest } from "@azure/functions";
-import { NextServer } from "@nextjsonazure/jss-nextjs-app/node_modules/next/dist/server/next"
-import { ServerConstructor} from "@nextjsonazure/jss-nextjs-app/node_modules/next/dist/next-server/server/next-server"; 
-import { NextConfig } from "@nextjsonazure/jss-nextjs-app/node_modules/next/dist/next-server/server/config-shared";    
+import { NextServer, NextServerOptions } from "@nextjsonazure/jss-nextjs-app/node_modules/next/dist/server/next"
 import { IncomingMessage, ServerResponse } from 'http';
 import { warmupHeader } from "../lib/warmupHeader";
-interface NextOptions extends ServerConstructor {
-    conf?: NextConfig
-}
 
-let next: (options: NextOptions) => NextServer | undefined;
+
+let next: (options: NextServerOptions) => NextServer | undefined;
 let app: NextServer | undefined;
 let handle: (req: IncomingMessage, res: ServerResponse, parsedUrl?: URL | undefined) => Promise<any> | undefined;
 
@@ -22,7 +18,7 @@ if (isOnAzure) {
 }
 
 
-module.exports = async function (context, req) {
+module.exports = async function (context: Context, req: HttpRequest) {
     if (req.headers[warmupHeader]) {
         context.res = {
             status: 200
@@ -54,13 +50,7 @@ module.exports = async function (context, req) {
                         // This is the locale that will be used when visiting a non-locale
                         // prefixed path e.g. `/styleguide`.
                         defaultLocale: "en",
-                    },
-                    future: {
-                        excludeDefaultMomentLocales: false,
-                        strictPostcssConfiguration: false,
-                        webpack5: false
-                    },
-                    experimental: {}
+                    }
                 }
             });
 
@@ -79,15 +69,12 @@ module.exports = async function (context, req) {
         }
     }
 
-    const protocol = req.url.includes("https") ? "https://" : "http://";
-    const parsedUrl = new URL(`${path}`, `${protocol}${process.env.WEBSITE_HOSTNAME}`);
-
-    // This fixes the "__nextlocale of undefined" bug
-    // @ts-ignore nextjs expects an object here, ts a string...
-    parsedUrl.query = {};
+    // Overwriting the path fixed the next12 update issues
+    context.req.url = path;
 
     try {    
-        await handle(context.req, context.res, parsedUrl);
+        // @ts-ignore 
+        await handle(context.req, context.res);
     } catch(e) {
         console.error(e);
 

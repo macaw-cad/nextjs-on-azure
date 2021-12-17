@@ -2,10 +2,7 @@
 import { SitecoreIcon, Manifest } from "@sitecore-jss/sitecore-jss-manifest";
 import fs from "fs";
 
-const query = fs.readFileSync(
-  "sitecore/definitions/components/navigation/navigation.sitecore.graphql",
-  "utf8"
-);
+const query = fs.readFileSync("sitecore/definitions/components/navigation/navigation.sitecore.graphql", "utf8");
 
 export default function (manifest: Manifest): void {
   manifest.addComponent({

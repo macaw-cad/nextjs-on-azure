@@ -11,11 +11,7 @@ type TeaserProps = ComponentProps & {
 };
 
 const Teaser: React.FC<TeaserProps> = ({ fields }): JSX.Element => (
-  <Card
-    title={<Text field={fields.heading} />}
-    description={<Text field={fields.description} />}
-    image={<Image field={fields.image} />}
-  />
+  <Card title={<Text field={fields.heading} />} description={<Text field={fields.description} />} image={<Image field={fields.image} />} />
 );
 
 export default Teaser;

@@ -22,8 +22,7 @@ const StyleguideFieldUsageLink = (props: StyleguideFieldUsageLinkProps): JSX.Ele
     <br />
     Internal link:&nbsp;
     <Link field={props.fields.internalLink}>
-      <em>HTML</em> or other components can be used within link renderers, for example links to
-      images.
+      <em>HTML</em> or other components can be used within link renderers, for example links to images.
     </Link>
     <br />
     Email link:&nbsp;

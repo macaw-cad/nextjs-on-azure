@@ -23,26 +23,8 @@
 			"command": "host start",
 			"problemMatcher": "$func-node-watch",
 			"isBackground": true,
-			"dependsOn": "npm install (functions)",
 			"options": {
-				"cwd": "${workspaceFolder}/jss-nextjs-app\\azurefunctions"
-			}
-		},
-		{
-			"type": "shell",
-			"label": "npm install (functions)",
-			"command": "npm install",
-			"options": {
-				"cwd": "${workspaceFolder}/jss-nextjs-app\\azurefunctions"
-			}
-		},
-		{
-			"type": "shell",
-			"label": "npm prune (functions)",
-			"command": "npm prune --production",
-			"problemMatcher": [],
-			"options": {
-				"cwd": "${workspaceFolder}/jss-nextjs-app\\azurefunctions"
+				"cwd": "${workspaceFolder}/packages\\jss-nextjs-app-azure-functions"
 			}
 		}
 	]

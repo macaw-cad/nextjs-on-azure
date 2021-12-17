@@ -64,12 +64,7 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
   }
 
   submitOutcome() {
-    if (
-      !this.pageUrl.current ||
-      !this.pageId.current ||
-      !this.outcomeName.current ||
-      !this.outcomeValue.current
-    ) {
+    if (!this.pageUrl.current || !this.pageId.current || !this.outcomeName.current || !this.outcomeValue.current) {
       return;
     }
 
@@ -153,17 +148,12 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
 
     return (
       <StyleguideSpecimen {...this.props} e2eId="styleguide-tracking">
-        {disconnectedMode && (
-          <p>The tracking API is only available in connected, integrated, or headless modes.</p>
-        )}
+        {disconnectedMode && <p>The tracking API is only available in connected, integrated, or headless modes.</p>}
         {!disconnectedMode && (
           <div>
             <p className="alert alert-warning">
               Note: The JSS tracker API is disabled by default. Consult the{" "}
-              <a href="https://jss.sitecore.com/docs/fundamentals/services/tracking">
-                tracking documentation
-              </a>{" "}
-              to enable it.
+              <a href="https://jss.sitecore.com/docs/fundamentals/services/tracking">tracking documentation</a> to enable it.
             </p>
             <div className="row">
               <fieldset className="form-group col-sm">
@@ -173,11 +163,7 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
                 </p>
                 <label htmlFor="event">Event GUID or Name</label>
                 <input type="text" id="event" className="form-control" ref={this.event} />
-                <button
-                  type="button"
-                  className="btn btn-primary mt-3"
-                  onClick={this.submitEvent.bind(this)}
-                >
+                <button type="button" className="btn btn-primary mt-3" onClick={this.submitEvent.bind(this)}>
                   Submit
                 </button>
               </fieldset>
@@ -188,18 +174,8 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
                   Goals are defined in <code>/sitecore/system/Marketing Control Panel/Goals</code>
                 </p>
                 <label htmlFor="goal">Goal GUID or Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="goal"
-                  ref={this.goal}
-                  placeholder="i.e. Register"
-                />
-                <button
-                  type="button"
-                  className="btn btn-primary mt-3"
-                  onClick={this.submitGoal.bind(this)}
-                >
+                <input type="text" className="form-control" id="goal" ref={this.goal} placeholder="i.e. Register" />
+                <button type="button" className="btn btn-primary mt-3" onClick={this.submitGoal.bind(this)}>
                   Submit
                 </button>
               </fieldset>
@@ -208,31 +184,14 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
               <fieldset className="form-group col-sm">
                 <legend>Outcome</legend>
                 <p>
-                  Outcomes are defined in{" "}
-                  <code>/sitecore/system/Marketing Control Panel/Outcomes</code>
+                  Outcomes are defined in <code>/sitecore/system/Marketing Control Panel/Outcomes</code>
                 </p>
                 <label htmlFor="outcomeName">Outcome GUID or Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="outcomeName"
-                  ref={this.outcomeName}
-                  placeholder="i.e. Marketing Lead"
-                />
+                <input type="text" className="form-control" id="outcomeName" ref={this.outcomeName} placeholder="i.e. Marketing Lead" />
                 <br />
                 <label htmlFor="outcomeValue">Monetary Value (optional)</label>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="outcomeValue"
-                  ref={this.outcomeValue}
-                  placeholder="i.e. 1337.00"
-                />
-                <button
-                  type="button"
-                  className="btn btn-primary mt-3"
-                  onClick={this.submitOutcome.bind(this)}
-                >
+                <input type="number" className="form-control" id="outcomeValue" ref={this.outcomeValue} placeholder="i.e. 1337.00" />
+                <button type="button" className="btn btn-primary mt-3" onClick={this.submitOutcome.bind(this)}>
                   Submit
                 </button>
               </fieldset>
@@ -240,16 +199,11 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
               <fieldset className="form-group col-sm">
                 <legend>Campaign</legend>
                 <p>
-                  Campaigns are defined in{" "}
-                  <code>/sitecore/system/Marketing Control Panel/Campaigns</code>
+                  Campaigns are defined in <code>/sitecore/system/Marketing Control Panel/Campaigns</code>
                 </p>
                 <label htmlFor="campaign">Campaign GUID or Name</label>
                 <input type="text" className="form-control" id="campaign" ref={this.campaign} />
-                <button
-                  type="button"
-                  className="btn btn-primary mt-3"
-                  onClick={this.triggerCampaign.bind(this)}
-                >
+                <button type="button" className="btn btn-primary mt-3" onClick={this.triggerCampaign.bind(this)}>
                   Submit
                 </button>
               </fieldset>
@@ -258,9 +212,8 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
               <fieldset className="form-group col-sm">
                 <legend>Page View</legend>
                 <p>
-                  Track arbitrary page views for custom routing or offline use. Note that Layout
-                  Service tracks page views by default unless <code>tracking=false</code> is passed
-                  in its query string.
+                  Track arbitrary page views for custom routing or offline use. Note that Layout Service tracks page views by default unless{" "}
+                  <code>tracking=false</code> is passed in its query string.
                 </p>
                 <label htmlFor="pageId">Page Item GUID</label>
                 <input
@@ -272,18 +225,8 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
                 />
                 <br />
                 <label htmlFor="pageUrl">Page URL</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="pageUrl"
-                  ref={this.pageUrl}
-                  placeholder="i.e. /foo/bar"
-                />
-                <button
-                  type="button"
-                  className="btn btn-primary mt-3"
-                  onClick={this.submitPageView.bind(this)}
-                >
+                <input type="text" className="form-control" id="pageUrl" ref={this.pageUrl} placeholder="i.e. /foo/bar" />
+                <button type="button" className="btn btn-primary mt-3" onClick={this.submitPageView.bind(this)}>
                   Submit
                 </button>
               </fieldset>
@@ -291,14 +234,10 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
               <fieldset className="form-group col-sm">
                 <legend>Batching</legend>
                 <p>
-                  The tracking API supports pushing a whole batch of events in a single request.
-                  This can be useful for queuing strategies or offline PWA usage.
+                  The tracking API supports pushing a whole batch of events in a single request. This can be useful for queuing strategies
+                  or offline PWA usage.
                 </p>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={this.submitBatching.bind(this)}
-                >
+                <button type="button" className="btn btn-primary" onClick={this.submitBatching.bind(this)}>
                   Submit Batch of Events
                 </button>
               </fieldset>
@@ -307,23 +246,17 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
               <fieldset className="form-group col-sm">
                 <legend>Interaction Control</legend>
                 <p>
-                  Tracking data is not pushed into the xConnect service until your session ends on
-                  the Sitecore server. Click this button to instantly end your session and flush the
-                  data - great for debugging and testing.
+                  Tracking data is not pushed into the xConnect service until your session ends on the Sitecore server. Click this button to
+                  instantly end your session and flush the data - great for debugging and testing.
                 </p>
                 <p className="alert alert-warning">
-                  Note: By default <em>anonymous</em> contacts will not be shown in Experience
-                  Profile. If your interactions are not showing up in Experience Profile, you may
-                  need to{" "}
+                  Note: By default <em>anonymous</em> contacts will not be shown in Experience Profile. If your interactions are not showing
+                  up in Experience Profile, you may need to{" "}
                   <a href="https://doc.sitecore.net/developers/xp/xconnect/xconnect-search-indexer/enable-anonymous-contact-indexing.html">
                     enable anonymous contact indexing.
                   </a>
                 </p>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={this.abandonSession.bind(this)}
-                >
+                <button type="button" className="btn btn-primary" onClick={this.abandonSession.bind(this)}>
                   End Interaction
                 </button>
               </fieldset>

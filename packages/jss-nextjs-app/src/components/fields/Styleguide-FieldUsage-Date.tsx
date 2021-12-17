@@ -33,18 +33,12 @@ const StyleguideFieldUsageDate = (props: StyleguideFieldUsageDateProps): JSX.Ele
         </li>
         <li>
           Localized Date string (local timezone):&nbsp;
-          <DateField
-            field={props.fields.date}
-            render={(date) => date && date.toLocaleDateString()}
-          />
+          <DateField field={props.fields.date} render={(date) => date && date.toLocaleDateString()} />
         </li>
         <li>
           Localized DateTime string (local timezone):&nbsp;
           {/* React components can also be returned from the render props for wrapping */}
-          <DateField
-            field={props.fields.dateTime}
-            render={(date) => <em>{date && date.toLocaleString()}</em>}
-          />
+          <DateField field={props.fields.dateTime} render={(date) => <em>{date && date.toLocaleString()}</em>} />
         </li>
       </ul>
     </StyleguideSpecimen>

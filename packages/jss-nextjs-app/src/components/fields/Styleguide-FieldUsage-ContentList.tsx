@@ -15,9 +15,7 @@ type StyleguideFieldUsageContentListProps = ComponentProps &
  * Content Lists are references to 0..n other content items.
  * In Sitecore terms, this maps by default to a Treelist field.
  */
-const StyleguideFieldUsageContentList = (
-  props: StyleguideFieldUsageContentListProps
-): JSX.Element => {
+const StyleguideFieldUsageContentList = (props: StyleguideFieldUsageContentListProps): JSX.Element => {
   const { sharedContentList, localContentList } = props.fields;
 
   return (

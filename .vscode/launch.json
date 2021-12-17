@@ -2,43 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch via NPM",
-            "request": "launch",
-            "runtimeArgs": [
-                "run-script",
-                "debug"
-            ],
-            "runtimeExecutable": "npm",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "pwa-node",
-            "port": 3000,
-            "cwd": "${workspaceFolder}/packages/jss-nextjs-app-azure-functions",
-            "env": {
-                "PUBLIC_URL": "http://localhost:3000/",
-                "JSS_EDITING_SECRET": "jsseditgeheim",
-                "SITECORE_API_KEY": "C9A1C404-231B-4DCE-882F-77757885EEA1",
-                "SITECORE_API_HOST": "https://jsssandbox.sc"
-            }
-        },
-        {
-            "name": "Attach by Process ID",
-            "processId": "${command:PickProcess}",
-            "request": "attach",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "pwa-node"
-        },
-        {
-            "name": "debug dist2",
             "type": "node",
             "request": "attach",
-            "port": 9229,
-            "preLaunchTask": "func start --verbose",
-            "cwd": "${workspaceFolder}/packages/jss-nextjs-app-azure-functions/dist"
-        },
-
+            "name": "jss azure functions",
+            "address": "localhost",
+            "port": 9229, // Or 5858 
+            "sourceMaps": true,
+            "preLaunchTask": "func: host start",
+            "cwd": "D:/projects/jss/nextjsonazure/packages/jss-nextjs-app-azure-functions",
+        }
     ]
 }

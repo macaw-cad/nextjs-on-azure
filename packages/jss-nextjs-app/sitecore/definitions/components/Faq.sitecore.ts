@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from "@sitecore-jss/sitecore-jss-manifest";
 
 /**
  * Adds the Faq component to the disconnected manifest.
@@ -8,11 +8,11 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function (manifest: Manifest): void {
   manifest.addComponent({
-    name: 'Faq',
+    name: "Faq",
     icon: SitecoreIcon.DocumentTag,
     fields: [
-      { name: 'question', type: CommonFieldTypes.SingleLineText },
-      { name: 'answer', type: CommonFieldTypes.RichText }
-    ]
+      { name: "question", type: CommonFieldTypes.SingleLineText },
+      { name: "answer", type: CommonFieldTypes.RichText },
+    ],
   });
 }

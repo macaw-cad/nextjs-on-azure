@@ -1,10 +1,7 @@
 import { CommonFieldTypes, SitecoreIcon, Manifest } from "@sitecore-jss/sitecore-jss-manifest";
 import fs from "fs";
 
-const query = fs.readFileSync(
-  "sitecore/definitions/components/graphql/GraphQL-IntegratedDemo.sitecore.graphql",
-  "utf8"
-);
+const query = fs.readFileSync("sitecore/definitions/components/graphql/GraphQL-IntegratedDemo.sitecore.graphql", "utf8");
 
 /**
  * Adds the GraphQL-IntegratedDemo component to the disconnected manifest.

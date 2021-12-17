@@ -1,10 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import {
-  GraphQLSitemapService,
-  StaticPath,
-  DisconnectedSitemapService,
-  ManifestInstance,
-} from "@sitecore-jss/sitecore-jss-nextjs";
+import { GraphQLSitemapService, StaticPath, DisconnectedSitemapService, ManifestInstance } from "@sitecore-jss/sitecore-jss-nextjs";
 import { GetStaticPathsContext } from "next";
 import config from "temp/config";
 import { config as packageConfig } from "../../package.json";
@@ -26,9 +21,7 @@ export class SitecoreSitemapFetcher {
       */
     });
 
-    this._disconnectedSitemapService = new DisconnectedSitemapService(
-      (this.getManifest() as unknown) as ManifestInstance
-    );
+    this._disconnectedSitemapService = new DisconnectedSitemapService((this.getManifest() as unknown) as ManifestInstance);
   }
 
   /**
@@ -42,9 +35,7 @@ export class SitecoreSitemapFetcher {
 
       return manifest;
     } catch (error) {
-      throw Error(
-        "[Disconnected·Export]·Please·make·sure·you've·started·the·disconnected·proxy·`npm·run·start:disconnected-proxy`"
-      );
+      throw Error("[Disconnected·Export]·Please·make·sure·you've·started·the·disconnected·proxy·`npm·run·start:disconnected-proxy`");
     }
   }
 

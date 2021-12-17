@@ -73,9 +73,7 @@ The route will not be added to the manifest. Empty folders can cause this warnin
 
   // recursively crawl child routes (folders)
   if (routeData && data.folders.length > 0) {
-    routeData.children = data.folders
-      .map((folder) => convertToRoutes(folder, language))
-      .filter((route) => route); // remove null results
+    routeData.children = data.folders.map((folder) => convertToRoutes(folder, language)).filter((route) => route); // remove null results
   }
 
   return routeData;

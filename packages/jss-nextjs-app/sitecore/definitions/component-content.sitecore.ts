@@ -18,12 +18,7 @@ export default function addComponentContentToManifest(manifest: Manifest): Promi
 
   return mergeFs(startPath)
     .then((result) => {
-      const items = convertToItems(
-        result,
-        path.resolve(startPath),
-        rootItemName,
-        manifest.language
-      );
+      const items = convertToItems(result, path.resolve(startPath), rootItemName, manifest.language);
       return items;
     })
     .then((contentData) => {
@@ -41,12 +36,7 @@ export default function addComponentContentToManifest(manifest: Manifest): Promi
  * @param {string} language Language the manifest is being created in. Conventionally affects the expected filename.
  * @returns {ItemDefinition}
  */
-function convertToItems(
-  data: MergeFsResult,
-  basePath: string,
-  rootItemName: string,
-  language: string
-): ItemDefinition {
+function convertToItems(data: MergeFsResult, basePath: string, rootItemName: string, language: string): ItemDefinition {
   const itemPath = convertPhsyicalPathToItemRelativePath(data.path, basePath);
   const name = itemPath.substr(itemPath.lastIndexOf("/") + 1);
 
@@ -83,9 +73,7 @@ function convertToItems(
 
   // recursively process child paths
   if (data.folders.length > 0) {
-    result.children = data.folders
-      .map((folder) => convertToItems(folder, basePath, rootItemName, language))
-      .filter((item) => item); // remove null results
+    result.children = data.folders.map((folder) => convertToItems(folder, basePath, rootItemName, language)).filter((item) => item); // remove null results
   }
 
   return result;
@@ -107,7 +95,5 @@ function convertPhsyicalPathToItemRelativePath(physicalPath: string, basePath: s
     return targetPathSeparator;
   }
 
-  return normalizedPath.indexOf(targetPathSeparator) > 0
-    ? `${targetPathSeparator}${normalizedPath}`
-    : normalizedPath;
+  return normalizedPath.indexOf(targetPathSeparator) > 0 ? `${targetPathSeparator}${normalizedPath}` : normalizedPath;
 }

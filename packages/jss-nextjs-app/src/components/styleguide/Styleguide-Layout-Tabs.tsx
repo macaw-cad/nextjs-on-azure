@@ -21,10 +21,7 @@ type StyleguideLayoutTabsProps = StyleguideComponentWithContextProps &
  * When this component is edited in Sitecore Experience Editor, the tabbing behavior is turned off and each tab stacks on top of each other
  * for easy inline editing.
  */
-class StyleguideLayoutTabs extends React.Component<
-  StyleguideLayoutTabsProps,
-  StyleguideLayoutTabsState
-> {
+class StyleguideLayoutTabs extends React.Component<StyleguideLayoutTabsProps, StyleguideLayoutTabsState> {
   constructor(props: StyleguideLayoutTabsProps) {
     super(props);
 
@@ -103,8 +100,6 @@ const tabsComponentWithPlaceholderInjected = withPlaceholder({
 // We need to know if experience editor is active, to disable the dynamic tab behavior for editing.
 // Using the same technique as injecting the placeholder, we wrap the component again to inject the
 // `sitecoreContext` prop.
-const tabsWithPlaceholderAndSitecoreContext = withSitecoreContext()<StyleguideLayoutTabsProps>(
-  tabsComponentWithPlaceholderInjected
-);
+const tabsWithPlaceholderAndSitecoreContext = withSitecoreContext()<StyleguideLayoutTabsProps>(tabsComponentWithPlaceholderInjected);
 
 export default tabsWithPlaceholderAndSitecoreContext;

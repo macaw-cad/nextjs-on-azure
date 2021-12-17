@@ -1,11 +1,7 @@
 import Head from "next/head";
 import { useEffect } from "react";
 import { getPublicUrl } from "lib/util";
-import {
-  Placeholder,
-  VisitorIdentification,
-  useSitecoreContext,
-} from "@sitecore-jss/sitecore-jss-nextjs";
+import { Placeholder, VisitorIdentification, useSitecoreContext } from "@sitecore-jss/sitecore-jss-nextjs";
 import { StyleguideSitecoreContextValue } from "lib/component-props";
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.

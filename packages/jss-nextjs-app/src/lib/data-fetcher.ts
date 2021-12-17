@@ -8,9 +8,6 @@ import { AxiosDataFetcher } from "@sitecore-jss/sitecore-jss-nextjs";
  * @param {string} url The URL to request; may include query string
  * @param {any} data Optional data to POST with the request.
  */
-export function dataFetcher<ResponseType>(
-  url: string,
-  data?: unknown
-): Promise<AxiosResponse<ResponseType>> {
+export function dataFetcher<ResponseType>(url: string, data?: unknown): Promise<AxiosResponse<ResponseType>> {
   return new AxiosDataFetcher().fetch<ResponseType>(url, data);
 }

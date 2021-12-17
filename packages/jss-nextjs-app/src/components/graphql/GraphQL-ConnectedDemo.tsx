@@ -26,20 +26,16 @@ type GraphQLConnectedDemoData = {
 };
 
 const GraphQLConnectedDemo = (props: ComponentProps): JSX.Element => {
-  const data = props.rendering.uid
-    ? useComponentProps<GraphQLConnectedDemoData>(props.rendering.uid)
-    : undefined;
+  const data = props.rendering.uid ? useComponentProps<GraphQLConnectedDemoData>(props.rendering.uid) : undefined;
 
   return (
     <div data-e2e-id="graphql-connected">
       <h2>GraphQL Connected Demo</h2>
 
       <p>
-        Connected GraphQL executes GraphQL queries directly against the Sitecore GraphQL endpoint.
-        This example runs the query server-side using component-level <code>getStaticProps</code>/
-        <code>getServerSideProps</code>, a feature of the Sitecore JSS Next.js SDK. These are
-        aggregated during the the Next.js page-level <code>getStaticProps</code>/
-        <code>getServerSideProps</code> execution.
+        Connected GraphQL executes GraphQL queries directly against the Sitecore GraphQL endpoint. This example runs the query server-side
+        using component-level <code>getStaticProps</code>/<code>getServerSideProps</code>, a feature of the Sitecore JSS Next.js SDK. These
+        are aggregated during the the Next.js page-level <code>getStaticProps</code>/<code>getServerSideProps</code> execution.
       </p>
 
       {data && data.datasource && (
