@@ -39,7 +39,9 @@
     // Prevent missing props validation in a React component definition
     "react/prop-types": "off",
     // enable prettier 
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error",  {
+      "endOfLine": "auto"
+    }],
     // needed for NextJS's in order to use jsx without react import
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "error",
