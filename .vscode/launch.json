@@ -9,7 +9,7 @@
             "port": 9229, // Or 5858 
             "sourceMaps": true,
             "preLaunchTask": "func: host start",
-            "cwd": "D:/projects/jss/nextjsonazure/packages/jss-nextjs-app-azure-functions",
+            "cwd": "${workspaceFolder}/packages/jss-nextjs-app-azure-functions",
         }
     ]
 }
