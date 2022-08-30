@@ -4,7 +4,26 @@ import React from "react";
 import { GithubUserSearchQuery } from "./userSearch.github.graphql";
 import { Card } from "@nextjsonazure/ui-components/src/components/core/card/Card";
 
-const query = require("raw-loader!./userSearch.github.graphql").default;
+// const query = require("raw-loader!./userSearch.github.graphql").default;
+const query = `
+query githubUserSearch($searchTerm: String!) { 
+  organization(login: $searchTerm) {
+    membersWithRole(first:100) {
+      nodes {
+        ... on User {
+          name, 
+          company,
+          email,
+          avatarUrl,
+          location,
+          login
+        }
+      }
+    }
+   
+  }
+}
+`
 
 type UserSearchProps = ComponentProps & {
   fields: {
