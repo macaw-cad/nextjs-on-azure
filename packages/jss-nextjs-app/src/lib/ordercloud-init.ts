@@ -4,9 +4,7 @@ import { Configuration, Tokens, Auth } from "ordercloud-javascript-sdk";
   const clientId = process.env.NEXT_PUBLIC_OC_CLIENT_ID || "";
   const baseApiUrl = process.env.NEXT_PUBLIC_OC_BASE_API_URL;
   const scope = process.env.NEXT_PUBLIC_OC_SCOPE?.split(",");
-  console.log({
-    "ordercloudscope": scope,
-  })
+
   if (!clientId) {
     return;
   }
