@@ -1,33 +1,15 @@
 import { Context, HttpRequest } from "@azure/functions";
 import { NextServer, NextServerOptions } from "@nextjsonazure/jss-nextjs-app/node_modules/next/dist/server/next"
 import { IncomingMessage, ServerResponse } from 'http';
-import { warmupHeader } from "../lib/warmupHeader";
 
-
-let next: (options: NextServerOptions) => NextServer | undefined;
 let app: NextServer | undefined;
 let handle: (req: IncomingMessage, res: ServerResponse, parsedUrl?: URL | undefined) => Promise<any> | undefined;
-
-// on azure the jss-nextjs-app is lerna symlink doesnt work
-const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
-
-if (isOnAzure) {
-    next = require("../../../jss-nextjs-app/node_modules/next");
-} else {
-    next = require("@nextjsonazure/jss-nextjs-app/node_modules/next")
-}
-
+const next: (options: NextServerOptions) => NextServer | undefined = require(`${process.env.NEXT_BUILD_ROOT}/node_modules/next`);
 
 module.exports = async function (context: Context, req: HttpRequest) {
-    if (req.headers[warmupHeader]) {
-        context.res = {
-            status: 200
-        }
+    const remainingPath = context.req?.query?.remainingPath || "/index";
 
-        return
-    }
-
-    const path = (context.req?.params?.remainingPath && context.req?.params?.remainingPath !== "nextjsserver") ? `/${context.req?.params?.remainingPath}` : "/index";
+    const path = remainingPath.startsWith("/") ? remainingPath : `/${remainingPath}`;
 
     if (!app) {
         try {

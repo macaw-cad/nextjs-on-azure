@@ -130,7 +130,7 @@ const applyGraphQLCodeGenerationLoaders = (config, options) => {
     ...config.resolve,
     alias: {
       ...config.resolve.alias,
-      'react': path.join(__dirname, 'node_modules', 'react'), // stop multiple versions of react being bundled
+      'react': path.join(__dirname, '../../node_modules', 'react'), // stop multiple versions of react being bundled
     }
   }
 

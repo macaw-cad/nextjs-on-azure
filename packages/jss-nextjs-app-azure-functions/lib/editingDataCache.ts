@@ -1,7 +1,6 @@
 import Cache, { CacheInstance } from 'sync-disk-cache';
 import os from 'os';
-import { EditingData } from '@nextjsonazure/jss-nextjs-app/node_modules/@sitecore-jss/sitecore-jss-nextjs';
-const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
+import { EditingData } from '../../../node_modules/@sitecore-jss/sitecore-jss-nextjs';
 
 /**
  * Defines an editing data cache implementation
