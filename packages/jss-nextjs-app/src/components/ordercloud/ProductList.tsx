@@ -3,6 +3,7 @@ import { ComponentProps } from "lib/component-props";
 import { ListPageWithFacets, Me, RequiredDeep, BuyerProduct } from "ordercloud-javascript-sdk";
 import React from "react";
 import { Card } from "@nextjsonazure/ui-components/src/components/core/card/Card";
+import "../../lib/ordercloud-init";
 
 type ProductListProps = ComponentProps & {
   fields: {

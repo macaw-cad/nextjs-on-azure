@@ -33,7 +33,7 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
-      <div className="page">
+      <div className="page" data-test-id="page">
         {/*
           VisitorIdentification is necessary for Sitecore Analytics to determine if the visitor is a robot.
           If Sitecore XP (with xConnect/xDB) is used, this is required or else analytics will not be collected for the JSS app.

@@ -1,6 +1,6 @@
 import crypto from 'crypto';
-const isOnAzure = process.env.NEXTJS_ON_AZURE || false;
-const baseRequirePath = isOnAzure ? "../../../jss-nextjs-app" : "@nextjsonazure/jss-nextjs-app";
+
+const baseRequirePath = `${process.env.NEXT_BUILD_ROOT}`;
 
 const CIPHER_ALGORITHM = `aes-256-gcm`,
     CIPHER_KEY_LENGTH = 32, // https://stackoverflow.com/a/28307668/4397028

@@ -3,13 +3,11 @@ import type { AppProps } from "next/app";
 import Router from "next/router";
 import { I18nProvider } from "next-localization";
 import NProgress from "nprogress";
-import "../lib/ordercloud-init";
 
 // Using bootstrap and nprogress are completely optional.
 //  bootstrap is used here to provide a clean layout for samples, without needing extra CSS in the sample app
 //  nprogress provides a loading indicator on page/route changes
 // Remove these in package.json as well if removed here.
-// import 'bootstrap/dist/css/bootstrap-grid.css';
 import "nprogress/nprogress.css";
 import "../scss/main.scss";
 
@@ -20,6 +18,7 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
+  // @ts-ignore
   const { dictionary, ...rest } = pageProps;
 
   return (
@@ -35,6 +34,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
       {/* // Use the next-localization (w/ rosetta) library to provide our translation dictionary to the app.
       // Note Next.js does not (currently) provide anything for translation, only i18n routing.
       // If your app is not multilingual, next-localization and references to it can be removed. */}
+      {/* @ts-ignore */}
       <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
         <Component {...rest} />
       </I18nProvider>

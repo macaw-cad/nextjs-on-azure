@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:jssnextjs": "lerna run build --scope @nextjsonazure/jss-nextjs-app",
-    "build:basicnextjs": "lerna run build --scope @nextjsonazure/basic-nextjs-example",
-    "build:azure-functions": "lerna run build --scope @nextjsonazure/jss-nextjs-app-azure-functions",
+    "build:jssnextjs": "turbo run build --filter=jss-nextjs-app",
+    "build:basicnextjs": "turbo run build --filter=basic-nextjs-example",
+    "build:azure-functions": "turbo run build --filter=jss-nextjs-app-azure-functions",
     "copy-jssnextjs-app": "npx ncp packages/jss-nextjs-app packages/jss-nextjs-app-azure-functions/jss-nextjs-app-copy",
     "deploy-jss-azure-functions": "npx rimraf packages/jss-nextjs-app/node_modules && npx rimraf packages/jss-nextjs-app/.next && npx ncp packages/jss-nextjs-app packages/jss-nextjs-app-azure-functions/jss-nextjs-app && cd packages/jss-nextjs-app-azure-functions/jss-nextjs-app && npm install && npm run build && cd .. && func azure functionapp publish funcjssnextjsonazure  --javascript --nozip --verbose &&  npx rimraf jss-nextjs-app"
   },
@@ -15,12 +15,13 @@
     "type": "git",
     "url": "git+https://github.com/macaw-cad/nextjs-on-azure.git"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "author": "Erwin Smit",
-  "dependencies": {
-    "lerna": "^4.0.0"
-  },
   "devDependencies": {
-    "ncp": "^2.0.0"
+    "ncp": "^2.0.0",
+    "turbo": "1.4.7"
   },
   "license": "ISC",
   "bugs": {

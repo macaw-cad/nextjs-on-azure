@@ -18,7 +18,7 @@ export const getNextResponseHandler = (context: Context) => {
     }
 
     nextContextRes.setPreviewData = (previewData: string) => {
-        const manifest = require("../../../jss-nextjs-app/.next/prerender-manifest.json");
+        const manifest = require(`${process.env.NEXT_BUILD_ROOT}/.next/prerender-manifest.json`);
         
         const cookies = setPreviewData(previewData, manifest.preview as any);
 
