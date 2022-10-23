@@ -3,7 +3,7 @@ name: Deploy jss nextjs
 on:
   push:
     branches:
-      - "feature/**"
+      - "main"
   workflow_dispatch:
         
 env:
