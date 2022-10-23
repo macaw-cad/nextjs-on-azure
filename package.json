@@ -1,12 +1,13 @@
 {
   "name": "nextjsonazure",
   "version": "1.0.0",
+  "private": true,
   "description": "Examples on adding nextjs on azure",
   "main": "index.js",
   "engines": {
     "node": "16.13.2",
     "npm": "8.1.2",
-    "yarn": "yarn is not supported, please use npm"
+    "yarn": "1.22.19"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
