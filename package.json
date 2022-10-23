@@ -5,9 +5,9 @@
   "description": "Examples on adding nextjs on azure",
   "main": "index.js",
   "engines": {
-    "node": "16.13.2",
-    "npm": "8.1.2",
-    "yarn": "1.22.19"
+    "node": ">16.13.0",
+    "npm": ">=8.1.0",
+    "yarn": ">=1.22.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
