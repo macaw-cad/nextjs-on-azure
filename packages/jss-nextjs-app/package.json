@@ -15,7 +15,7 @@
     "defaultLanguage": "en"
   },
   "engines": {
-    "node": ">16.13.0 <17.0.0",
+    "node": ">16.0.0 <17.0.0",
     "npm": ">=8.1.0 <9.0.0",
     "yarn": ">=1.22.0"
   },
@@ -90,7 +90,7 @@
     "fix-format": "npm run lint -- --fix && prettier --write \"src/**/*.{ts,tsx}\"",
     "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let && graphql-let --config .graphql-let-github.yml",
     "build:copy-to-dist": "rimraf dist && mkdir dist && ncp .next dist/.next && ncp package.json dist/package.json && ncp package-lock.json dist/package-lock.json",
-    "build": "npm-run-all --serial bootstrap next:build && ncp index.html .next/server/pages/index.html && ncp index.html .next/index.html",
+    "build": "npm-run-all --serial bootstrap next:build && ncp index.html .next/server/pages/index.html && ncp index.html .next/index.html && ncp package.json .next/package.json",
     "graphql:update": "ts-node --project tsconfig.scripts.json ./scripts/fetch-graphql-introspection-data.ts",
     "next:build": "next build",
     "next:dev": "cross-env NODE_OPTIONS='--inspect' next dev",
