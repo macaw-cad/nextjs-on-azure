@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:jssnextjs": "turbo run build --filter=jss-nextjs-app --no-cache",
+    "build:jssnextjs": "turbo run build --filter=jss-nextjs-app --cache-dir='./turbo-cache'",
     "build:basicnextjs": "turbo run build --filter=basic-nextjs-example",
     "build:azure-functions": "turbo run build --filter=jss-nextjs-app-azure-functions",
     "copy-jssnextjs-app": "npx ncp packages/jss-nextjs-app packages/jss-nextjs-app-azure-functions/jss-nextjs-app-copy",
