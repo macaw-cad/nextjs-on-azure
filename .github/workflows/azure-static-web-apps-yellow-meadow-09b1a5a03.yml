@@ -35,8 +35,8 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env: 
           ENABLE_PREVIEW_FEATURES: true  
-          FUNCTION_LANGUAGE: node
-          FUNCTION_LANGUAGE_VERSION: 16
+          # FUNCTION_LANGUAGE: node
+          # FUNCTION_LANGUAGE_VERSION: 16
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
