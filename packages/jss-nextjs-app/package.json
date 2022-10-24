@@ -11,12 +11,13 @@
     ],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
-    "language": "en"
+    "language": "en",
+    "defaultLanguage": "en"
   },
   "engines": {
-    "node": ">=8.1",
-    "npm": ">=5.6.0",
-    "yarn": "yarn is not supported, please use npm"
+    "node": ">16.0.0 <17.0.0",
+    "npm": ">=8.1.0 <9.0.0",
+    "yarn": ">=1.22.0"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -71,7 +72,7 @@
     "chokidar": "~3.1.1",
     "constant-case": "^3.0.4",
     "cross-env": "~6.0.3",
-    "eslint": "^7.13.0",
+    "eslint": "^7.13.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
@@ -89,7 +90,7 @@
     "fix-format": "npm run lint -- --fix && prettier --write \"src/**/*.{ts,tsx}\"",
     "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let && graphql-let --config .graphql-let-github.yml",
     "build:copy-to-dist": "rimraf dist && mkdir dist && ncp .next dist/.next && ncp package.json dist/package.json && ncp package-lock.json dist/package-lock.json",
-    "build": "npm-run-all --serial bootstrap next:build build:copy-to-dist && node add-lerna-deps.js && cd dist && npm install --force",
+    "build": "npm-run-all --serial bootstrap next:build && ncp index.html .next/server/pages/index.html && ncp index.html .next/index.html && ncp package.json .next/package.json",
     "graphql:update": "ts-node --project tsconfig.scripts.json ./scripts/fetch-graphql-introspection-data.ts",
     "next:build": "next build",
     "next:dev": "cross-env NODE_OPTIONS='--inspect' next dev",

@@ -8,6 +8,7 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+  workflow_dispatch:    
 
 jobs:
   build_and_deploy_job:
@@ -20,17 +21,22 @@ jobs:
           submodules: true
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@latest
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_YELLOW_MEADOW_09B1A5A03 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/packages/jss-nextjs-app" # App source code path
+          app_location: "/" # App source code path
           api_location: "/packages/jss-nextjs-app/src/pages/api" # Api source code path - optional
-          output_location: "" # Built app content directory - optional
+          app_build_command: "npm run build:jssnextjs"
+          output_location: "/packages/jss-nextjs-app/.next" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env: 
+          ENABLE_PREVIEW_FEATURES: true  
+          # FUNCTION_LANGUAGE: node
+          # FUNCTION_LANGUAGE_VERSION: 16
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -39,7 +45,7 @@ jobs:
     steps:
       - name: Close Pull Request
         id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@latest
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_YELLOW_MEADOW_09B1A5A03 }}
           action: "close"
