@@ -36,6 +36,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
       // If your app is not multilingual, next-localization and references to it can be removed. */}
       {/* @ts-ignore */}
       <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
+        {/* @ts-ignore */}
         <Component {...rest} />
       </I18nProvider>
     </>
