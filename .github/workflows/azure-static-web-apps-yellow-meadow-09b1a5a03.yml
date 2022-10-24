@@ -33,8 +33,8 @@ jobs:
           app_build_command: "npm run build:jssnextjs"
           output_location: "/packages/jss-nextjs-app/.next" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-        # env: 
-          # ENABLE_PREVIEW_FEATURES: true  
+        env: 
+          ENABLE_PREVIEW_FEATURES: true  
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
